@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+import { Page } from 'components/Print'
+import Recipe from 'components/Recipe'
+import { getMachineCraftableProducts } from 'loaders/recipes'
+import { importImageManifest } from 'loaders/sgImageRepo'
+
+// Preload images
+importImageManifest()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const products = getMachineCraftableProducts() //.slice(0, 5)
+	return (
+		<>
+			{products.map(p => (
+				<Page key={p}>
+					<Recipe slug={p} />
+				</Page>
+			))}
+		</>
+	)
 }
 
-export default App;
+export default App
