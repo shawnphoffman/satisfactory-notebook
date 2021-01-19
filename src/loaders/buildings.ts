@@ -1,6 +1,5 @@
 import memoize from 'fast-memoize'
 
-// import { EResourceForm } from '.data-landing/interfaces/enums'
 import BuildingJson from 'data/Buildings.json'
 import ConnectionsJson from 'data/Connections.json'
 import ItemJson from 'data/Items.json'
@@ -8,10 +7,6 @@ import RecipeJson from 'data/Recipes.json'
 
 import SGImageRepo from 'loaders/sgImageRepo'
 import lazyFunc from 'utils/lazyFunc'
-// import uuidGen from 'utils/stringUtils'
-// import { EdgeAttachmentSide } from 'v3/apps/GraphV3/libraries/SatisGraphtoryLib/canvas/objects/Edge/EdgeAttachmentSide'
-// import ExternalInteractionManager from 'v3/apps/GraphV3/libraries/SatisGraphtoryLib/canvas/objects/interfaces/ExternalInteractionManager'
-// import { SatisGraphtoryEdgeProps } from 'v3/apps/GraphV3/libraries/SatisGraphtoryLib/core/api/types'
 
 const slugToCustomMachineGroup = (slug: string) => {
 	switch (slug) {
@@ -319,133 +314,3 @@ export const getTier = (buildingSlug: string) => {
 		}
 	}
 }
-
-// export const getOutputsForBuilding = (
-// 	buildingSlug: string,
-// 	externalInteractionManager: ExternalInteractionManager
-// ) => {
-// 	const building = (ConnectionsJson as any)[buildingSlug]
-// 	const outputObject: SatisGraphtoryEdgeProps[] = []
-// 	for (let i = 0; i < building.outputBelts || 0; i++) {
-// 		outputObject.push({
-// 			resourceForm: EResourceForm.RF_SOLID,
-// 			id: uuidGen(),
-// 			externalInteractionManager,
-// 		})
-// 	}
-
-// 	for (let i = 0; i < building.outputPipes || 0; i++) {
-// 		outputObject.push({
-// 			resourceForm: EResourceForm.RF_LIQUID,
-// 			id: uuidGen(),
-// 			externalInteractionManager,
-// 		})
-// 	}
-
-// 	return outputObject
-// }
-
-// export const getInputsForBuilding = (
-// 	buildingSlug: string,
-// 	externalInteractionManager: ExternalInteractionManager
-// ) => {
-// 	const building = (ConnectionsJson as any)[buildingSlug]
-// 	const outputObject: SatisGraphtoryEdgeProps[] = []
-// 	for (let i = 0; i < building.inputBelts || 0; i++) {
-// 		outputObject.push({
-// 			resourceForm: EResourceForm.RF_SOLID,
-// 			id: uuidGen(),
-// 			externalInteractionManager,
-// 		})
-// 	}
-
-// 	for (let i = 0; i < building.inputPipes || 0; i++) {
-// 		outputObject.push({
-// 			resourceForm: EResourceForm.RF_LIQUID,
-// 			id: uuidGen(),
-// 			externalInteractionManager,
-// 		})
-// 	}
-
-// 	return outputObject
-// }
-
-// export const getAnyConnectionsForBuilding = (
-// 	buildingSlug: string,
-// 	externalInteractionManager: ExternalInteractionManager
-// ) => {
-// 	const building = (ConnectionsJson as any)[buildingSlug]
-// 	const outputObject: SatisGraphtoryEdgeProps[] = []
-
-// 	let sides: EdgeAttachmentSide[] = []
-
-// 	switch (building.anyPipes) {
-// 		case 4:
-// 			sides.push(
-// 				EdgeAttachmentSide.TOP,
-// 				EdgeAttachmentSide.RIGHT,
-// 				EdgeAttachmentSide.BOTTOM,
-// 				EdgeAttachmentSide.LEFT
-// 			)
-// 			break
-// 		case 3:
-// 			sides.push(EdgeAttachmentSide.RIGHT, EdgeAttachmentSide.BOTTOM, EdgeAttachmentSide.LEFT)
-// 			break
-// 		case 2:
-// 			sides.push(EdgeAttachmentSide.RIGHT, EdgeAttachmentSide.LEFT)
-// 			break
-// 		case 1:
-// 			sides.push(EdgeAttachmentSide.LEFT)
-// 			break
-// 		default:
-// 			for (let i = 0; i < building.anyPipes || 0; i++) {
-// 				outputObject.push({
-// 					resourceForm: EResourceForm.RF_LIQUID,
-// 					id: uuidGen(),
-// 					biDirectional: true,
-// 					externalInteractionManager,
-// 				})
-// 			}
-// 			return outputObject
-// 	}
-
-// 	for (let i = 0; i < building.anyPipes || 0; i++) {
-// 		outputObject.push({
-// 			resourceForm: EResourceForm.RF_LIQUID,
-// 			id: uuidGen(),
-// 			biDirectional: true,
-// 			targetNodeAttachmentSide: sides[i],
-// 			sourceNodeAttachmentSide: sides[i],
-// 			externalInteractionManager,
-// 		})
-// 	}
-
-// 	return outputObject
-// }
-
-// export const getSupportedResourceForm = (buildingSlug: string): EResourceForm[] => {
-// 	if (!buildingSlug) return []
-
-// 	const building = (BuildingJson as any)[buildingSlug]
-
-// 	if (!building.supportedResourceForms) {
-// 		throw new Error('Building ' + buildingSlug + ' does not support resourceForms')
-// 	}
-
-// 	return building.supportedResourceForms
-// }
-
-// export const getConnectionsByResourceForm = (resourceForm: EResourceForm): string[] => {
-// 	const supportedBuildings = []
-
-// 	const whitelistedConnections = [...getBuildableConnections().connectionClassReverseMap.keys()]
-// 	for (const connection of whitelistedConnections) {
-// 		const building = (BuildingJson as any)[connection]
-
-// 		if (new Set(building.supportedResourceForms).has(resourceForm)) {
-// 			supportedBuildings.push(connection)
-// 		}
-// 	}
-
-// 	return supportedBuildings
-// }

@@ -10,6 +10,7 @@ importImageManifest()
 
 function App() {
 	const products = getMachineCraftableProducts() //.slice(0, 5)
+	// const products = ['item-water']
 	return (
 		<>
 			{products.map(p => (

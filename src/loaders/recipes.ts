@@ -1,353 +1,317 @@
-import memoize from 'fast-memoize';
-import produce from 'immer';
+import memoize from 'fast-memoize'
+import Fraction from 'fraction.js'
+import produce from 'immer'
 
-import RecipeJson from 'data/Recipes.json';
+import RecipeJson from 'data/Recipes.json'
 
-import {
-  getBuildingDefinition,
-  getBuildingsByType,
-} from 'loaders/buildings';
-import { getEnumDisplayNames } from 'loaders/enums';
-import { getItemDefinition, getResourcesByForm, sortSlugsByName } from 'loaders/items';
-
-// import {
-//   EResourcePurity,
-//   EResourcePurityDisplayName,
-// } from '.data-landing/interfaces/enums/EResourcePurity';
+import { getBuildingDefinition, getBuildingsByType } from 'loaders/buildings'
+import { getEnumDisplayNames } from 'loaders/enums'
+import { getItemDefinition, getResourcesByForm, sortSlugsByName } from 'loaders/items'
 
 export enum EResourcePurity {
-  RP_Inpure,
-  RP_Normal,
-  RP_Pure,
-  RP_MAX,
+	RP_Inpure,
+	RP_Normal,
+	RP_Pure,
+	RP_MAX,
 }
 
 export const EResourcePurityDisplayName = {
-  [EResourcePurity.RP_Inpure]: 'Impure',
-  [EResourcePurity.RP_Normal]: 'Normal',
-  [EResourcePurity.RP_Pure]: 'Pure',
-  [EResourcePurity.RP_MAX]: '<RP_MAX>',
-};
+	[EResourcePurity.RP_Inpure]: 'Impure',
+	[EResourcePurity.RP_Normal]: 'Normal',
+	[EResourcePurity.RP_Pure]: 'Pure',
+	[EResourcePurity.RP_MAX]: '<RP_MAX>',
+}
 
 // TODO: find a way to make this automatic?
 const resolveDurationMultiplierForPurityNames = (name: string) => {
-  switch (name) {
-    case 'Impure':
-    case 'Inpure': // :(
-      return 2;
-    case 'Normal':
-      return 1;
-    case 'Pure':
-      return 0.5;
-    default:
-      throw new Error('Unknown purity name ' + name);
-  }
-};
+	switch (name) {
+		case 'Impure':
+		case 'Inpure': // :(
+			return 2
+		case 'Normal':
+			return 1
+		case 'Pure':
+			return 0.5
+		default:
+			throw new Error('Unknown purity name ' + name)
+	}
+}
 
 export const getExtractorRecipesFn = () => {
-  const extractors = getBuildingsByType('EXTRACTOR');
+	const extractors = getBuildingsByType('EXTRACTOR')
 
-  const extractorsByResourceForm = new Map<number, any[]>();
+	const extractorsByResourceForm = new Map<number, any[]>()
 
-  const extractorRecipes = [] as any[];
+	const extractorRecipes = [] as any[]
 
-  const extractorResultByMachine = new Map<string, Set<any>>();
+	const extractorResultByMachine = new Map<string, Set<any>>()
 
-  extractors.forEach((extractorSlug) => {
-    const extractorDefinition = getBuildingDefinition(extractorSlug);
+	extractors.forEach(extractorSlug => {
+		const extractorDefinition = getBuildingDefinition(extractorSlug)
 
-    if (!extractorDefinition.onlyAllowCertainResources) {
-      extractorDefinition.allowedResourceForms.forEach((rf: number) => {
-        if (!extractorsByResourceForm.get(rf)) {
-          extractorsByResourceForm.set(rf, []);
-        }
+		if (!extractorDefinition.onlyAllowCertainResources) {
+			extractorDefinition.allowedResourceForms.forEach((rf: number) => {
+				if (!extractorsByResourceForm.get(rf)) {
+					extractorsByResourceForm.set(rf, [])
+				}
 
-        extractorsByResourceForm.get(rf)!.push(extractorSlug);
-      });
-    } else {
-      // First process the known extractors
-      extractorDefinition.allowedResources.forEach(
-        (allowedResource: string) => {
-          if (!extractorResultByMachine.get(allowedResource)) {
-            extractorResultByMachine.set(allowedResource, new Set());
-          }
+				extractorsByResourceForm.get(rf)!.push(extractorSlug)
+			})
+		} else {
+			// First process the known extractors
+			extractorDefinition.allowedResources.forEach((allowedResource: string) => {
+				if (!extractorResultByMachine.get(allowedResource)) {
+					extractorResultByMachine.set(allowedResource, new Set())
+				}
 
-          extractorResultByMachine.get(allowedResource)!.add(extractorSlug);
-        }
-      );
-    }
-  });
+				extractorResultByMachine.get(allowedResource)!.add(extractorSlug)
+			})
+		}
+	})
 
-  const resourcePurityNames = getEnumDisplayNames(
-    EResourcePurity,
-    EResourcePurityDisplayName
-  )
-    .filter((item: string) => {
-      return !item.endsWith('MAX');
-    })
-    .map((item: string) => {
-      return item.replace(/^RP_/, '');
-    });
+	const resourcePurityNames = getEnumDisplayNames(EResourcePurity, EResourcePurityDisplayName)
+		.filter((item: string) => {
+			return !item.endsWith('MAX')
+		})
+		.map((item: string) => {
+			return item.replace(/^RP_/, '')
+		})
 
-  const nonPurityNodes = new Set(['item-water']);
+	const nonPurityNodes = new Set(['item-water'])
 
-  for (const [resource, extractors] of extractorResultByMachine.entries()) {
-    // This might change. One resource might have multiple extraction methods.
-    for (const extractor of extractors) {
-      const purityNames = nonPurityNodes.has(resource)
-        ? ['']
-        : resourcePurityNames;
-      for (const purity of purityNames) {
-        let proposedRecipeName = nonPurityNodes.has(resource)
-          ? resource.replace(/^item-/g, `recipe-`).toLowerCase()
-          : resource.replace(/^item-/g, `recipe-${purity}-`).toLowerCase();
+	for (const [resource, extractors] of extractorResultByMachine.entries()) {
+		// This might change. One resource might have multiple extraction methods.
+		for (const extractor of extractors) {
+			const purityNames = nonPurityNodes.has(resource) ? [''] : resourcePurityNames
+			for (const purity of purityNames) {
+				let proposedRecipeName = nonPurityNodes.has(resource)
+					? resource.replace(/^item-/g, `recipe-`).toLowerCase()
+					: resource.replace(/^item-/g, `recipe-${purity}-`).toLowerCase()
 
-        const resourceData = getItemDefinition(resource);
-        extractorRecipes.push({
-          slug: proposedRecipeName,
-          recipe: {
-            name: purity ? `${purity} ${resourceData.name}` : resourceData.name,
-            translation: {
-              namespace: purity
-                ? 'SGCUSTOM$$' + resourceData.translation.namespace
-                : resourceData.translation.namespace,
-              key: purity
-                ? `${purity}-${resourceData.translation.key}`
-                : resourceData.translation.key,
-            },
-            ingredients: [],
-            products: [
-              {
-                slug: resource,
-                amount: 1,
-              },
-            ],
-            producedIn: [extractor],
-            manualMultiplier: 1,
-            manufacturingDuration: purity
-              ? resolveDurationMultiplierForPurityNames(purity)
-              : 1,
-          },
-        });
-      }
-    }
-  }
+				const resourceData = getItemDefinition(resource)
+				extractorRecipes.push({
+					slug: proposedRecipeName,
+					recipe: {
+						name: purity ? `${purity} ${resourceData.name}` : resourceData.name,
+						translation: {
+							namespace: purity
+								? 'SGCUSTOM$$' + resourceData.translation.namespace
+								: resourceData.translation.namespace,
+							key: purity
+								? `${purity}-${resourceData.translation.key}`
+								: resourceData.translation.key,
+						},
+						ingredients: [],
+						products: [
+							{
+								slug: resource,
+								amount: 1,
+							},
+						],
+						producedIn: [extractor],
+						manualMultiplier: 1,
+						manufacturingDuration: purity ? resolveDurationMultiplierForPurityNames(purity) : 1,
+					},
+				})
+			}
+		}
+	}
 
-  for (const [
-    allowedResourceForm,
-    whitelistedMachines,
-  ] of extractorsByResourceForm.entries()) {
-    const resourcesWithAllowedResourceForm = getResourcesByForm(
-      allowedResourceForm
-    );
-    for (const resource of resourcesWithAllowedResourceForm) {
-      const resourceData = getItemDefinition(resource);
-      for (const purity of resourcePurityNames) {
-        let proposedRecipeName = resource
-          .replace(/^item-/g, `recipe-${purity}-`)
-          .toLowerCase();
-        extractorRecipes.push({
-          slug: proposedRecipeName,
-          recipe: {
-            name: `${purity} ${resourceData.name}`,
-            translation: {
-              namespace: 'SGCUSTOM$$' + resourceData.translation.namespace,
-              key: `${purity}-${resourceData.translation.key}`,
-            },
-            ingredients: [],
-            products: [
-              {
-                slug: resource,
-                amount: 1,
-              },
-            ],
-            producedIn: [...whitelistedMachines],
-            manualMultiplier: 1,
-            manufacturingDuration: resolveDurationMultiplierForPurityNames(
-              purity
-            ),
-          },
-        });
-      }
-    }
-  }
+	for (const [allowedResourceForm, whitelistedMachines] of extractorsByResourceForm.entries()) {
+		const resourcesWithAllowedResourceForm = getResourcesByForm(allowedResourceForm)
+		for (const resource of resourcesWithAllowedResourceForm) {
+			const resourceData = getItemDefinition(resource)
+			for (const purity of resourcePurityNames) {
+				let proposedRecipeName = resource.replace(/^item-/g, `recipe-${purity}-`).toLowerCase()
+				extractorRecipes.push({
+					slug: proposedRecipeName,
+					recipe: {
+						name: `${purity} ${resourceData.name}`,
+						translation: {
+							namespace: 'SGCUSTOM$$' + resourceData.translation.namespace,
+							key: `${purity}-${resourceData.translation.key}`,
+						},
+						ingredients: [],
+						products: [
+							{
+								slug: resource,
+								amount: 1,
+							},
+						],
+						producedIn: [...whitelistedMachines],
+						manualMultiplier: 1,
+						manufacturingDuration: resolveDurationMultiplierForPurityNames(purity),
+					},
+				})
+			}
+		}
+	}
 
-  return extractorRecipes;
-};
+	return extractorRecipes
+}
 
-export const getExtractorRecipes = memoize(getExtractorRecipesFn);
+export const getExtractorRecipes = memoize(getExtractorRecipesFn)
 
 const getAllRecipesFn = () => {
-  return produce(RecipeJson, (draftState) => {
-    getExtractorRecipes().forEach(({ slug, recipe }) => {
-      (draftState as any)[slug] = recipe;
-    });
-  });
-};
+	return produce(RecipeJson, draftState => {
+		getExtractorRecipes().forEach(({ slug, recipe }) => {
+			;(draftState as any)[slug] = recipe
+		})
+	})
+}
 
 const getRecipeListFn = () => {
-  return Object.entries(getAllRecipes()).map(([slug, value]) => {
-    return {
-      ...value,
-      slug,
-    };
-  });
-};
+	return Object.entries(getAllRecipes()).map(([slug, value]) => {
+		return {
+			...value,
+			slug,
+		}
+	})
+}
 
-	const handcraftingProducers = new Set([
-		'building-build-gun',
-		'building-work-bench-component',
-		'building-workshop-component',
-		'building-converter', // this one is here because its recipes are not complete.
-	]);
+export const handcraftingProducers = new Set([
+	'building-build-gun',
+	'building-work-bench-component',
+	'building-workshop-component',
+	'building-converter', // this one is here because its recipes are not complete.
+])
 
 const getMachineCraftableRecipeDefinitionListFn = () => {
-  return getRecipeList().filter(({ producedIn }) => {
-    return (
-      producedIn.filter((item: string) => {
-        return !handcraftingProducers.has(item);
-      }).length > 0
-    );
-  });
-};
+	return getRecipeList().filter(({ producedIn }) => {
+		return (
+			producedIn.filter((item: string) => {
+				return !handcraftingProducers.has(item)
+			}).length > 0
+		)
+	})
+}
 
 const getRecipesByMachineFn = (machineSlug: string) => {
-  return getRecipeList()
-    .filter(({ producedIn }) => {
-      return (
-        producedIn.filter((item: string) => {
-          return item === machineSlug;
-        }).length > 0
-      );
-    })
-    .map((item) => item.slug);
-};
+	return getRecipeList()
+		.filter(({ producedIn }) => {
+			return (
+				producedIn.filter((item: string) => {
+					return item === machineSlug
+				}).length > 0
+			)
+		})
+		.map(item => item.slug)
+}
 
-export const getRecipesByMachine = memoize(getRecipesByMachineFn);
+export const getRecipesByMachine = memoize(getRecipesByMachineFn)
 
 const getRecipesByItemProductFn = (itemSlug: string) => {
-  return getRecipeList()
-    .filter(({ products }) => {
-      return (
-        products.filter((item: any) => {
-          return item.slug === itemSlug;
-        }).length > 0
-      );
-    })
-    .map((item) => item.slug);
-};
+	return getRecipeList()
+		.filter(({ products }) => {
+			return (
+				products.filter((item: any) => {
+					return item.slug === itemSlug
+				}).length > 0
+			)
+		})
+		.map(item => item.slug)
+}
 
-export const getRecipesByItemProduct = memoize(getRecipesByItemProductFn);
+export const getRecipesByItemProduct = memoize(getRecipesByItemProductFn)
 
 const getRecipesByItemIngredientFn = (itemSlug: string) => {
-  return getRecipeList()
-    .filter(({ ingredients }) => {
-      return (
-        ingredients.filter((item: any) => {
-          return item.slug === itemSlug;
-        }).length > 0
-      );
-    })
-    .map((item) => item.slug);
-};
+	return getRecipeList()
+		.filter(({ ingredients }) => {
+			return (
+				ingredients.filter((item: any) => {
+					return item.slug === itemSlug
+				}).length > 0
+			)
+		})
+		.map(item => item.slug)
+}
 
-export const getRecipesByItemIngredient = memoize(getRecipesByItemIngredientFn);
-// const getRecipesByMachineTypeFn = (machineType: string) => {
-//   const machineSlugs = new Set(getBuildingsByType(machineType));
-//
-//   return getRecipeList().filter(({ producedIn }) => {
-//     return (
-//       producedIn.filter((item: string) => {
-//         return machineSlugs.has(item);
-//       }).length > 0
-//     );
-//   }).map(item => item.slug);
-// };
-//
-// export const getRecipesByMachineType = memoize(getRecipesByMachineTypeFn);
+export const getRecipesByItemIngredient = memoize(getRecipesByItemIngredientFn)
 
 export const getMachinesFromMachineCraftableRecipe = (slug: string) => {
-  return (getAllRecipes() as any)[slug].producedIn.filter(
-    (item: string) => !handcraftingProducers.has(item)
-  );
-};
+	return (getAllRecipes() as any)[slug].producedIn.filter(
+		(item: string) => !handcraftingProducers.has(item)
+	)
+}
 
 export const getRecipeIngredients = (slug: string) => {
-  return (getAllRecipes() as any)[slug].ingredients;
-};
+	return (getAllRecipes() as any)[slug].ingredients
+}
 
 export const getRecipeProducts = (slug: string) => {
-  return (getAllRecipes() as any)[slug].products;
-};
+	return (getAllRecipes() as any)[slug].products
+}
 
 export const getRecipeName = (slug: string) => {
-  return (getAllRecipes() as any)[slug].name;
-};
+	return (getAllRecipes() as any)[slug].name
+}
 
 export const getRecipeDefinition = (slug: string) => {
-  return (getAllRecipes() as any)[slug];
-};
+	return (getAllRecipes() as any)[slug]
+}
 
 const getMachineCraftableRecipeListFn = () => {
-  return getMachineCraftableRecipeDefinitionList().map(({ slug }) => slug);
-};
+	return getMachineCraftableRecipeDefinitionList().map(({ slug }) => slug)
+}
 
-export const getMachineCraftableRecipeList = memoize(
-  getMachineCraftableRecipeListFn
-);
+export const getMachineCraftableRecipeList = memoize(getMachineCraftableRecipeListFn)
 
 export const getMachineCraftableRecipeDefinitionList = memoize(
-  getMachineCraftableRecipeDefinitionListFn
-);
+	getMachineCraftableRecipeDefinitionListFn
+)
 
-export const getAllRecipes = memoize(getAllRecipesFn);
+export const getAllRecipes = memoize(getAllRecipesFn)
 
 //
 //
-export const getRecipeList = memoize(getRecipeListFn);
+export const getRecipeList = memoize(getRecipeListFn)
 
 //
 //
 const getMachineCraftableProductsFn = () => {
 	const allRecipes = getAllRecipes() as any
-  const rawProductSlugs = (Object.keys(allRecipes)).reduce((memo: any, key: string) => {
+	const rawProductSlugs = Object.keys(allRecipes).reduce((memo: any, key: string) => {
 		const { producedIn, products, ingredients } = allRecipes[key]
 
-		const machineCraftable = producedIn.filter((item: string) => {
-			return !handcraftingProducers.has(item) && ingredients.length > 0;
-		}).length > 0
+		const machineCraftable =
+			producedIn.filter((item: string) => {
+				return !handcraftingProducers.has(item) && ingredients.length > 0
+			}).length > 0
 
 		if (!machineCraftable) return memo
 
-		memo.push(...(products.map((p: { slug: string; }) => p.slug)))
+		memo.push(...products.map((p: { slug: string }) => p.slug))
 
 		return memo
-	}, []);
+	}, [])
 
 	return sortSlugsByName([...new Set(rawProductSlugs)] as string[])
 }
-export const getMachineCraftableProducts = memoize(getMachineCraftableProductsFn);
+export const getMachineCraftableProducts = memoize(getMachineCraftableProductsFn)
 
 //
 //
 const calculateRateFn = (amount: number, duration: number, isFluid = false) => {
-
-	if (duration === 1) {
-		return {
-			perCycle: amount,
-			perMin: amount,
-			perCycleLabel: '',
-			perMinLabel: ''
-		}
-	}
+	// TODO - Change this to handle non-machines
+	// if (duration === 1) {
+	// 	return {
+	// 		perCycle: amount,
+	// 		perMin: amount,
+	// 		perCycleLabel: '',
+	// 		perMinLabel: '',
+	// 	}
+	// }
 
 	const amt = isFluid ? amount / 1000 : amount
+	const decimal = Number((amt * (60 / duration)).toFixed(4))
+	const fraction = new Fraction(decimal).toFraction(true)
 
 	return {
 		perCycle: amt,
-		perMin: Number((amt * (60 / duration)).toFixed(4)),
-		perCycleLabel: isFluid ? 'm³': 'x',
-		perMinLabel: isFluid ? 'm³/min': '/min'
+		perMin: decimal,
+		perMinFraction: fraction,
+		perCycleLabel: isFluid ? 'm³' : 'x',
+		perMinLabel: isFluid ? 'm³/min' : '/min',
 	}
 }
 export const calculateRate = memoize(calculateRateFn)
@@ -358,17 +322,17 @@ const sortRecipesByNameFn = (slugs: string[]) => {
 	const mapping = slugs.map(slug => {
 		return {
 			slug: slug,
-			name: getRecipeName(slug)
+			name: getRecipeName(slug),
 		}
 	})
 
-	mapping.sort((a,b) => {
+	mapping.sort((a, b) => {
 		const aAlt = a.name.includes('Alternate')
 		const bAlt = b.name.includes('Alternate')
 
 		if (aAlt && bAlt) {
 			if (a.name > b.name) return 1
-			if (b.name> a.name) return -1
+			if (b.name > a.name) return -1
 			return 0
 		}
 

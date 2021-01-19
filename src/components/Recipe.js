@@ -7,8 +7,29 @@ import {
 	calculateRate,
 	getRecipeDefinition,
 	getRecipesByItemProduct,
+	handcraftingProducers,
 	sortRecipesByName,
 } from 'loaders/recipes'
+
+const FractionString = ({ fraction }) => {
+	if (!fraction) return null
+
+	if (fraction.indexOf('/') < 0) return fraction
+
+	const splits = fraction.split(' ')
+
+	const hasWhole = fraction.includes(' ')
+	const whole = hasWhole ? splits[0] : null
+	const numer = hasWhole ? splits[1].split('/')[0] : splits[0].split('/')[0]
+	const denom = hasWhole ? splits[1].split('/')[1] : splits[0].split('/')[1]
+
+	return (
+		<>
+			{whole && `${whole} `}
+			<sup>{numer}</sup>&frasl;<sub>{denom}</sub>
+		</>
+	)
+}
 
 const Ingredient = ({ slug, amount, duration }) => {
 	const itemDef = getItemDefinition(slug)
@@ -24,6 +45,9 @@ const Ingredient = ({ slug, amount, duration }) => {
 			</IngredientLabel>
 			<div>
 				<strong>{rate.perMin}</strong>
+				{/* <strong>
+					<FractionString fraction={rate.perMinFraction} />
+				</strong> */}
 				<small>{rate.perMinLabel}</small>
 			</div>
 		</IngredientContainer>
@@ -37,6 +61,10 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 	const recipeSlugs = getRecipesByItemProduct(slug)
 
 	const recipes = sortRecipesByName(recipeSlugs)
+
+	// console.log({
+	// 	product,
+	// })
 
 	return (
 		<>
@@ -58,7 +86,21 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 					// Garbage
 					if (recipe.name.includes('Unpackage')) return null
 
-					const building = getBuildingName(recipe.producedIn[0])
+					const validProducers = recipe.producedIn.filter(p => !handcraftingProducers.has(p))
+					if (validProducers.length === 0) return null
+
+					const building = getBuildingName(validProducers[0])
+
+					if (!building) {
+						console.log({
+							recipe,
+							product,
+						})
+					}
+
+					// console.log({
+					// 	recipe,
+					// })
 
 					return (
 						<RecipeCard key={key} id={key}>
@@ -116,7 +158,8 @@ const Header = styled.div`
 
 const RecipeDescription = styled.div`
 	font-size: 12px;
-	width: 85%;
+	/* width: 85%; */
+	margin-right: 16px;
 	line-height: 1.5;
 `
 

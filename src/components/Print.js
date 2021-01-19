@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-const pixelsPerInch = 96
 const pageSize = {
 	a5: {
 		height: 210,
@@ -10,8 +9,6 @@ const pageSize = {
 }
 
 export const Inch = styled.div`
-	/* width: ${pixelsPerInch}px; */
-	/* height: ${pixelsPerInch}px; */
 	width: 1in;
 	height: 1in;
 	display: inline-flex;
@@ -26,7 +23,8 @@ const PageBorder = styled.div`
 	background: ${props => (props.debug ? 'lightgreen' : '#EEE')};
 	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	/* height: ${props => props.size.height}mm; */
-	width: ${props => props.size.width}mm;
+	/* width: ${props => props.size.width}mm; */
+	width: 100%;
 	padding: 4mm;
 	padding-left: ${props => props.size.left}mm;
 	box-sizing: border-box;
