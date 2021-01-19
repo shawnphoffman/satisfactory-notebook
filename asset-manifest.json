@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/satisfactory-notebook/static/css/main.82e96bdc.chunk.css",
-    "main.js": "/satisfactory-notebook/static/js/main.f0a13d2d.chunk.js",
-    "main.js.map": "/satisfactory-notebook/static/js/main.f0a13d2d.chunk.js.map",
-    "runtime-main.js": "/satisfactory-notebook/static/js/runtime-main.a53d8a73.js",
-    "runtime-main.js.map": "/satisfactory-notebook/static/js/runtime-main.a53d8a73.js.map",
-    "static/js/2.63cd8309.chunk.js": "/satisfactory-notebook/static/js/2.63cd8309.chunk.js",
-    "static/js/2.63cd8309.chunk.js.map": "/satisfactory-notebook/static/js/2.63cd8309.chunk.js.map",
-    "static/js/3.637f07b1.chunk.js": "/satisfactory-notebook/static/js/3.637f07b1.chunk.js",
-    "static/js/3.637f07b1.chunk.js.map": "/satisfactory-notebook/static/js/3.637f07b1.chunk.js.map",
+    "main.js": "/satisfactory-notebook/static/js/main.d104c22d.chunk.js",
+    "main.js.map": "/satisfactory-notebook/static/js/main.d104c22d.chunk.js.map",
+    "runtime-main.js": "/satisfactory-notebook/static/js/runtime-main.379465b2.js",
+    "runtime-main.js.map": "/satisfactory-notebook/static/js/runtime-main.379465b2.js.map",
+    "static/js/2.6f8088d9.chunk.js": "/satisfactory-notebook/static/js/2.6f8088d9.chunk.js",
+    "static/js/2.6f8088d9.chunk.js.map": "/satisfactory-notebook/static/js/2.6f8088d9.chunk.js.map",
+    "static/js/3.a2a8915f.chunk.js": "/satisfactory-notebook/static/js/3.a2a8915f.chunk.js",
+    "static/js/3.a2a8915f.chunk.js.map": "/satisfactory-notebook/static/js/3.a2a8915f.chunk.js.map",
     "index.html": "/satisfactory-notebook/index.html",
     "static/css/main.82e96bdc.chunk.css.map": "/satisfactory-notebook/static/css/main.82e96bdc.chunk.css.map",
-    "static/js/2.63cd8309.chunk.js.LICENSE.txt": "/satisfactory-notebook/static/js/2.63cd8309.chunk.js.LICENSE.txt",
+    "static/js/2.6f8088d9.chunk.js.LICENSE.txt": "/satisfactory-notebook/static/js/2.6f8088d9.chunk.js.LICENSE.txt",
     "static/media/image-alumina-solution.256.9f7f1401.png": "/satisfactory-notebook/static/media/image-alumina-solution.256.9f7f1401.png",
     "static/media/image-aluminum-ingot.256.b369451b.png": "/satisfactory-notebook/static/media/image-aluminum-ingot.256.b369451b.png",
     "static/media/image-aluminum-plate-reinforced.256.16c1f5a8.png": "/satisfactory-notebook/static/media/image-aluminum-plate-reinforced.256.16c1f5a8.png",
@@ -285,9 +285,9 @@
     "static/media/image-workshop.256.c47cc6a2.png": "/satisfactory-notebook/static/media/image-workshop.256.c47cc6a2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a53d8a73.js",
-    "static/js/2.63cd8309.chunk.js",
+    "static/js/runtime-main.379465b2.js",
+    "static/js/2.6f8088d9.chunk.js",
     "static/css/main.82e96bdc.chunk.css",
-    "static/js/main.f0a13d2d.chunk.js"
+    "static/js/main.d104c22d.chunk.js"
   ]
 }
