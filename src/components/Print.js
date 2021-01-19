@@ -1,4 +1,7 @@
+import { useContext } from 'react'
 import styled from 'styled-components'
+
+import AppContext from '../AppContext'
 
 const pageSize = {
 	a5: {
@@ -20,7 +23,8 @@ export const Inch = styled.div`
 `
 
 const PageBorder = styled.div`
-	background: ${props => (props.debug ? 'lightgreen' : '#EEE')};
+	/* background: ${props => (props.debug ? 'lightgreen' : '#EEE')}; */
+	background: ${props => (props.debug ? 'lightgreen' : 'white')};
 	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	/* height: ${props => props.size.height}mm; */
 	/* width: ${props => props.size.width}mm; */
@@ -45,8 +49,12 @@ const PageContent = styled.div`
 	padding-top: 4px;
 `
 
-export const Page = ({ children, debug = false }) => (
-	<PageBorder size={pageSize.a5} debug={debug}>
-		<PageContent debug={debug}>{children}</PageContent>
-	</PageBorder>
-)
+export const Page = ({ children }) => {
+	const { debug } = useContext(AppContext)
+
+	return (
+		<PageBorder size={pageSize.a5} debug={debug}>
+			<PageContent debug={debug}>{children}</PageContent>
+		</PageBorder>
+	)
+}

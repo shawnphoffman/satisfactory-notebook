@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import { getBuildingName } from 'loaders/buildings'
@@ -10,6 +10,8 @@ import {
 	handcraftingProducers,
 	sortRecipesByName,
 } from 'loaders/recipes'
+
+import AppContext from '../AppContext'
 
 const FractionString = ({ fraction }) => {
 	if (!fraction) return null
@@ -26,12 +28,15 @@ const FractionString = ({ fraction }) => {
 	return (
 		<>
 			{whole && `${whole} `}
-			<sup>{numer}</sup>&frasl;<sub>{denom}</sub>
+			<span style={{ fontSize: '0.8em' }}>
+				<sup>{numer}</sup>&frasl;<sub>{denom}</sub>&nbsp;
+			</span>
 		</>
 	)
 }
 
 const Ingredient = ({ slug, amount, duration }) => {
+	const { useFractions } = useContext(AppContext)
 	const itemDef = getItemDefinition(slug)
 	const rate = calculateRate(amount, duration, itemDef.form === 2)
 	return (
@@ -43,11 +48,14 @@ const Ingredient = ({ slug, amount, duration }) => {
 				</span> */}
 				{itemDef.name}
 			</IngredientLabel>
-			<div>
-				<strong>{rate.perMin}</strong>
-				{/* <strong>
-					<FractionString fraction={rate.perMinFraction} />
-				</strong> */}
+			<div style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}>
+				{useFractions ? (
+					<strong>
+						<FractionString fraction={rate.perMinFraction} />
+					</strong>
+				) : (
+					<strong>{rate.perMin}</strong>
+				)}
 				<small>{rate.perMinLabel}</small>
 			</div>
 		</IngredientContainer>
@@ -61,10 +69,6 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 	const recipeSlugs = getRecipesByItemProduct(slug)
 
 	const recipes = sortRecipesByName(recipeSlugs)
-
-	// console.log({
-	// 	product,
-	// })
 
 	return (
 		<>
@@ -97,10 +101,6 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 							product,
 						})
 					}
-
-					// console.log({
-					// 	recipe,
-					// })
 
 					return (
 						<RecipeCard key={key} id={key}>

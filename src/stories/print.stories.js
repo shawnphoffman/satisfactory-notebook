@@ -9,7 +9,7 @@ const storyConfig = {
 export default storyConfig
 
 export const page = () => (
-	<Page debug={true}>
+	<Page>
 		{[...Array(20)].map((e, i) => (
 			<Inch>{i}</Inch>
 		))}

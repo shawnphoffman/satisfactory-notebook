@@ -15,7 +15,7 @@ export default storyConfig
 
 //
 export const recipe = args => (
-	<Page debug={0}>
+	<Page>
 		<Recipe {...args} />
 	</Page>
 )
