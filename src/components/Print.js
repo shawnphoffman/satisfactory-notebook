@@ -24,13 +24,14 @@ export const Inch = styled.div`
 
 const PageBorder = styled.div`
 	/* background: ${props => (props.debug ? 'lightgreen' : '#EEE')}; */
-	background: ${props => (props.debug ? 'lightgreen' : 'white')};
-	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	/* height: ${props => props.size.height}mm; */
 	/* width: ${props => props.size.width}mm; */
+	/* padding-left: ${props => props.size.left}mm; */
+	background: ${props => (props.debug ? 'lightgreen' : 'white')};
+	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	width: 100%;
 	padding: 4mm;
-	padding-left: ${props => props.size.left}mm;
+	${props => (props.leftMargin ? 'padding-left: 12mm' : null)};
 	box-sizing: border-box;
 	page-break-after: always;
 
@@ -50,10 +51,10 @@ const PageContent = styled.div`
 `
 
 export const Page = ({ children }) => {
-	const { debug } = useContext(AppContext)
+	const { debug, leftMargin } = useContext(AppContext)
 
 	return (
-		<PageBorder size={pageSize.a5} debug={debug}>
+		<PageBorder size={pageSize.a5} debug={debug} leftMargin={leftMargin}>
 			<PageContent debug={debug}>{children}</PageContent>
 		</PageBorder>
 	)

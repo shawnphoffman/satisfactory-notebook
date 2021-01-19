@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 
 import { Page } from 'components/Print'
@@ -8,8 +8,14 @@ import { importImageManifest } from 'loaders/sgImageRepo'
 
 import AppContext from './AppContext'
 
+const AppTitle = styled.div`
+	font-weight: bold;
+	margin-right: 25px;
+	font-size: 18px;
+`
+
 const SettingContainer = styled.div`
-	margin-right: 15px;
+	margin-right: 25px;
 `
 
 const SettingsHeader = styled.div`
@@ -34,28 +40,41 @@ importImageManifest()
 function App() {
 	const [fractions, setFractions] = useState(false)
 	const [debug, setDebug] = useState(false)
+	const [leftMargin, setLeftMargin] = useState(true)
 
-	const products = getMachineCraftableProducts() //.slice(0, 5)
+	const products = getMachineCraftableProducts().slice(0, 15)
+
+	const handleFractions = useCallback(e => setFractions(e.target.checked), [])
+	const handleDebug = useCallback(e => setDebug(e.target.checked), [])
+	const handleLeftMargin = useCallback(e => setLeftMargin(e.target.checked), [])
+
 	return (
 		<>
-			<AppContext.Provider value={{ useFractions: fractions, debug: debug }}>
+			<AppContext.Provider value={{ fractions, debug, leftMargin }}>
 				<SettingsHeader>
+					<AppTitle>Satisfactory Notebook 📓️</AppTitle>
 					<SettingContainer>
 						<input
+							id="fractions"
 							name="fractions"
 							type="checkbox"
 							checked={fractions}
-							onChange={e => setFractions(e.target.checked)}
+							onChange={handleFractions}
 						/>
 						<label htmlFor="fractions">Use Fractions</label>
 					</SettingContainer>
 					<SettingContainer>
 						<input
-							name="debug"
+							id="leftMargin"
+							name="leftMargin"
 							type="checkbox"
-							checked={debug}
-							onChange={e => setDebug(e.target.checked)}
+							checked={leftMargin}
+							onChange={handleLeftMargin}
 						/>
+						<label htmlFor="leftMargin">Pad Left Margin</label>
+					</SettingContainer>
+					<SettingContainer>
+						<input id="debug" name="debug" type="checkbox" checked={debug} onChange={handleDebug} />
 						<label htmlFor="debug">Debug</label>
 					</SettingContainer>
 				</SettingsHeader>

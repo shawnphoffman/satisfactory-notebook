@@ -1,8 +1,9 @@
 import React from 'react'
 
 const initialState = {
-	useFractions: false,
+	fractions: false,
 	debug: false,
+	leftMargin: true,
 }
 
 const AppContext = React.createContext(initialState)

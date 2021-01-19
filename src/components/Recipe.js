@@ -36,7 +36,7 @@ const FractionString = ({ fraction }) => {
 }
 
 const Ingredient = ({ slug, amount, duration }) => {
-	const { useFractions } = useContext(AppContext)
+	const { fractions } = useContext(AppContext)
 	const itemDef = getItemDefinition(slug)
 	const rate = calculateRate(amount, duration, itemDef.form === 2)
 	return (
@@ -49,7 +49,7 @@ const Ingredient = ({ slug, amount, duration }) => {
 				{itemDef.name}
 			</IngredientLabel>
 			<div style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}>
-				{useFractions ? (
+				{fractions ? (
 					<strong>
 						<FractionString fraction={rate.perMinFraction} />
 					</strong>
