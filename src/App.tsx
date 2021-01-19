@@ -21,6 +21,7 @@ const SettingsHeader = styled.div`
 	background: lightblue;
 	position: sticky;
 	top: 0;
+	z-index: 1;
 
 	@media print {
 		display: none;
