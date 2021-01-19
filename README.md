@@ -1,4 +1,4 @@
-# Satisfactory Notebook
+# Satisfactory Notebook 📓️
 
 When you prefer paper printouts to digital recipes.
 

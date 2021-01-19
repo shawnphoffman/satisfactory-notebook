@@ -8,6 +8,19 @@ import { importImageManifest } from 'loaders/sgImageRepo'
 
 import AppContext from './AppContext'
 
+const Instructions = styled.div`
+	height: 60px;
+	padding: 5px;
+	box-sizing: border-box;
+	background: lightsalmon;
+	display: flex;
+	align-items: center;
+
+	@media print {
+		display: none;
+	}
+`
+
 const AppTitle = styled.div`
 	font-weight: bold;
 	margin-right: 25px;
@@ -42,7 +55,7 @@ function App() {
 	const [debug, setDebug] = useState(false)
 	const [leftMargin, setLeftMargin] = useState(true)
 
-	const products = getMachineCraftableProducts().slice(0, 15)
+	const products = getMachineCraftableProducts() //.slice(0, 15)
 
 	const handleFractions = useCallback(e => setFractions(e.target.checked), [])
 	const handleDebug = useCallback(e => setDebug(e.target.checked), [])
@@ -78,6 +91,10 @@ function App() {
 						<label htmlFor="debug">Debug</label>
 					</SettingContainer>
 				</SettingsHeader>
+				<Instructions>
+					Instructions for print dialog: Set "Margins" to "None", "Scale" to "100", and "Background
+					Graphics" to enabled
+				</Instructions>
 				{products.map(p => (
 					<Page key={p}>
 						<Recipe slug={p} />
