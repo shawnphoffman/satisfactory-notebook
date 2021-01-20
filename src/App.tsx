@@ -13,7 +13,7 @@ import ContextProvider from './AppContext'
 importImageManifest()
 
 function App() {
-	const products = getMachineCraftableProducts().slice(0, 15)
+	const products = getMachineCraftableProducts() //.slice(0, 15)
 
 	return (
 		<ContextProvider>
