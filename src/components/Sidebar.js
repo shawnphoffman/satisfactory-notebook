@@ -1,25 +1,25 @@
-import React, { useCallback, useContext } from 'react'
+import React, { memo, useCallback, useContext } from 'react'
 import styled from 'styled-components'
 
 import { ActionType, AppContext } from '../AppContext'
 import logo from './logo.png'
 
 //
-const SectionHeader = ({ icon, label }) => (
+const SectionHeader = memo(({ icon, label }) => (
 	<HeaderWrapper>
 		<i className={`fas ${icon} fa-fw`}></i>
 		<span> {label}</span>
 	</HeaderWrapper>
-)
+))
 
 //
-const SettingCheckbox = ({ label, name, checked, onChange, hint }) => (
+const SettingCheckbox = memo(({ label, name, checked, onChange, hint }) => (
 	<InputContainer>
 		<input id={name} name={name} type="checkbox" checked={checked} onChange={onChange} />
 		<label htmlFor={name}>{label}</label>
 		{hint && <Hint>{hint}</Hint>}
 	</InputContainer>
-)
+))
 
 //
 const Sidebar = () => {
@@ -95,7 +95,7 @@ const Sidebar = () => {
 	)
 }
 
-export default Sidebar
+export default memo(Sidebar)
 
 const HeaderWrapper = styled.div`
 	margin: 18px 0 12px 0;

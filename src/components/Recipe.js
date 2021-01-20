@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import styled from 'styled-components'
 
 import { getBuildingName } from 'loaders/buildings'
@@ -13,7 +13,7 @@ import {
 
 import { AppContext } from '../AppContext'
 
-const FractionString = ({ fraction }) => {
+const FractionString = memo(({ fraction }) => {
 	if (!fraction) return null
 
 	if (fraction.indexOf('/') < 0) return fraction
@@ -33,9 +33,9 @@ const FractionString = ({ fraction }) => {
 			</span>
 		</>
 	)
-}
+})
 
-const Ingredient = ({ slug, amount, duration }) => {
+const Ingredient = memo(({ slug, amount, duration }) => {
 	const [{ fractions }] = useContext(AppContext)
 	const itemDef = getItemDefinition(slug)
 	const rate = calculateRate(amount, duration, itemDef.form === 2)
@@ -60,7 +60,7 @@ const Ingredient = ({ slug, amount, duration }) => {
 			</div>
 		</IngredientContainer>
 	)
-}
+})
 
 const Recipe = ({ slug = 'item-plastic' }) => {
 	// const slug = 'item-iron-screw'
@@ -68,11 +68,29 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 
 	const recipeSlugs = getRecipesByItemProduct(slug)
 
-	const recipes = sortRecipesByName(recipeSlugs)
+	const sortedSlugs = sortRecipesByName(recipeSlugs)
+
+	// Why do it once when you can do it TWICE!!!
+	const recipes = sortedSlugs.filter(slug => {
+		const recipe = getRecipeDefinition(slug)
+
+		// Remove ore recipes
+		if (recipe.ingredients.length === 0) return false
+
+		// Garbage
+		if (recipe.name.includes('Unpackage')) return false
+
+		const validProducers = recipe.producedIn.filter(p => !handcraftingProducers.has(p))
+		if (validProducers.length === 0) return false
+
+		return true
+	})
+
+	if (recipes.length === 0) return null
 
 	return (
 		<>
-			<Header>
+			<Header id={slug}>
 				<div style={{ width: '100%' }}>
 					<RecipeTitle>{product.name}</RecipeTitle>
 					<RecipeDescription>{product.description}</RecipeDescription>
@@ -84,11 +102,11 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 					// HACK
 					const recipe = getRecipeDefinition(key)
 
-					// Remove ore recipes
-					if (recipe.ingredients.length === 0) return null
+					// // Remove ore recipes
+					// if (recipe.ingredients.length === 0) return null
 
-					// Garbage
-					if (recipe.name.includes('Unpackage')) return null
+					// // Garbage
+					// if (recipe.name.includes('Unpackage')) return null
 
 					const validProducers = recipe.producedIn.filter(p => !handcraftingProducers.has(p))
 					if (validProducers.length === 0) return null
@@ -142,7 +160,7 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 	)
 }
 
-export default Recipe
+export default memo(Recipe)
 
 const List = styled.div`
 	display: flex;
