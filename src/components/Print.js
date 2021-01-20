@@ -43,8 +43,9 @@ const PageContent = styled.div`
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	padding-right: 4px;
-	padding-top: 4px;
+	/* padding-right: 4px;
+	padding-top: 4px; */
+	padding: 4px;
 `
 
 export const Page = ({ children }) => {

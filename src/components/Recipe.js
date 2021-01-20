@@ -78,7 +78,7 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 		if (recipe.ingredients.length === 0) return false
 
 		// Garbage
-		if (recipe.name.includes('Unpackage')) return false
+		// if (recipe.name.includes('Unpackage')) return false
 
 		const validProducers = recipe.producedIn.filter(p => !handcraftingProducers.has(p))
 		if (validProducers.length === 0) return false
@@ -163,9 +163,9 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 export default memo(Recipe)
 
 const List = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+	/* flex-direction: column; */
 `
 
 const Header = styled.div`
@@ -179,7 +179,7 @@ const RecipeDescription = styled.div`
 	margin-right: 16px;
 	line-height: 1.5;
 
-	@media (max-width: 500px) {
+	@media (max-width: 400px) {
 		display: none;
 	}
 `
@@ -188,7 +188,7 @@ const ArrowSeparator = styled.div`
 	flex: 0;
 	margin: 8px;
 
-	@media (max-width: 500px) {
+	@media (max-width: 400px) {
 		transform: rotate(90deg);
 	}
 `
@@ -242,7 +242,7 @@ const IngredientsContainer = styled.div`
 	align-items: center;
 	width: 100%;
 
-	@media (max-width: 500px) {
+	@media (max-width: 400px) {
 		flex-direction: column;
 	}
 `

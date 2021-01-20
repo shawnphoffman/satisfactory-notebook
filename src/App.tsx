@@ -14,7 +14,11 @@ importImageManifest()
 
 function App() {
 	const products = getMachineCraftableProducts() //.slice(0, 15)
-	// const products = ['item-liquid-oil']
+	// const products = ['item-fluid-canister']
+
+	// console.log({
+	// 	products,
+	// })
 
 	return (
 		<ContextProvider>
