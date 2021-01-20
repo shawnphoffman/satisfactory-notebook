@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from 'react'
 const initialState = {
 	fractions: false,
 	debug: false,
-	padLeftMargin: true,
+	padLeftMargin: false,
 	onePerPage: true,
 }
 

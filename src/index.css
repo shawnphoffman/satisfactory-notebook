@@ -1,9 +1,13 @@
 @media print {
 
 	@page {
-		size: A5;
+		/* size: A5; */
 		margin: 0;
 	}
+}
+
+* {
+	box-sizing: border-box;
 }
 
 html {
@@ -14,6 +18,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0px;
 	padding: 0px;
+
+	content-visibility: auto;
 }
 
 label {

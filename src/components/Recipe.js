@@ -46,7 +46,7 @@ const Ingredient = memo(({ slug, amount, duration }) => {
 				{/* <span>
 					{rate.perCycle}{rate.perCycleLabel}
 				</span> */}
-				{itemDef.name}
+				<IngredientName>{itemDef.name}</IngredientName>
 			</IngredientLabel>
 			<div style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}>
 				{fractions ? (
@@ -95,7 +95,7 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 					<RecipeTitle>{product.name}</RecipeTitle>
 					<RecipeDescription>{product.description}</RecipeDescription>
 				</div>
-				<Icon title={product.description} src={getItemIcon(slug)} />
+				<Icon alt={product.name} src={getItemIcon(slug)} />
 			</Header>
 			<List>
 				{recipes.map(key => {
@@ -176,14 +176,21 @@ const Header = styled.div`
 
 const RecipeDescription = styled.div`
 	font-size: 12px;
-	/* width: 85%; */
 	margin-right: 16px;
 	line-height: 1.5;
+
+	@media (max-width: 500px) {
+		display: none;
+	}
 `
 
 const ArrowSeparator = styled.div`
 	flex: 0;
 	margin: 8px;
+
+	@media (max-width: 500px) {
+		transform: rotate(90deg);
+	}
 `
 
 const RecipeCard = styled.div`
@@ -196,6 +203,7 @@ const RecipeCard = styled.div`
 	margin: 4px 0;
 	page-break-inside: avoid;
 	break-inside: avoid;
+	max-width: 100%;
 `
 
 const CardTitle = styled.h2`
@@ -210,6 +218,7 @@ const Icon = styled.img`
 	display: ${props => (props.src ? 'inherit' : 'none')};
 	max-width: 100%;
 	width: 100px;
+	height: 100px;
 	padding: 8px;
 	border-radius: 5px;
 	margin-bottom: 4px;
@@ -219,17 +228,23 @@ const Icon = styled.img`
 const IngredientIcon = styled.img`
 	max-width: 100%;
 	width: 30px;
+	height: 30px;
 	margin-right: 3px;
 `
 
 const IngredientColumn = styled.div`
 	flex: 1;
+	width: 100%;
 `
 
 const IngredientsContainer = styled.div`
 	display: flex;
 	align-items: center;
 	width: 100%;
+
+	@media (max-width: 500px) {
+		flex-direction: column;
+	}
 `
 
 const IngredientLabel = styled.div`
@@ -245,7 +260,7 @@ const IngredientContainer = styled.div`
 	align-items: center;
 	margin: 2px 0px;
 	background: #ededed;
-	padding: 2px 5px;
+	padding: 4px 5px;
 	border-radius: 5px;
 `
 
@@ -264,4 +279,12 @@ const CardSecondary = styled.div`
 	align-items: center;
 	display: flex;
 	color: #444;
+`
+
+const IngredientName = styled.div`
+	/* white-space: nowrap; */
+	/* text-overflow: ellipsis; */
+	/* overflow: hidden; */
+	padding-right: 3px;
+	line-height: 1.2;
 `

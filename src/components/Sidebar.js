@@ -107,7 +107,7 @@ const SidebarSection = styled.div`
 `
 
 const SidebarWrapper = styled.div`
-	width: 350px;
+	width: 300px;
 	background: #bbb;
 	position: sticky;
 	top: 0;
@@ -116,6 +116,13 @@ const SidebarWrapper = styled.div`
 
 	@media print {
 		display: none;
+	}
+
+	/* TODO - Extract the max-width to variable */
+	@media screen and (max-width: 600px) {
+		width: 100%;
+		position: unset;
+		height: auto;
 	}
 `
 
