@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/satisfactory-notebook/static/css/main.f146305f.chunk.css",
-    "main.js": "/satisfactory-notebook/static/js/main.ee63e648.chunk.js",
-    "main.js.map": "/satisfactory-notebook/static/js/main.ee63e648.chunk.js.map",
+    "main.js": "/satisfactory-notebook/static/js/main.0f788c8c.chunk.js",
+    "main.js.map": "/satisfactory-notebook/static/js/main.0f788c8c.chunk.js.map",
     "runtime-main.js": "/satisfactory-notebook/static/js/runtime-main.50c8240f.js",
     "runtime-main.js.map": "/satisfactory-notebook/static/js/runtime-main.50c8240f.js.map",
     "static/js/2.fe00494a.chunk.js": "/satisfactory-notebook/static/js/2.fe00494a.chunk.js",
@@ -288,6 +288,6 @@
     "static/js/runtime-main.50c8240f.js",
     "static/js/2.fe00494a.chunk.js",
     "static/css/main.f146305f.chunk.css",
-    "static/js/main.ee63e648.chunk.js"
+    "static/js/main.0f788c8c.chunk.js"
   ]
 }
