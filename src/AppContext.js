@@ -1,22 +1,52 @@
-import React from 'react'
+import React, { createContext, useReducer } from 'react'
 
 const initialState = {
 	fractions: false,
 	debug: false,
-	leftMargin: true,
+	padLeftMargin: true,
+	onePerPage: true,
 }
 
-const AppContext = React.createContext(initialState)
+export const ActionType = {
+	TOGGLE_FRACTION: 'TOGGLE_FRACTION',
+	TOGGLE_DEBUG: 'TOGGLE_DEBUG',
+	TOGGLE_LEFT_MARGIN: 'TOGGLE_LEFT_MARGIN',
+	TOGGLE_ONE_PER_PAGE: 'TOGGLE_ONE_PER_PAGE',
+}
 
-export default AppContext
+export const AppContext = createContext(initialState)
 
-// export const AppContextProvider = props => {
+const reducer = (state, action) => {
+	switch (action.type) {
+		case ActionType.TOGGLE_FRACTION:
+			return {
+				...state,
+				fractions: !state.fractions,
+			}
+		case ActionType.TOGGLE_DEBUG:
+			return {
+				...state,
+				debug: !state.debug,
+			}
+		case ActionType.TOGGLE_LEFT_MARGIN:
+			return {
+				...state,
+				padLeftMargin: !state.padLeftMargin,
+			}
+		case ActionType.TOGGLE_ONE_PER_PAGE:
+			return {
+				...state,
+				onePerPage: !state.onePerPage,
+			}
+		default:
+			return state
+	}
+}
 
-// 	return <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
-// }
+const ContextProvider = ({ children }) => {
+	const [state, dispatch] = useReducer(reducer, initialState)
 
-// AppContextProvider.propTypes = {
-// 	children: PropTypes.any,
-// }
+	return <AppContext.Provider value={[state, dispatch]}>{children}</AppContext.Provider>
+}
 
-// export default AppContext
+export default ContextProvider

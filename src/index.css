@@ -19,3 +19,12 @@ body {
 label {
 	margin-left: 5px;
 }
+
+ul {
+	margin: 0;
+	padding-inline-start: 12px;
+}
+
+li {
+	margin-bottom: 6px;
+}

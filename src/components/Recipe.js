@@ -11,7 +11,7 @@ import {
 	sortRecipesByName,
 } from 'loaders/recipes'
 
-import AppContext from '../AppContext'
+import { AppContext } from '../AppContext'
 
 const FractionString = ({ fraction }) => {
 	if (!fraction) return null
@@ -36,7 +36,7 @@ const FractionString = ({ fraction }) => {
 }
 
 const Ingredient = ({ slug, amount, duration }) => {
-	const { fractions } = useContext(AppContext)
+	const [{ fractions }] = useContext(AppContext)
 	const itemDef = getItemDefinition(slug)
 	const rate = calculateRate(amount, duration, itemDef.form === 2)
 	return (

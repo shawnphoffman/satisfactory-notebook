@@ -1,15 +1,15 @@
 import { useContext } from 'react'
 import styled from 'styled-components'
 
-import AppContext from '../AppContext'
+import { AppContext } from '../AppContext'
 
-const pageSize = {
-	a5: {
-		height: 210,
-		width: 148.5,
-		left: 12,
-	},
-}
+// const pageSize = {
+// 	a5: {
+// 		height: 210,
+// 		width: 148.5,
+// 		left: 12,
+// 	},
+// }
 
 export const Inch = styled.div`
 	width: 1in;
@@ -23,17 +23,14 @@ export const Inch = styled.div`
 `
 
 const PageBorder = styled.div`
-	/* background: ${props => (props.debug ? 'lightgreen' : '#EEE')}; */
-	/* height: ${props => props.size.height}mm; */
-	/* width: ${props => props.size.width}mm; */
-	/* padding-left: ${props => props.size.left}mm; */
 	background: ${props => (props.debug ? 'lightgreen' : 'white')};
 	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	width: 100%;
 	padding: 4mm;
 	${props => (props.leftMargin ? 'padding-left: 12mm' : null)};
 	box-sizing: border-box;
-	page-break-after: always;
+
+	${props => (props.onePerPage ? 'page-break-after: always' : 'page-break-inside: avoid')};
 
 	@media print {
 		background: none;
@@ -51,10 +48,10 @@ const PageContent = styled.div`
 `
 
 export const Page = ({ children }) => {
-	const { debug, leftMargin } = useContext(AppContext)
+	const [{ debug, padLeftMargin, onePerPage }] = useContext(AppContext)
 
 	return (
-		<PageBorder size={pageSize.a5} debug={debug} leftMargin={leftMargin}>
+		<PageBorder debug={debug} leftMargin={padLeftMargin} onePerPage={onePerPage}>
 			<PageContent debug={debug}>{children}</PageContent>
 		</PageBorder>
 	)
