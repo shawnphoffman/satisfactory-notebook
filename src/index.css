@@ -34,3 +34,14 @@ ul {
 li {
 	margin-bottom: 6px;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+@media screen {
+	a:hover {
+		text-decoration: underline;
+	}
+}
