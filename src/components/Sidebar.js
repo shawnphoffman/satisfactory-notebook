@@ -189,5 +189,5 @@ const Hint = styled.div`
 	font-style: italic;
 	margin-left: 18px;
 	margin-top: 2px;
-	color: #555;
+	color: #444;
 `

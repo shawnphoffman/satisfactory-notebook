@@ -42,7 +42,7 @@ const Ingredient = memo(({ slug, amount, duration }) => {
 	return (
 		<IngredientContainer key={slug}>
 			<IngredientLabel>
-				{itemDef.icon ? <IngredientIcon src={getItemIcon(slug)} /> : null}
+				{itemDef.icon ? <IngredientIcon src={getItemIcon(slug)} alt={itemDef.name} /> : null}
 				{/* <span>
 					{rate.perCycle}{rate.perCycleLabel}
 				</span> */}
