@@ -246,9 +246,10 @@ export const getRecipeName = (slug: string) => {
 	return (getAllRecipes() as any)[slug].name
 }
 
-export const getRecipeDefinition = (slug: string) => {
+export const getRecipeDefinition = memoize((slug: string) => {
+	// console.log(slug)
 	return (getAllRecipes() as any)[slug]
-}
+})
 
 const getMachineCraftableRecipeListFn = () => {
 	return getMachineCraftableRecipeDefinitionList().map(({ slug }) => slug)

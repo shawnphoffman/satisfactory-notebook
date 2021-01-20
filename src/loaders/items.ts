@@ -7,9 +7,9 @@ import { getBuildingImageName } from 'loaders/buildings'
 import { getMachineCraftableRecipeDefinitionList } from 'loaders/recipes'
 import SGImageRepo from 'loaders/sgImageRepo'
 
-export const getItemDefinition = (itemSlug: string) => {
+export const getItemDefinition = memoize((itemSlug: string) => {
 	return (ItemJson as any)[itemSlug]
-}
+})
 
 const getItemByTypeFn = (type: string) => {
 	return Object.entries(ItemJson)
@@ -44,7 +44,7 @@ const getItemListFn = () => {
 	})
 }
 
-export const getItemIcon = (itemSlug: string, size: number = 256) => {
+export const getItemIcon = memoize((itemSlug: string, size: number = 256) => {
 	const itemImageSlug = `${getBuildingImageName(itemSlug)}.${256}.png`
 
 	const image = SGImageRepo.get(itemImageSlug)
@@ -53,7 +53,7 @@ export const getItemIcon = (itemSlug: string, size: number = 256) => {
 		// throw new Error('No image found: ' + itemImageSlug);
 	}
 	return image
-}
+})
 
 const getMachineCraftableItemsFn = () => {
 	return [

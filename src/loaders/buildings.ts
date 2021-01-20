@@ -248,9 +248,10 @@ export const getBuildableMachineClassIcon = (() => {
 	}
 })()
 
-export const getBuildingName = (slug: string) => {
+export const getBuildingName = memoize((slug: string) => {
+	// console.log(slug)
 	return (BuildingJson as any)[slug]?.name
-}
+})
 
 export const getBuildingImageName = (slug: string) => {
 	const itemSlug = slug.replace(/^building/g, 'item')
