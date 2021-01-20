@@ -37,6 +37,9 @@ const Sidebar = () => {
 	const handleOnePerPage = useCallback(e => dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE }), [
 		dispatch,
 	])
+	const handleCycleAmounts = useCallback(e => dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT }), [
+		dispatch,
+	])
 
 	const handleReturnClick = useCallback(
 		slug => {
@@ -68,6 +71,13 @@ const Sidebar = () => {
 					hint="Conversions are hard"
 				/>
 				<SettingCheckbox
+					label="Show Cycle Amounts"
+					name="cycleAmount"
+					checked={state.cycleAmount}
+					onChange={handleCycleAmounts}
+					hint="Include per cycle inputs/outputs"
+				/>
+				<SettingCheckbox
 					label="Pad Left Margin"
 					name="leftMargin"
 					checked={state.padLeftMargin}
@@ -81,13 +91,15 @@ const Sidebar = () => {
 					onChange={handleOnePerPage}
 					hint="Waste ALL the paper"
 				/>
-				<SettingCheckbox
-					label="Debug Mode"
-					name="debug"
-					checked={state.debug}
-					onChange={handleDebug}
-					hint="You won't find this useful"
-				/>
+				{process.env.NODE_ENV === 'development' && (
+					<SettingCheckbox
+						label="Debug Mode"
+						name="debug"
+						checked={state.debug}
+						onChange={handleDebug}
+						hint="You won't find this useful"
+					/>
+				)}
 			</SidebarSection>
 
 			{/*  */}

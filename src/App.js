@@ -15,7 +15,8 @@ importImageManifest()
 const ProductList = React.memo(() => {
 	const [{ removedProducts }] = React.useContext(AppContext)
 
-	const products = getMachineCraftableProducts() //.slice(0, 15)
+	const products = getMachineCraftableProducts()
+		// .slice(0, 15)
 		.filter(p => !removedProducts.includes(p))
 
 	return (

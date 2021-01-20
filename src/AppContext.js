@@ -5,12 +5,14 @@ const initialState = {
 	debug: false,
 	padLeftMargin: false,
 	onePerPage: true,
+	cycleAmount: false,
 	removedProducts: [],
 }
 
 export const ActionType = {
 	TOGGLE_FRACTION: 'TOGGLE_FRACTION',
 	TOGGLE_DEBUG: 'TOGGLE_DEBUG',
+	TOGGLE_CYCLE_AMOUNT: 'TOGGLE_CYCLE_AMOUNT',
 	TOGGLE_LEFT_MARGIN: 'TOGGLE_LEFT_MARGIN',
 	TOGGLE_ONE_PER_PAGE: 'TOGGLE_ONE_PER_PAGE',
 	REMOVE_PRODUCT: 'REMOVE_PRODUCT',
@@ -41,6 +43,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				onePerPage: !state.onePerPage,
+			}
+		case ActionType.TOGGLE_CYCLE_AMOUNT:
+			return {
+				...state,
+				cycleAmount: !state.cycleAmount,
 			}
 		// FILTERING
 		case ActionType.REMOVE_PRODUCT:

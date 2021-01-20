@@ -36,16 +36,19 @@ const FractionString = memo(({ fraction }) => {
 })
 
 const Ingredient = memo(({ slug, amount, duration }) => {
-	const [{ fractions }] = useContext(AppContext)
+	const [{ fractions, cycleAmount }] = useContext(AppContext)
 	const itemDef = getItemDefinition(slug)
 	const rate = calculateRate(amount, duration, itemDef.form === 2)
 	return (
 		<IngredientContainer key={slug}>
 			<IngredientLabel>
 				{itemDef.icon ? <IngredientIcon src={getItemIcon(slug)} alt={itemDef.name} /> : null}
-				{/* <span>
-					{rate.perCycle}{rate.perCycleLabel}
-				</span> */}
+				{cycleAmount && (
+					<span style={{ marginRight: 5 }}>
+						{rate.perCycle}
+						{rate.perCycleLabel}
+					</span>
+				)}
 				<IngredientName href={`#${slug}`}>{itemDef.name}</IngredientName>
 			</IngredientLabel>
 			<div style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}>
@@ -268,6 +271,7 @@ const IngredientLabel = styled.div`
 	display: flex;
 	align-items: center;
 	font-size: 12px;
+	line-height: 1.2;
 `
 
 const IngredientContainer = styled.div`
@@ -310,7 +314,6 @@ const IngredientName = styled.a`
 	/* text-overflow: ellipsis; */
 	/* overflow: hidden; */
 	padding-right: 3px;
-	line-height: 1.2;
 `
 
 const RemoveWrapper = styled.span`
