@@ -107,7 +107,8 @@ const SidebarSection = styled.div`
 `
 
 const SidebarWrapper = styled.div`
-	width: 300px;
+	/* width: 300px; */
+	min-width: 260px;
 	background: #bbb;
 	position: sticky;
 	top: 0;
