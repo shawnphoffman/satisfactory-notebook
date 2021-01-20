@@ -39,7 +39,7 @@ const Sidebar = () => {
 	return (
 		<SidebarWrapper>
 			<AppTitle>
-				<img src={logo} alt="Satisfactory Notebook" />
+				<img src={logo} alt="Satisfactory Notebook" style={{ maxWidth: '100%' }} />
 			</AppTitle>
 
 			<SidebarSection>

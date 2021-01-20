@@ -46,7 +46,7 @@ const Ingredient = memo(({ slug, amount, duration }) => {
 				{/* <span>
 					{rate.perCycle}{rate.perCycleLabel}
 				</span> */}
-				<IngredientName>{itemDef.name}</IngredientName>
+				<IngredientName href={`#${slug}`}>{itemDef.name}</IngredientName>
 			</IngredientLabel>
 			<div style={{ whiteSpace: 'nowrap', lineHeight: 1.2 }}>
 				{fractions ? (
@@ -268,6 +268,11 @@ const RecipeTitle = styled.h1`
 	margin-top: 0;
 	margin-bottom: 12px;
 	display: block;
+	line-height: 1.2;
+
+	@media (max-width: 400px) {
+		font-size: 24px;
+	}
 `
 
 const CardSecondary = styled.div`
@@ -281,7 +286,7 @@ const CardSecondary = styled.div`
 	color: #444;
 `
 
-const IngredientName = styled.div`
+const IngredientName = styled.a`
 	/* white-space: nowrap; */
 	/* text-overflow: ellipsis; */
 	/* overflow: hidden; */
