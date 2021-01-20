@@ -5,6 +5,7 @@ const initialState = {
 	debug: false,
 	padLeftMargin: false,
 	onePerPage: true,
+	removedProducts: [],
 }
 
 export const ActionType = {
@@ -12,6 +13,9 @@ export const ActionType = {
 	TOGGLE_DEBUG: 'TOGGLE_DEBUG',
 	TOGGLE_LEFT_MARGIN: 'TOGGLE_LEFT_MARGIN',
 	TOGGLE_ONE_PER_PAGE: 'TOGGLE_ONE_PER_PAGE',
+	REMOVE_PRODUCT: 'REMOVE_PRODUCT',
+	RETURN_PRODUCT: 'RETURN_PRODUCT',
+	RETURN_ALL_PRODUCTS: 'RETURN_ALL_PRODUCTS',
 }
 
 export const AppContext = createContext(initialState)
@@ -37,6 +41,22 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				onePerPage: !state.onePerPage,
+			}
+		// FILTERING
+		case ActionType.REMOVE_PRODUCT:
+			return {
+				...state,
+				removedProducts: [...state.removedProducts, action.slug],
+			}
+		case ActionType.RETURN_PRODUCT:
+			return {
+				...state,
+				removedProducts: state.removedProducts.filter(p => !(p === action.slug)),
+			}
+		case ActionType.RETURN_ALL_PRODUCTS:
+			return {
+				...state,
+				removedProducts: [],
 			}
 		default:
 			return state

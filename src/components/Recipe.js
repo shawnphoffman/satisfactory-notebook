@@ -1,4 +1,4 @@
-import React, { memo, useContext } from 'react'
+import React, { memo, useCallback, useContext } from 'react'
 import styled from 'styled-components'
 
 import { getBuildingName } from 'loaders/buildings'
@@ -11,7 +11,7 @@ import {
 	sortRecipesByName,
 } from 'loaders/recipes'
 
-import { AppContext } from '../AppContext'
+import { ActionType, AppContext } from '../AppContext'
 
 const FractionString = memo(({ fraction }) => {
 	if (!fraction) return null
@@ -62,6 +62,21 @@ const Ingredient = memo(({ slug, amount, duration }) => {
 	)
 })
 
+const RemoveIcon = memo(({ slug }) => {
+	const [, dispatch] = useContext(AppContext)
+
+	const handleClick = useCallback(() => dispatch({ type: ActionType.REMOVE_PRODUCT, slug }), [
+		dispatch,
+		slug,
+	])
+
+	return (
+		<RemoveWrapper onClick={handleClick}>
+			<i className="fas fa-times-circle" title="Remove" />
+		</RemoveWrapper>
+	)
+})
+
 const Recipe = ({ slug = 'item-plastic' }) => {
 	// const slug = 'item-iron-screw'
 	const product = getItemDefinition(slug)
@@ -92,7 +107,9 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 		<>
 			<Header id={slug}>
 				<div style={{ width: '100%' }}>
-					<RecipeTitle>{product.name}</RecipeTitle>
+					<RecipeTitle>
+						{product.name} <RemoveIcon slug={slug} />
+					</RecipeTitle>
 					<RecipeDescription>{product.description}</RecipeDescription>
 				</div>
 				<Icon alt={product.name} src={getItemIcon(slug)} />
@@ -269,6 +286,8 @@ const RecipeTitle = styled.h1`
 	margin-bottom: 12px;
 	display: block;
 	line-height: 1.2;
+	display: flex;
+	align-items: center;
 
 	@media (max-width: 400px) {
 		font-size: 24px;
@@ -292,4 +311,20 @@ const IngredientName = styled.a`
 	/* overflow: hidden; */
 	padding-right: 3px;
 	line-height: 1.2;
+`
+
+const RemoveWrapper = styled.span`
+	font-size: 16px;
+	margin-left: 8px;
+	margin-right: 8px;
+	:hover {
+		color: red;
+	}
+	@media (max-width: 400px) {
+		display: none;
+	}
+
+	@media print {
+		display: none;
+	}
 `

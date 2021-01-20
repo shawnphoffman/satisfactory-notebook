@@ -1,6 +1,8 @@
 import React, { memo, useCallback, useContext } from 'react'
 import styled from 'styled-components'
 
+import { getItemDefinition } from 'loaders/items'
+
 import { ActionType, AppContext } from '../AppContext'
 import logo from './logo.png'
 
@@ -35,6 +37,20 @@ const Sidebar = () => {
 	const handleOnePerPage = useCallback(e => dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE }), [
 		dispatch,
 	])
+
+	const handleReturnClick = useCallback(
+		slug => {
+			dispatch({ type: ActionType.RETURN_PRODUCT, slug })
+		},
+		[dispatch]
+	)
+
+	const handleReturnAllClick = useCallback(
+		() => dispatch({ type: ActionType.RETURN_ALL_PRODUCTS }),
+		[dispatch]
+	)
+
+	const { removedProducts } = state
 
 	return (
 		<SidebarWrapper>
@@ -91,6 +107,31 @@ const Sidebar = () => {
 					</ul>
 				</SectionContent>
 			</SidebarSection>
+
+			{removedProducts.length > 0 && (
+				<SidebarSection>
+					<SectionHeader icon="fa-filter" label="Filtered Items" />
+					<SectionContent>
+						<ul>
+							<li onClick={handleReturnAllClick} style={{ cursor: 'pointer', color: 'darkred' }}>
+								<strong>Reset All</strong>
+							</li>
+							{removedProducts.map(p => {
+								const product = getItemDefinition(p)
+								return (
+									<li
+										key={p}
+										onClick={() => handleReturnClick(p)}
+										style={{ cursor: 'pointer', color: 'darkred' }}
+									>
+										{product.name} <i className="fas fa-times fa-fw" />
+									</li>
+								)
+							})}
+						</ul>
+					</SectionContent>
+				</SidebarSection>
+			)}
 		</SidebarWrapper>
 	)
 }

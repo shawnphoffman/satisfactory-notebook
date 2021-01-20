@@ -7,30 +7,34 @@ import Sidebar from 'components/Sidebar'
 import { getMachineCraftableProducts } from 'loaders/recipes'
 import { importImageManifest } from 'loaders/sgImageRepo'
 
-import ContextProvider from './AppContext'
+import ContextProvider, { AppContext } from './AppContext'
 
 // Preload images
 importImageManifest()
 
-function App() {
+const ProductList = React.memo(() => {
+	const [{ removedProducts }] = React.useContext(AppContext)
+
 	const products = getMachineCraftableProducts() //.slice(0, 15)
-	// const products = ['item-fluid-canister']
+		.filter(p => !removedProducts.includes(p))
 
-	// console.log({
-	// 	products,
-	// })
+	return (
+		<div>
+			{products.map(p => (
+				<Page key={p}>
+					<Recipe slug={p} />
+				</Page>
+			))}
+		</div>
+	)
+})
 
+function App() {
 	return (
 		<ContextProvider>
 			<FlexRows>
 				<Sidebar />
-				<div>
-					{products.map(p => (
-						<Page key={p}>
-							<Recipe slug={p} />
-						</Page>
-					))}
-				</div>
+				<ProductList />
 			</FlexRows>
 		</ContextProvider>
 	)

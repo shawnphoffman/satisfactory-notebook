@@ -8,6 +8,7 @@ import { getMachineCraftableRecipeDefinitionList } from 'loaders/recipes'
 import SGImageRepo from 'loaders/sgImageRepo'
 
 export const getItemDefinition = memoize((itemSlug: string) => {
+	// console.log(itemSlug)
 	return (ItemJson as any)[itemSlug]
 })
 
