@@ -42,7 +42,9 @@ const Ingredient = memo(({ slug, amount, duration }) => {
 	return (
 		<IngredientContainer key={slug}>
 			<IngredientLabel>
-				{itemDef.icon ? <IngredientIcon src={getItemIcon(slug)} alt={itemDef.name} /> : null}
+				{itemDef.icon ? (
+					<IngredientIcon src={getItemIcon(slug)} alt={itemDef.name} width="30" height="30" />
+				) : null}
 				{cycleAmount && (
 					<span style={{ marginRight: 5 }}>
 						{rate.perCycle}
@@ -115,7 +117,7 @@ const Recipe = ({ slug = 'item-plastic' }) => {
 					</RecipeTitle>
 					<RecipeDescription>{product.description}</RecipeDescription>
 				</div>
-				<Icon alt={product.name} src={getItemIcon(slug)} />
+				<Icon alt={product.name} src={getItemIcon(slug)} width="100" height="100" />
 			</Header>
 			<List>
 				{recipes.map(key => {
