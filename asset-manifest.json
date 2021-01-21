@@ -1,21 +1,25 @@
 {
   "files": {
     "main.css": "/satisfactory-notebook/static/css/main.485afabd.chunk.css",
-    "main.js": "/satisfactory-notebook/static/js/main.45eb6532.chunk.js",
-    "main.js.map": "/satisfactory-notebook/static/js/main.45eb6532.chunk.js.map",
-    "runtime-main.js": "/satisfactory-notebook/static/js/runtime-main.1419833b.js",
-    "runtime-main.js.map": "/satisfactory-notebook/static/js/runtime-main.1419833b.js.map",
-    "static/js/2.09a2fb86.chunk.js": "/satisfactory-notebook/static/js/2.09a2fb86.chunk.js",
-    "static/js/2.09a2fb86.chunk.js.map": "/satisfactory-notebook/static/js/2.09a2fb86.chunk.js.map",
-    "static/js/3.bc60c3b6.chunk.js": "/satisfactory-notebook/static/js/3.bc60c3b6.chunk.js",
-    "static/js/3.bc60c3b6.chunk.js.map": "/satisfactory-notebook/static/js/3.bc60c3b6.chunk.js.map",
-    "static/js/4.ae8d3c7e.chunk.js": "/satisfactory-notebook/static/js/4.ae8d3c7e.chunk.js",
-    "static/js/4.ae8d3c7e.chunk.js.map": "/satisfactory-notebook/static/js/4.ae8d3c7e.chunk.js.map",
-    "static/js/5.5689fc9c.chunk.js": "/satisfactory-notebook/static/js/5.5689fc9c.chunk.js",
-    "static/js/5.5689fc9c.chunk.js.map": "/satisfactory-notebook/static/js/5.5689fc9c.chunk.js.map",
+    "main.js": "/satisfactory-notebook/static/js/main.318b2938.chunk.js",
+    "main.js.map": "/satisfactory-notebook/static/js/main.318b2938.chunk.js.map",
+    "runtime-main.js": "/satisfactory-notebook/static/js/runtime-main.d583d707.js",
+    "runtime-main.js.map": "/satisfactory-notebook/static/js/runtime-main.d583d707.js.map",
+    "static/js/2.f2c9b916.chunk.js": "/satisfactory-notebook/static/js/2.f2c9b916.chunk.js",
+    "static/js/2.f2c9b916.chunk.js.map": "/satisfactory-notebook/static/js/2.f2c9b916.chunk.js.map",
+    "static/js/3.b733842f.chunk.js": "/satisfactory-notebook/static/js/3.b733842f.chunk.js",
+    "static/js/3.b733842f.chunk.js.map": "/satisfactory-notebook/static/js/3.b733842f.chunk.js.map",
+    "static/js/4.757a2c29.chunk.js": "/satisfactory-notebook/static/js/4.757a2c29.chunk.js",
+    "static/js/4.757a2c29.chunk.js.map": "/satisfactory-notebook/static/js/4.757a2c29.chunk.js.map",
+    "static/js/5.b1ba156c.chunk.js": "/satisfactory-notebook/static/js/5.b1ba156c.chunk.js",
+    "static/js/5.b1ba156c.chunk.js.map": "/satisfactory-notebook/static/js/5.b1ba156c.chunk.js.map",
+    "static/js/6.26bdb637.chunk.js": "/satisfactory-notebook/static/js/6.26bdb637.chunk.js",
+    "static/js/6.26bdb637.chunk.js.map": "/satisfactory-notebook/static/js/6.26bdb637.chunk.js.map",
+    "static/js/7.6d2d2a0e.chunk.js": "/satisfactory-notebook/static/js/7.6d2d2a0e.chunk.js",
+    "static/js/7.6d2d2a0e.chunk.js.map": "/satisfactory-notebook/static/js/7.6d2d2a0e.chunk.js.map",
     "index.html": "/satisfactory-notebook/index.html",
     "static/css/main.485afabd.chunk.css.map": "/satisfactory-notebook/static/css/main.485afabd.chunk.css.map",
-    "static/js/2.09a2fb86.chunk.js.LICENSE.txt": "/satisfactory-notebook/static/js/2.09a2fb86.chunk.js.LICENSE.txt",
+    "static/js/2.f2c9b916.chunk.js.LICENSE.txt": "/satisfactory-notebook/static/js/2.f2c9b916.chunk.js.LICENSE.txt",
     "static/media/image-alumina-solution.256.9f7f1401.png": "/satisfactory-notebook/static/media/image-alumina-solution.256.9f7f1401.png",
     "static/media/image-aluminum-ingot.256.b369451b.png": "/satisfactory-notebook/static/media/image-aluminum-ingot.256.b369451b.png",
     "static/media/image-aluminum-plate-reinforced.256.16c1f5a8.png": "/satisfactory-notebook/static/media/image-aluminum-plate-reinforced.256.16c1f5a8.png",
@@ -289,9 +293,9 @@
     "static/media/image-workshop.256.c47cc6a2.png": "/satisfactory-notebook/static/media/image-workshop.256.c47cc6a2.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.1419833b.js",
-    "static/js/2.09a2fb86.chunk.js",
+    "static/js/runtime-main.d583d707.js",
+    "static/js/2.f2c9b916.chunk.js",
     "static/css/main.485afabd.chunk.css",
-    "static/js/main.45eb6532.chunk.js"
+    "static/js/main.318b2938.chunk.js"
   ]
 }
