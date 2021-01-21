@@ -180,6 +180,7 @@ const ListItem = styled.li`
 
 const Logo = styled.img`
 	max-width: 100%;
+	height: auto;
 `
 
 const Reset = styled.li`
