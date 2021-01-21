@@ -1,7 +1,7 @@
 {
 	"name": "satisfactory-notebook",
 	"version": "0.1.0",
-	"homepage": "http://shawnphoffman.github.io/satisfactory-notebook",
+	"homepage": "http://satisfactory-notebook.com",
 	"private": true,
 	"dependencies": {
 		"@sentry/react": "^6.0.0",
