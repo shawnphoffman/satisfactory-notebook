@@ -1,108 +1,53 @@
 import memoize from 'fast-memoize'
 
-// import produce from 'immer';
 import ItemJson from 'data/Items.json'
 
 import { getBuildingImageName } from 'loaders/buildings'
-import { getMachineCraftableRecipeDefinitionList } from 'loaders/recipes'
-import SGImageRepo from 'loaders/sgImageRepo'
+import ImageMap from 'loaders/imageMap'
 
-export const getItemDefinition = memoize((itemSlug: string) => {
-	// console.log(itemSlug)
-	return (ItemJson as any)[itemSlug]
-})
-
-const getItemByTypeFn = (type: string) => {
-	return Object.entries(ItemJson)
-		.filter(([key, value]) => {
-			return value.itemType === type
-		})
-		.map(([key]) => key)
-}
-
-const getResourcesFn = () => {
-	return Object.entries(ItemJson)
-		.filter(([key, value]) => {
-			return value.itemType === 'UFGResourceDescriptor'
-		})
-		.map(([key]) => key)
-}
-
-const getResourcesByFormFn = (resourceForm: number) => {
+//
+export const getResourcesByForm = memoize((resourceForm: number) => {
 	return Object.entries(ItemJson)
 		.filter(([, value]) => {
 			return value.itemType === 'UFGResourceDescriptor' && value.form === resourceForm
 		})
 		.map(([key]) => key)
-}
+})
 
-const getItemListFn = () => {
+//
+export const getItemDefinition = memoize((itemSlug: string) => {
+	// console.log(itemSlug)
+	return (ItemJson as any)[itemSlug]
+})
+
+//
+export const getItemList = memoize(() => {
 	return Object.entries(ItemJson).map(([slug, value]) => {
 		return {
 			...value,
 			slug,
 		}
 	})
-}
+})
 
+//
 export const getItemIcon = memoize((itemSlug: string, size: number = 256) => {
 	const itemImageSlug = `${getBuildingImageName(itemSlug)}.${256}.png`
-
-	const image = SGImageRepo.get(itemImageSlug)
-
+	const image = ImageMap.get(itemImageSlug)
 	if (!image) {
-		// throw new Error('No image found: ' + itemImageSlug);
+		console.log(`No image found for ${itemSlug}`)
 	}
 	return image
 })
 
-const getMachineCraftableItemsFn = () => {
-	return [
-		...new Set(
-			getMachineCraftableRecipeDefinitionList()
-				.map(item => {
-					return [...item.products.map((subItem: any) => subItem.slug)]
-				})
-				.flat()
-		),
-	]
-}
-
+//
 const getAllItemsFn = () => {
 	return ItemJson as Record<string, any>
 }
 
-export const getItemResourceForm = (itemSlug: string) => {
-	return (getAllItemsFn() as Record<string, any>)[itemSlug].form
-}
-
-export const getItemName = (itemSlug: string) => {
-	return (getAllItemsFn() as Record<string, any>)[itemSlug].name
-}
-
+//
 export const getAllItems = memoize(getAllItemsFn)
 
-//
-//
-export const getMachineCraftableItems = memoize(getMachineCraftableItemsFn)
-
-//
-//
-export const getItemByType = memoize(getItemByTypeFn)
-
-//
-//
-export const getResources = memoize(getResourcesFn)
-
-//
-//
-export const getResourcesByForm = memoize(getResourcesByFormFn)
-
-//
-//
-export const getItemList = memoize(getItemListFn)
-
-//
 //
 const getNameSlugMappingFn = () => {
 	const items = getAllItemsFn() as Record<string, any>

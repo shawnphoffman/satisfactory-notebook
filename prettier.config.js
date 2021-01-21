@@ -1,6 +1,6 @@
 module.exports = {
 	// parser: 'babel',
-	printWidth: 100,
+	printWidth: 140,
 	useTabs: true,
 	semi: false,
 	arrowParens: 'avoid',

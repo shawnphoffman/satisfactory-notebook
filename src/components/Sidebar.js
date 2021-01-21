@@ -24,41 +24,30 @@ const SettingCheckbox = memo(({ label, name, checked, onChange, hint }) => (
 ))
 
 //
+const ProductListItem = memo(({ slug, onClick }) => {
+	const product = getItemDefinition(slug)
+	return (
+		<ListItem onClick={() => onClick(slug)}>
+			{product.name} <i className="fas fa-times fa-fw" />
+		</ListItem>
+	)
+})
+
+//
 const Sidebar = () => {
 	const [state, dispatch] = useContext(AppContext)
 
-	const handleFractions = useCallback(e => dispatch({ type: ActionType.TOGGLE_FRACTION }), [
-		dispatch,
-	])
-	const handleDebug = useCallback(e => dispatch({ type: ActionType.TOGGLE_DEBUG }), [dispatch])
-	const handleLeftMargin = useCallback(e => dispatch({ type: ActionType.TOGGLE_LEFT_MARGIN }), [
-		dispatch,
-	])
-	const handleOnePerPage = useCallback(e => dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE }), [
-		dispatch,
-	])
-	const handleCycleAmounts = useCallback(e => dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT }), [
-		dispatch,
-	])
-
-	const handleReturnClick = useCallback(
-		slug => {
-			dispatch({ type: ActionType.RETURN_PRODUCT, slug })
-		},
-		[dispatch]
-	)
-
-	const handleReturnAllClick = useCallback(
-		() => dispatch({ type: ActionType.RETURN_ALL_PRODUCTS }),
-		[dispatch]
-	)
-
-	const { removedProducts } = state
+	const handleFractions = useCallback(e => dispatch({ type: ActionType.TOGGLE_FRACTION }), [dispatch])
+	const handleLeftMargin = useCallback(e => dispatch({ type: ActionType.TOGGLE_LEFT_MARGIN }), [dispatch])
+	const handleOnePerPage = useCallback(e => dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE }), [dispatch])
+	const handleCycleAmounts = useCallback(e => dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT }), [dispatch])
+	const handleReturnClick = useCallback(slug => dispatch({ type: ActionType.RETURN_PRODUCT, slug }), [dispatch])
+	const handleReturnAllClick = useCallback(() => dispatch({ type: ActionType.RETURN_ALL_PRODUCTS }), [dispatch])
 
 	return (
 		<SidebarWrapper>
 			<AppTitle>
-				<img src={logo} alt="Satisfactory Notebook" style={{ maxWidth: '100%' }} />
+				<Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" />
 			</AppTitle>
 
 			<SidebarSection>
@@ -91,15 +80,6 @@ const Sidebar = () => {
 					onChange={handleOnePerPage}
 					hint="Waste ALL the paper"
 				/>
-				{process.env.NODE_ENV === 'development' && (
-					<SettingCheckbox
-						label="Debug Mode"
-						name="debug"
-						checked={state.debug}
-						onChange={handleDebug}
-						hint="You won't find this useful"
-					/>
-				)}
 			</SidebarSection>
 
 			{/*  */}
@@ -120,26 +100,15 @@ const Sidebar = () => {
 				</SectionContent>
 			</SidebarSection>
 
-			{removedProducts.length > 0 && (
+			{state.removedProducts.length > 0 && (
 				<SidebarSection>
 					<SectionHeader icon="fa-filter" label="Filtered Items" />
 					<SectionContent>
 						<ul>
-							<li onClick={handleReturnAllClick} style={{ cursor: 'pointer', color: 'darkred' }}>
-								<strong>Reset All</strong>
-							</li>
-							{removedProducts.map(p => {
-								const product = getItemDefinition(p)
-								return (
-									<li
-										key={p}
-										onClick={() => handleReturnClick(p)}
-										style={{ cursor: 'pointer', color: 'darkred' }}
-									>
-										{product.name} <i className="fas fa-times fa-fw" />
-									</li>
-								)
-							})}
+							<Reset onClick={handleReturnAllClick}>Reset All</Reset>
+							{state.removedProducts.map(p => (
+								<ProductListItem slug={p} key={p} onClick={handleReturnClick} />
+							))}
 						</ul>
 					</SectionContent>
 				</SidebarSection>
@@ -202,4 +171,19 @@ const Hint = styled.div`
 	margin-left: 18px;
 	margin-top: 2px;
 	color: #444;
+`
+
+const ListItem = styled.li`
+	color: darkred;
+	cursor: pointer;
+`
+
+const Logo = styled.img`
+	max-width: 100%;
+`
+
+const Reset = styled.li`
+	color: darkred;
+	cursor: pointer;
+	font-weight: bold;
 `

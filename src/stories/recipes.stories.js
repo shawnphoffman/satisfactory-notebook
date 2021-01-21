@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Page } from 'components/Print'
-import Recipe from 'components/Recipe'
-import RecipeList from 'components/RecipeList'
+import RecipeList from 'components/other/RecipeList'
+import { Page } from 'components/Page'
+import Recipe from 'components/Resource'
 import { getAllItems } from 'loaders/items'
 
 const allItems = getAllItems()

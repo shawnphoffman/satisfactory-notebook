@@ -4,6 +4,11 @@ import styled from 'styled-components'
 import { getItemDefinition, getItemIcon } from 'loaders/items'
 import { getMachineCraftableProducts } from 'loaders/recipes'
 
+const Wrapper = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`
+
 const RecipeList = () => {
 	// Get all the products we can make in machines
 	const products = getMachineCraftableProducts()
@@ -12,7 +17,7 @@ const RecipeList = () => {
 	// const itemNames = Object.keys(items).sort()
 
 	return (
-		<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+		<Wrapper>
 			{products.map(key => {
 				const item = getItemDefinition(key)
 
@@ -30,7 +35,7 @@ const RecipeList = () => {
 					</Card>
 				)
 			})}
-		</div>
+		</Wrapper>
 	)
 }
 

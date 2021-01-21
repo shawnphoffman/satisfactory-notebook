@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Inch, Page } from 'components/Print'
+import Page from 'components/Page'
 
 //
 const storyConfig = {
@@ -11,7 +11,7 @@ export default storyConfig
 export const page = () => (
 	<Page>
 		{[...Array(20)].map((e, i) => (
-			<Inch>{i}</Inch>
+			<div>{i}</div>
 		))}
 	</Page>
 )

@@ -1,42 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Page } from 'components/Print'
-import Recipe from 'components/Recipe'
+import ProductList from 'components/ProductList'
 import Sidebar from 'components/Sidebar'
-import { getMachineCraftableProducts } from 'loaders/recipes'
-import { importImageManifest } from 'loaders/sgImageRepo'
+import { importImageManifest } from 'loaders/imageMap'
 
-import ContextProvider, { AppContext } from './AppContext'
+import ContextProvider from './AppContext'
 
 // Preload images
 importImageManifest()
 
-const ProductList = React.memo(() => {
-	const [{ removedProducts }] = React.useContext(AppContext)
-
-	const products = getMachineCraftableProducts()
-		// .slice(0, 15)
-		.filter(p => !removedProducts.includes(p))
-
-	return (
-		<div>
-			{products.map(p => (
-				<Page key={p}>
-					<Recipe slug={p} />
-				</Page>
-			))}
-		</div>
-	)
-})
-
 function App() {
 	return (
 		<ContextProvider>
-			<FlexRows>
-				<Sidebar />
-				<ProductList />
-			</FlexRows>
+			<React.Suspense fallback={<div>Loading...</div>}>
+				<FlexRows>
+					<Sidebar />
+					<ProductList />
+				</FlexRows>
+			</React.Suspense>
 		</ContextProvider>
 	)
 }

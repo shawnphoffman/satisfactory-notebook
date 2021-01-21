@@ -8,7 +8,7 @@ export function importImageManifest() {
 			'sg' + file.replace('.256.png', '_256').replace(/-/g, '_')
 		]
 		if (entryUrl) {
-			SGImageRepo.set(file, entryUrl)
+			ImageMap.set(file, entryUrl)
 			promises.push(fetch(entryUrl, { cache: 'force-cache' }))
 		}
 	}
@@ -16,6 +16,6 @@ export function importImageManifest() {
 	return Promise.all(promises)
 }
 
-const SGImageRepo = new Map<string, any>()
+const ImageMap = new Map<string, any>()
 
-export default SGImageRepo
+export default ImageMap

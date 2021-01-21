@@ -4,6 +4,11 @@ import styled from 'styled-components'
 import ResourceType from 'enums/ResourceType'
 import { getAllItems, getItemIcon, sortSlugsByName } from 'loaders/items'
 
+const Wrapper = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`
+
 const ResourceList = ({ type }: { type: string }) => {
 	// Get the items
 	const items = getAllItems()
@@ -14,7 +19,7 @@ const ResourceList = ({ type }: { type: string }) => {
 	return (
 		<>
 			<h1>Resources {type ? `(${type})` : null}</h1>
-			<div style={{ display: 'flex', flexWrap: 'wrap' }}>
+			<Wrapper>
 				{itemSlugsSorted.map((key: string) => {
 					const item = items[key]
 
@@ -34,7 +39,7 @@ const ResourceList = ({ type }: { type: string }) => {
 						</Card>
 					)
 				})}
-			</div>
+			</Wrapper>
 		</>
 	)
 }

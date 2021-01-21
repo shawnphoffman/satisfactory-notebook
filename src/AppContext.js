@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react'
 
 const initialState = {
 	fractions: false,
-	debug: false,
+	// debug: false,
 	padLeftMargin: false,
 	onePerPage: true,
 	cycleAmount: false,
@@ -11,7 +11,7 @@ const initialState = {
 
 export const ActionType = {
 	TOGGLE_FRACTION: 'TOGGLE_FRACTION',
-	TOGGLE_DEBUG: 'TOGGLE_DEBUG',
+	// TOGGLE_DEBUG: 'TOGGLE_DEBUG',
 	TOGGLE_CYCLE_AMOUNT: 'TOGGLE_CYCLE_AMOUNT',
 	TOGGLE_LEFT_MARGIN: 'TOGGLE_LEFT_MARGIN',
 	TOGGLE_ONE_PER_PAGE: 'TOGGLE_ONE_PER_PAGE',
@@ -29,11 +29,11 @@ const reducer = (state, action) => {
 				...state,
 				fractions: !state.fractions,
 			}
-		case ActionType.TOGGLE_DEBUG:
-			return {
-				...state,
-				debug: !state.debug,
-			}
+		// case ActionType.TOGGLE_DEBUG:
+		// 	return {
+		// 		...state,
+		// 		debug: !state.debug,
+		// 	}
 		case ActionType.TOGGLE_LEFT_MARGIN:
 			return {
 				...state,

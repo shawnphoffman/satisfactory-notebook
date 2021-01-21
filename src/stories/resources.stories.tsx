@@ -1,6 +1,6 @@
-import ResourceList from 'components/ResourceList'
+import ResourceList from 'components/other/ResourceList'
 import ResourceType from 'enums/ResourceType'
-import { importImageManifest } from 'loaders/sgImageRepo'
+import { importImageManifest } from 'loaders/imageMap'
 
 // Preload images
 importImageManifest()
