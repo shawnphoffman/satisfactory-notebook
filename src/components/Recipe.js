@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { getBuildingName } from 'loaders/buildings'
 import { getRecipeDefinition, handcraftingProducers } from 'loaders/recipes'
 
-import Ingredient from './Ingredient'
+const Ingredient = React.lazy(() => import('components/Ingredient'))
 
 const Recipe = ({ slug }) => {
 	const recipe = getRecipeDefinition(slug)

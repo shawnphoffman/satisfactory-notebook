@@ -1,11 +1,7 @@
 import React from 'react'
 
-import RecipeList from 'components/other/RecipeList'
 import { Page } from 'components/Page'
 import Recipe from 'components/Resource'
-import { getAllItems } from 'loaders/items'
-
-const allItems = getAllItems()
 
 //
 const storyConfig = {
@@ -24,11 +20,8 @@ recipe.argTypes = {
 	slug: {
 		control: {
 			type: 'select',
-			options: Object.keys(allItems).sort(),
+			// options: Object.keys(allItems).sort(),
 		},
 		// defaultValue: Object.keys(allItems).sort()[0],
 	},
 }
-
-//
-export const recipeList = RecipeList

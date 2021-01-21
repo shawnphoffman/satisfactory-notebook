@@ -4,7 +4,7 @@ import Page from 'components/Page'
 
 //
 const storyConfig = {
-	title: 'Print',
+	title: 'Page',
 }
 export default storyConfig
 

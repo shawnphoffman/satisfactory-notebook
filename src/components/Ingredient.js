@@ -10,14 +10,13 @@ import Fraction from './Fraction'
 const imageSize = 30
 
 //
-const Rate = ({ perMinFraction, perMin }) => {
+const Rate = memo(({ perMinFraction, perMin }) => {
 	const [{ fractions }] = useContext(AppContext)
 	return <strong>{fractions ? <Fraction fraction={perMinFraction} /> : perMin}</strong>
-}
-const RateMemo = memo(Rate)
+})
 
 //
-const CycleRate = ({ perCycle, perCycleLabel }) => {
+const CycleRate = memo(({ perCycle, perCycleLabel }) => {
 	const [{ cycleAmount }] = useContext(AppContext)
 	if (!cycleAmount) return null
 	return (
@@ -26,8 +25,7 @@ const CycleRate = ({ perCycle, perCycleLabel }) => {
 			{perCycleLabel}
 		</CycleAmount>
 	)
-}
-const CycleRateMemo = memo(CycleRate)
+})
 
 //
 const Ingredient = ({ slug, amount, duration }) => {
@@ -37,14 +35,12 @@ const Ingredient = ({ slug, amount, duration }) => {
 	return (
 		<Wrapper key={slug}>
 			<Header>
-				{itemDef.icon ? (
-					<Image src={getItemIcon(slug)} alt={itemDef.name} width={imageSize} height={imageSize} />
-				) : null}
-				<CycleRateMemo perCycleLabel={rate.perCycleLabel} perCycle={rate.perCycle} />
+				{itemDef.icon ? <Image src={getItemIcon(slug)} alt={itemDef.name} width={imageSize} height={imageSize} /> : null}
+				<CycleRate perCycleLabel={rate.perCycleLabel} perCycle={rate.perCycle} />
 				<Name href={`#${slug}`}>{itemDef.name}</Name>
 			</Header>
 			<Quantity>
-				<RateMemo perMin={rate.perMin} perMinFraction={rate.perMinFraction} />
+				<Rate perMin={rate.perMin} perMinFraction={rate.perMinFraction} />
 				<small>{rate.perMinLabel}</small>
 			</Quantity>
 		</Wrapper>

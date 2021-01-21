@@ -6,28 +6,8 @@ import { getBuildingImageName } from 'loaders/buildings'
 import ImageMap from 'loaders/imageMap'
 
 //
-export const getResourcesByForm = memoize((resourceForm: number) => {
-	return Object.entries(ItemJson)
-		.filter(([, value]) => {
-			return value.itemType === 'UFGResourceDescriptor' && value.form === resourceForm
-		})
-		.map(([key]) => key)
-})
-
-//
 export const getItemDefinition = memoize((itemSlug: string) => {
-	// console.log(itemSlug)
 	return (ItemJson as any)[itemSlug]
-})
-
-//
-export const getItemList = memoize(() => {
-	return Object.entries(ItemJson).map(([slug, value]) => {
-		return {
-			...value,
-			slug,
-		}
-	})
 })
 
 //
@@ -41,29 +21,24 @@ export const getItemIcon = memoize((itemSlug: string, size: number = 256) => {
 })
 
 //
-const getAllItemsFn = () => {
+const getAllItems = memoize(() => {
 	return ItemJson as Record<string, any>
-}
+})
 
 //
-export const getAllItems = memoize(getAllItemsFn)
-
-//
-const getNameSlugMappingFn = () => {
-	const items = getAllItemsFn() as Record<string, any>
+const getNameSlugMapping = memoize(() => {
+	const items = getAllItems() as Record<string, any>
 
 	return Object.keys(items).reduce((memo, slug) => {
 		memo[slug] = items[slug].name
 
 		return memo
 	}, {} as Record<string, any>)
-}
-// export const getNameSlugMapping = memoize(getNameSlugMappingFn)
+})
 
 //
-//
-const sortSlugsByNameFn = (slugs: string[]) => {
-	const mapping = getNameSlugMappingFn()
+export const sortSlugsByName = memoize((slugs: string[]) => {
+	const mapping = getNameSlugMapping()
 
 	return slugs.sort((a, b) => {
 		if (mapping[a] > mapping[b]) return 1
@@ -72,5 +47,4 @@ const sortSlugsByNameFn = (slugs: string[]) => {
 
 		return 0
 	})
-}
-export const sortSlugsByName = memoize(sortSlugsByNameFn)
+})

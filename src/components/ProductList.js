@@ -7,6 +7,8 @@ import { AppContext } from '../AppContext'
 const Resource = React.lazy(() => import('components/Resource'))
 const Page = React.lazy(() => import('components/Page'))
 
+// TODO - Change overall JSON strategy to async/await with useEffect
+
 const ProductList = () => {
 	const [{ removedProducts }] = React.useContext(AppContext)
 

@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import { getItemDefinition, getItemIcon } from 'loaders/items'
 import { getRecipeDefinition, getRecipesByItemProduct, handcraftingProducers, sortRecipesByName } from 'loaders/recipes'
 
-import Recipe from './Recipe'
+// import Recipe from './Recipe'
 import RemoveIcon from './RemoveIcon'
+
+const Recipe = React.lazy(() => import('components/Recipe'))
 
 const imageSize = 100
 
