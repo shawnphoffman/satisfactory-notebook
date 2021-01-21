@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useContext } from 'react'
+import * as Sentry from '@sentry/react'
 import styled from 'styled-components'
 
 import { getItemDefinition } from 'loaders/items'
@@ -37,12 +38,75 @@ const ProductListItem = memo(({ slug, onClick }) => {
 const Sidebar = () => {
 	const [state, dispatch] = useContext(AppContext)
 
-	const handleFractions = useCallback(e => dispatch({ type: ActionType.TOGGLE_FRACTION }), [dispatch])
-	const handleLeftMargin = useCallback(e => dispatch({ type: ActionType.TOGGLE_LEFT_MARGIN }), [dispatch])
-	const handleOnePerPage = useCallback(e => dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE }), [dispatch])
-	const handleCycleAmounts = useCallback(e => dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT }), [dispatch])
-	const handleReturnClick = useCallback(slug => dispatch({ type: ActionType.RETURN_PRODUCT, slug }), [dispatch])
-	const handleReturnAllClick = useCallback(() => dispatch({ type: ActionType.RETURN_ALL_PRODUCTS }), [dispatch])
+	const handleFractions = useCallback(
+		e => {
+			dispatch({ type: ActionType.TOGGLE_FRACTION })
+
+			Sentry.addBreadcrumb({
+				category: 'setting-change',
+				message: 'Fraction changed',
+				level: Sentry.Severity.Info,
+			})
+		},
+		[dispatch]
+	)
+	const handleLeftMargin = useCallback(
+		e => {
+			dispatch({ type: ActionType.TOGGLE_LEFT_MARGIN })
+
+			Sentry.addBreadcrumb({
+				category: 'setting-change',
+				message: 'Left-margin changed',
+				level: Sentry.Severity.Info,
+			})
+		},
+		[dispatch]
+	)
+	const handleOnePerPage = useCallback(
+		e => {
+			dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE })
+
+			Sentry.addBreadcrumb({
+				category: 'setting-change',
+				message: 'One-per-page changed',
+				level: Sentry.Severity.Info,
+			})
+		},
+		[dispatch]
+	)
+	const handleCycleAmounts = useCallback(
+		e => {
+			dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT })
+
+			Sentry.addBreadcrumb({
+				category: 'setting-change',
+				message: 'Cycle-amounts changed',
+				level: Sentry.Severity.Info,
+			})
+		},
+		[dispatch]
+	)
+	const handleReturnClick = useCallback(
+		slug => {
+			dispatch({ type: ActionType.RETURN_PRODUCT, slug })
+
+			Sentry.addBreadcrumb({
+				category: 'product-returned',
+				message: `Returned: ${slug}`,
+				level: Sentry.Severity.Info,
+			})
+		},
+		[dispatch]
+	)
+	const handleReturnAllClick = useCallback(() => {
+		dispatch({ type: ActionType.RETURN_ALL_PRODUCTS })
+
+		Sentry.addBreadcrumb({
+			category: 'all-products-returned',
+			message: 'Returned all products',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatch])
 
 	return (
 		<SidebarWrapper>
