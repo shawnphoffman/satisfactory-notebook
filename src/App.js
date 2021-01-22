@@ -43,6 +43,7 @@ export default App
 const FlexRows = styled.div`
 	display: flex;
 	flex-direction: row;
+	background: white;
 
 	@media (max-width: 600px) {
 		flex-direction: column;
