@@ -130,39 +130,43 @@ const Sidebar = () => {
 					onChange={handleCycleAmounts}
 					hint="Include per cycle inputs/outputs"
 				/>
-				<SettingCheckbox
-					label="Pad Left Margin"
-					name="leftMargin"
-					checked={state.padLeftMargin}
-					onChange={handleLeftMargin}
-					hint="To account for punched holes"
-				/>
-				<SettingCheckbox
-					label="One Recipe Per Page"
-					name="onePerPage"
-					checked={state.onePerPage}
-					onChange={handleOnePerPage}
-					hint="Waste ALL the paper"
-				/>
+				<HideMobile>
+					<SettingCheckbox
+						label="Pad Left Margin"
+						name="leftMargin"
+						checked={state.padLeftMargin}
+						onChange={handleLeftMargin}
+						hint="To account for punched holes"
+					/>
+					<SettingCheckbox
+						label="One Recipe Per Page"
+						name="onePerPage"
+						checked={state.onePerPage}
+						onChange={handleOnePerPage}
+						hint="Waste ALL the paper"
+					/>
+				</HideMobile>
 			</SidebarSection>
 
 			{/*  */}
-			<SidebarSection>
-				<SectionHeader icon="fa-print" label="Print Settings" />
-				<SectionContent>
-					<ul>
-						<li>
-							<strong>Margins:</strong> None
-						</li>
-						<li>
-							<strong>Scale:</strong> 100
-						</li>
-						<li>
-							<strong>Background Graphics:</strong> ✅️
-						</li>
-					</ul>
-				</SectionContent>
-			</SidebarSection>
+			<HideMobile>
+				<SidebarSection>
+					<SectionHeader icon="fa-print" label="Print Settings" />
+					<SectionContent>
+						<ul>
+							<li>
+								<strong>Margins:</strong> None
+							</li>
+							<li>
+								<strong>Scale:</strong> 100
+							</li>
+							<li>
+								<strong>Background Graphics:</strong> ✅️
+							</li>
+						</ul>
+					</SectionContent>
+				</SidebarSection>
+			</HideMobile>
 
 			{state.removedProducts.length > 0 && (
 				<SidebarSection>
@@ -251,4 +255,10 @@ const Reset = styled.li`
 	color: darkred;
 	cursor: pointer;
 	font-weight: bold;
+`
+
+const HideMobile = styled.div`
+	@media (max-width: 400px) {
+		display: none;
+	}
 `
