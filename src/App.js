@@ -1,14 +1,24 @@
 import React from 'react'
+import * as Sentry from '@sentry/react'
 import styled from 'styled-components'
 
+import Error from 'components/Error'
+import Loading from 'components/Loading'
 import { importImageManifest } from 'loaders/imageMap'
 
 import ContextProvider from './AppContext'
 
+// const ProductList = React.lazy(() => {
+// 	return Promise.all([
+// 		import('components/ProductList'),
+// 		new Promise(resolve => {
+// 			setTimeout(() => {}, 3000)
+// 			// setTimeout(resolve, 3000)
+// 		}),
+// 	]).then(([module]) => module)
+// })
 const ProductList = React.lazy(() => import('components/ProductList'))
 const Sidebar = React.lazy(() => import('components/Sidebar'))
-// import ProductList from 'components/ProductList'
-// import Sidebar from 'components/Sidebar'
 
 // Preload images
 importImageManifest()
@@ -16,11 +26,13 @@ importImageManifest()
 function App() {
 	return (
 		<ContextProvider>
-			<React.Suspense fallback={<div>Loading...</div>}>
-				<FlexRows>
-					<Sidebar />
-					<ProductList />
-				</FlexRows>
+			<React.Suspense fallback={<Loading />}>
+				<Sentry.ErrorBoundary fallback={<Error />} showDialog={false}>
+					<FlexRows>
+						<Sidebar />
+						<ProductList />
+					</FlexRows>
+				</Sentry.ErrorBoundary>
 			</React.Suspense>
 		</ContextProvider>
 	)
