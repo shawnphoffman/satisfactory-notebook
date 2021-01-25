@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import * as Sentry from '@sentry/react'
 import styled from 'styled-components'
 
 import Page from 'components/Page'
@@ -20,6 +21,13 @@ const Resource = React.lazy(() => import('components/Resource'))
 
 // TODO - Change overall JSON strategy to async/await with useEffect
 
+const ResourceFallback = ({ slug }) => (
+	<ErrorWrapper>
+		<i className="fa fa-bomb" />
+		<span> An error occurred trying to render "{slug}". It has been reported and we will look into it.</span>
+	</ErrorWrapper>
+)
+
 const ProductList = () => {
 	const [{ removedProducts }] = React.useContext(AppContext)
 
@@ -36,7 +44,9 @@ const ProductList = () => {
 			{products.map(p => (
 				<Page key={p} id="page">
 					<React.Suspense fallback={<Skeleton />}>
-						<Resource slug={p} />
+						<Sentry.ErrorBoundary fallback={<ResourceFallback slug={p} />}>
+							<Resource slug={p} />
+						</Sentry.ErrorBoundary>
 					</React.Suspense>
 				</Page>
 			))}
@@ -64,5 +74,13 @@ const Skeleton = styled.div`
 		width: 150px;
 		background: linear-gradient(to right, transparent 0%, #e8e8e8 50%, transparent 100%);
 		animation: load 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	}
+`
+
+const ErrorWrapper = styled.div`
+	color: #606060;
+
+	@media print {
+		display: none;
 	}
 `
