@@ -204,6 +204,7 @@ const SidebarWrapper = styled.div`
 	top: 0;
 	height: 100vh;
 	padding: 10px;
+	box-sizing: content-box;
 
 	@media print {
 		display: none;

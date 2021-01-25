@@ -12,8 +12,8 @@ import ContextProvider from './AppContext'
 // 	return Promise.all([
 // 		import('components/ProductList'),
 // 		new Promise(resolve => {
-// 			setTimeout(() => {}, 3000)
-// 			// setTimeout(resolve, 3000)
+// 			// setTimeout(() => {}, 3000)
+// 			setTimeout(resolve, 1000)
 // 		}),
 // 	]).then(([module]) => module)
 // })
@@ -30,7 +30,9 @@ function App() {
 				<Sentry.ErrorBoundary fallback={<Error />} showDialog={false}>
 					<FlexRows>
 						<Sidebar />
+						{/* <React.Suspense fallback={<div>Loading ProductList...</div>}> */}
 						<ProductList />
+						{/* </React.Suspense> */}
 					</FlexRows>
 				</Sentry.ErrorBoundary>
 			</React.Suspense>

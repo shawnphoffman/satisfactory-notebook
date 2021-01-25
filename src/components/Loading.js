@@ -3,8 +3,6 @@ import styled from 'styled-components'
 
 const Cog = styled.div`
 	margin-right: 5px;
-	/* --fa-primary-color: #ffb94c;
-	--fa-secondary-color: #606060; */
 	--fa-secondary-color: #ffb94c;
 	--fa-primary-color: #606060;
 	--fa-secondary-opacity: 1;

@@ -46,3 +46,12 @@ a {
 		text-decoration: underline;
 	}
 }
+
+@keyframes load {
+	from {
+			left: -150px;
+	}
+	to   {
+			left: 100%;
+	}
+}
