@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 import styled from 'styled-components'
 
+// const Ingredient = React.lazy(() => import('components/Ingredient'))
+import Ingredient from 'components/Ingredient'
 import { getBuildingName } from 'loaders/buildings'
 import { getRecipeDefinition, handcraftingProducers } from 'loaders/recipes'
-
-const Ingredient = React.lazy(() => import('components/Ingredient'))
 
 const Recipe = ({ slug }) => {
 	const recipe = getRecipeDefinition(slug)
