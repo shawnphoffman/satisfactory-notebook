@@ -27,7 +27,7 @@ function App() {
 	return (
 		<ContextProvider>
 			<React.Suspense fallback={<Loading />}>
-				<Sentry.ErrorBoundary fallback={<Error />} showDialog={false}>
+				<Sentry.ErrorBoundary fallback={<Error />} showDialog={true}>
 					<FlexRows>
 						<Sidebar />
 						{/* <React.Suspense fallback={<div>Loading ProductList...</div>}> */}
