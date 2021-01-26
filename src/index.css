@@ -12,6 +12,8 @@
 
 html {
 	margin: 0px;
+	/* From normalize */
+	line-height: 1.15;
 }
 
 body {
@@ -54,4 +56,19 @@ a {
 	to   {
 			left: 100%;
 	}
+}
+
+/* Normalize overrides */
+[type=checkbox], [type=radio] {
+	box-sizing: border-box;
+	padding: 0;
+}
+button, input {
+	overflow: visible;
+}
+button, input, optgroup, select, textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
 }
