@@ -10,6 +10,6 @@ When you prefer paper printouts to digital recipes.
 
 # Credits and Inspiration
 
-- Font by ![Satisfontary](https://natewren.com/satisfontory/)
-- Inspired by ![Satisgraphtory](https://satisgraphtory.com/)
-- Inspired by ![Satisfactory Calculator](http://satisfactory-calculator.com/)
+- Font by [Satisfontary](https://natewren.com/satisfontory/)
+- Inspired by [Satisgraphtory](https://satisgraphtory.com/)
+- Inspired by [Satisfactory Calculator](http://satisfactory-calculator.com/)
