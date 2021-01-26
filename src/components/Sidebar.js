@@ -181,6 +181,10 @@ const Sidebar = () => {
 					</SectionContent>
 				</SidebarSection>
 			)}
+			<Disclaimer>
+				Assets come from Satisfactory or from websites created and owned by Coffee Stain Studios. All copyright and registered trademarks
+				present in the images are proprietary to Coffee Stain Studios.
+			</Disclaimer>
 		</SidebarWrapper>
 	)
 }
@@ -204,7 +208,10 @@ const SidebarWrapper = styled.div`
 	top: 0;
 	height: 100vh;
 	padding: 10px;
-	box-sizing: content-box;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 
 	@media print {
 		display: none;
@@ -259,7 +266,27 @@ const Reset = styled.li`
 `
 
 const HideMobile = styled.div`
-	@media (max-width: 400px) {
+	@media (max-width: 600px) {
+		display: none;
+	}
+`
+
+const Disclaimer = styled.div`
+	width: 240px;
+	font-size: 11px;
+	color: #555;
+	line-height: 1.4;
+	font-style: italic;
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+
+	@media print {
+		display: none;
+	}
+
+	@media (max-width: 600px) {
 		display: none;
 	}
 `
