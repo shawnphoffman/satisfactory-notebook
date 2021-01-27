@@ -25,5 +25,6 @@ yarn-error.log*
 # local
 .eslintcache
 .env
-/src/.**
 /raw
+/src/.spritesmith-generated
+/src/.linaria_cache
