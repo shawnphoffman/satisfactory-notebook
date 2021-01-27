@@ -87,7 +87,8 @@ const Sidebar = () => {
 	return (
 		<SidebarWrapper>
 			<div>
-				<Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" />
+				{/* <Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" /> */}
+				<Logo src={`${process.env.REACT_APP_STATIC_PATH || ''}${logo}`} alt="Satisfactory Notebook" width="260" height="81" />
 			</div>
 
 			<SidebarSection>

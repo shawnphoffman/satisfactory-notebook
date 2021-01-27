@@ -19,6 +19,7 @@ jobs:
         env:
           REACT_APP_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
           IMAGE_INLINE_SIZE_LIMIT: 0
+          REACT_APP_STATIC_PATH: 'https://d1ba7e9b4ql0yd.cloudfront.net/satisfactory-notebook'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
@@ -39,5 +40,6 @@ jobs:
           SENTRY_PROJECT: satisfactory-notebook
           REACT_APP_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
           IMAGE_INLINE_SIZE_LIMIT: 0
+          REACT_APP_STATIC_PATH: 'https://d1ba7e9b4ql0yd.cloudfront.net/satisfactory-notebook'
         with:
           environment: production

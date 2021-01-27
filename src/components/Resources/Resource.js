@@ -50,7 +50,9 @@ const Resource = ({ slug }) => {
 					</Title>
 					<Description>{product.description}</Description>
 				</Details>
-				{iconSrc && <Image alt={product.name} src={iconSrc} width={imageSize} height={imageSize} />}
+				{iconSrc && (
+					<Image alt={product.name} src={`${process.env.REACT_APP_STATIC_PATH || ''}${iconSrc}`} width={imageSize} height={imageSize} />
+				)}
 			</Header>
 			<div>
 				{recipes.map(key => (

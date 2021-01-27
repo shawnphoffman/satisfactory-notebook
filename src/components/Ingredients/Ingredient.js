@@ -17,7 +17,14 @@ const Ingredient = ({ slug, amount, duration }) => {
 	return (
 		<Wrapper key={slug}>
 			<Header>
-				{itemDef.icon ? <Image src={getItemIcon(slug)} alt={itemDef.name} width={imageSize} height={imageSize} /> : null}
+				{itemDef.icon ? (
+					<Image
+						src={`${process.env.REACT_APP_STATIC_PATH || ''}${getItemIcon(slug)}`}
+						alt={itemDef.name}
+						width={imageSize}
+						height={imageSize}
+					/>
+				) : null}
 				<CycleRate perCycleLabel={rate.perCycleLabel} perCycle={rate.perCycle} />
 				<Name href={`#${slug}`}>{itemDef.name}</Name>
 			</Header>
