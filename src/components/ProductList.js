@@ -24,7 +24,7 @@ const ProductList = () => {
 	const products = React.useMemo(
 		() =>
 			getMachineCraftableProducts()
-				.slice(0, 1)
+				// .slice(0, 1)
 				.filter(p => !removedProducts.includes(p)),
 		[removedProducts]
 	)

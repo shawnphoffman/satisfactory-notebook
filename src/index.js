@@ -12,7 +12,7 @@ import reportWebVitals from './reportWebVitals'
 if (process.env.NODE_ENV === 'development') {
 	const whyDidYouRender = require('@welldone-software/why-did-you-render')
 	whyDidYouRender(React, {
-		logOnDifferentValues: true,
+		// logOnDifferentValues: true,
 		trackAllPureComponents: true,
 		trackHooks: true,
 	})
