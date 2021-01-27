@@ -21,7 +21,9 @@ const ProductList = React.lazy(() => import('components/ProductList'))
 const Sidebar = React.lazy(() => import('components/Sidebar/Sidebar'))
 
 // Preload images
-importImageManifest()
+if (process.env.NODE_ENV === 'development') {
+	importImageManifest()
+}
 
 function App() {
 	return (
