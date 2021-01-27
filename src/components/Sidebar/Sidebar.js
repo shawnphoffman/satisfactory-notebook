@@ -1,46 +1,22 @@
 import React, { memo, useCallback, useContext } from 'react'
+import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
-import styled from 'styled-components'
 
-import { getItemDefinition } from 'loaders/items'
-
-import { ActionType, AppContext } from '../AppContext'
+import { ProductAction, ProductContext } from '../../context/ProductContext'
+import { RecipeAction, RecipeContext } from '../../context/RecipeContext'
 import logo from './logo.png'
-
-//
-const SectionHeader = memo(({ icon, label }) => (
-	<HeaderWrapper>
-		<i className={`fas ${icon} fa-fw`}></i>
-		<span> {label}</span>
-	</HeaderWrapper>
-))
-
-//
-const SettingCheckbox = memo(({ label, name, checked, onChange, hint }) => (
-	<InputContainer>
-		<input id={name} name={name} type="checkbox" checked={checked} onChange={onChange} />
-		<label htmlFor={name}>{label}</label>
-		{hint && <Hint>{hint}</Hint>}
-	</InputContainer>
-))
-
-//
-const ProductListItem = memo(({ slug, onClick }) => {
-	const product = getItemDefinition(slug)
-	return (
-		<ListItem onClick={() => onClick(slug)}>
-			{product.name} <i className="fas fa-times fa-fw" />
-		</ListItem>
-	)
-})
+import ProductListItem from './ProductListItem'
+import SectionHeader from './SectionHeader'
+import SettingCheckbox from './SettingCheckbox'
 
 //
 const Sidebar = () => {
-	const [state, dispatch] = useContext(AppContext)
+	const [stateProduct, dispatchProduct] = useContext(ProductContext)
+	const [stateRecipe, dispatchRecipe] = useContext(RecipeContext)
 
 	const handleFractions = useCallback(
 		e => {
-			dispatch({ type: ActionType.TOGGLE_FRACTION })
+			dispatchRecipe({ type: RecipeAction.TOGGLE_FRACTION })
 
 			Sentry.addBreadcrumb({
 				category: 'setting-change',
@@ -48,11 +24,11 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 		},
-		[dispatch]
+		[dispatchRecipe]
 	)
 	const handleLeftMargin = useCallback(
 		e => {
-			dispatch({ type: ActionType.TOGGLE_LEFT_MARGIN })
+			dispatchProduct({ type: ProductAction.TOGGLE_LEFT_MARGIN })
 
 			Sentry.addBreadcrumb({
 				category: 'setting-change',
@@ -60,11 +36,11 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 		},
-		[dispatch]
+		[dispatchProduct]
 	)
 	const handleOnePerPage = useCallback(
 		e => {
-			dispatch({ type: ActionType.TOGGLE_ONE_PER_PAGE })
+			dispatchProduct({ type: ProductAction.TOGGLE_ONE_PER_PAGE })
 
 			Sentry.addBreadcrumb({
 				category: 'setting-change',
@@ -72,11 +48,11 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 		},
-		[dispatch]
+		[dispatchProduct]
 	)
 	const handleCycleAmounts = useCallback(
 		e => {
-			dispatch({ type: ActionType.TOGGLE_CYCLE_AMOUNT })
+			dispatchRecipe({ type: RecipeAction.TOGGLE_CYCLE_AMOUNT })
 
 			Sentry.addBreadcrumb({
 				category: 'setting-change',
@@ -84,11 +60,11 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 		},
-		[dispatch]
+		[dispatchRecipe]
 	)
 	const handleReturnClick = useCallback(
 		slug => {
-			dispatch({ type: ActionType.RETURN_PRODUCT, slug })
+			dispatchProduct({ type: ProductAction.RETURN_PRODUCT, slug })
 
 			Sentry.addBreadcrumb({
 				category: 'product-returned',
@@ -96,37 +72,37 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 		},
-		[dispatch]
+		[dispatchProduct]
 	)
 	const handleReturnAllClick = useCallback(() => {
-		dispatch({ type: ActionType.RETURN_ALL_PRODUCTS })
+		dispatchProduct({ type: ProductAction.RETURN_ALL_PRODUCTS })
 
 		Sentry.addBreadcrumb({
 			category: 'all-products-returned',
 			message: 'Returned all products',
 			level: Sentry.Severity.Info,
 		})
-	}, [dispatch])
+	}, [dispatchProduct])
 
 	return (
 		<SidebarWrapper>
-			<AppTitle>
+			<div>
 				<Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" />
-			</AppTitle>
+			</div>
 
 			<SidebarSection>
 				<SectionHeader icon="fa-cog" label="Settings" />
 				<SettingCheckbox
 					label="Use Fractions"
 					name="fractions"
-					checked={state.checked}
+					checked={stateRecipe.checked}
 					onChange={handleFractions}
 					hint="Conversions are hard"
 				/>
 				<SettingCheckbox
 					label="Show Cycle Amounts"
 					name="cycleAmount"
-					checked={state.cycleAmount}
+					checked={stateRecipe.cycleAmount}
 					onChange={handleCycleAmounts}
 					hint="Include per cycle inputs/outputs"
 				/>
@@ -134,14 +110,14 @@ const Sidebar = () => {
 					<SettingCheckbox
 						label="Pad Left Margin"
 						name="leftMargin"
-						checked={state.padLeftMargin}
+						checked={stateProduct.padLeftMargin}
 						onChange={handleLeftMargin}
 						hint="To account for punched holes"
 					/>
 					<SettingCheckbox
 						label="One Recipe Per Page"
 						name="onePerPage"
-						checked={state.onePerPage}
+						checked={stateProduct.onePerPage}
 						onChange={handleOnePerPage}
 						hint="Waste ALL the paper"
 					/>
@@ -168,13 +144,13 @@ const Sidebar = () => {
 				</SidebarSection>
 			</HideMobile>
 
-			{state.removedProducts.length > 0 && (
+			{stateProduct.removedProducts.length > 0 && (
 				<SidebarSection>
 					<SectionHeader icon="fa-filter" label="Filtered Items" />
 					<SectionContent>
 						<ul>
 							<Reset onClick={handleReturnAllClick}>Reset All</Reset>
-							{state.removedProducts.map(p => (
+							{stateProduct.removedProducts.map(p => (
 								<ProductListItem slug={p} key={p} onClick={handleReturnClick} />
 							))}
 						</ul>
@@ -191,17 +167,11 @@ const Sidebar = () => {
 
 export default memo(Sidebar)
 
-const HeaderWrapper = styled.div`
-	margin: 18px 0 12px 0;
-	font-weight: bold;
-`
-
 const SidebarSection = styled.div`
 	margin: 6px 0;
 `
 
 const SidebarWrapper = styled.div`
-	/* width: 300px; */
 	min-width: 260px;
 	background: #bbb;
 	position: sticky;
@@ -225,33 +195,9 @@ const SidebarWrapper = styled.div`
 	}
 `
 
-const AppTitle = styled.div`
-	/* font-weight: bold;
-	font-size: 22px;
-	margin-bottom: 6px; */
-`
-
-const InputContainer = styled.div`
-	margin: 12px 0 12px 18px;
-	font-size: 0.9em;
-`
-
 const SectionContent = styled.div`
 	font-size: 0.8em;
 	margin: 12px 0 12px 18px;
-`
-
-const Hint = styled.div`
-	font-size: 0.8em;
-	font-style: italic;
-	margin-left: 18px;
-	margin-top: 2px;
-	color: #444;
-`
-
-const ListItem = styled.li`
-	color: darkred;
-	cursor: pointer;
 `
 
 const Logo = styled.img`

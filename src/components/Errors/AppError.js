@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
 const Wrapper = styled.div`
-	/* font-size: 0.8em; */
 	height: 100vh;
 	width: 100vw;
 	display: flex;

@@ -1,31 +1,13 @@
-import React, { memo, useContext } from 'react'
-import styled from 'styled-components'
+import React, { memo } from 'react'
+import { styled } from '@linaria/react'
 
 import { getItemDefinition, getItemIcon } from 'loaders/items'
 import { calculateRate } from 'loaders/recipes'
 
-import { AppContext } from '../AppContext'
-import Fraction from './Fraction'
+import CycleRate from './CycleRate'
+import Rate from './Rate'
 
 const imageSize = 30
-
-//
-const Rate = memo(({ perMinFraction, perMin }) => {
-	const [{ fractions }] = useContext(AppContext)
-	return <strong>{fractions ? <Fraction fraction={perMinFraction} /> : perMin}</strong>
-})
-
-//
-const CycleRate = memo(({ perCycle, perCycleLabel }) => {
-	const [{ cycleAmount }] = useContext(AppContext)
-	if (!cycleAmount) return null
-	return (
-		<CycleAmount>
-			{perCycle}
-			{perCycleLabel}
-		</CycleAmount>
-	)
-})
 
 //
 const Ingredient = ({ slug, amount, duration }) => {
@@ -76,10 +58,6 @@ const Image = styled.img`
 
 const Name = styled.a`
 	padding-right: 3px;
-`
-
-const CycleAmount = styled.span`
-	margin-right: 5px;
 `
 
 const Quantity = styled.div`

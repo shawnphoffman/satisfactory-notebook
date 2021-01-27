@@ -10,7 +10,7 @@ module.exports = {
 					['^react$', '^react', '^@?\\w'],
 					['^(.data-landing)(/.*)'],
 					['^(@root|types|data)(/.*)'],
-					['^(components|enums|images|loaders|utils)(/.*)'],
+					['^(components|enums|images|loaders|utils|context)(/.*)'],
 					[('^\\.\\.(?!/?$)', '^\\.\\./?$')],
 					['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
 				],

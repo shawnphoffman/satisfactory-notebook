@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Page } from 'components/Page'
-import Recipe from 'components/Resource'
+import Recipe from 'components/Resources/Resource'
 
 //
 const storyConfig = {

@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
 const SmallPart = styled.span`
 	font-size: 0.8em;

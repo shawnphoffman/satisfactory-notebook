@@ -1,14 +1,14 @@
 import React, { memo, useCallback, useContext } from 'react'
+import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
-import styled from 'styled-components'
 
-import { ActionType, AppContext } from '../AppContext'
+import { ProductAction, ProductContext } from '../../context/ProductContext'
 
 const RemoveIcon = ({ slug }) => {
-	const [, dispatch] = useContext(AppContext)
+	const [, dispatch] = useContext(ProductContext)
 
 	const handleClick = useCallback(() => {
-		dispatch({ type: ActionType.REMOVE_PRODUCT, slug })
+		dispatch({ type: ProductAction.REMOVE_PRODUCT, slug })
 
 		Sentry.addBreadcrumb({
 			category: 'product-removed',

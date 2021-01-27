@@ -1,19 +1,12 @@
 import React, { memo } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
-// const Ingredient = React.lazy(() => import('components/Ingredient'))
-import Ingredient from 'components/Ingredient'
+import Ingredient from 'components/Ingredients/Ingredient'
 import { getBuildingName } from 'loaders/buildings'
 import { getRecipeDefinition, handcraftingProducers } from 'loaders/recipes'
 
 const Recipe = ({ slug }) => {
 	const recipe = getRecipeDefinition(slug)
-
-	// // Remove ore recipes
-	// if (recipe.ingredients.length === 0) return null
-
-	// // Garbage
-	// if (recipe.name.includes('Unpackage')) return null
 
 	const validProducers = React.useMemo(() => recipe.producedIn.filter(p => !handcraftingProducers.has(p)), [recipe.producedIn])
 	if (validProducers.length === 0) return null
@@ -34,7 +27,9 @@ const Recipe = ({ slug }) => {
 						<Ingredient amount={i.amount} slug={i.slug} duration={recipe.manufacturingDuration} key={`in-${i.slug}`} />
 					))}
 				</Column>
-				<Arrow>&#10148;</Arrow>
+				<Arrow>
+					<i className="fa fa-arrow-alt-right" />
+				</Arrow>
 				{/* Outputs */}
 				<Column>
 					{recipe.products.map(p => (

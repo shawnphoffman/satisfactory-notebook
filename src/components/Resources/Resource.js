@@ -1,19 +1,23 @@
+/** @jsxImportSource @welldone-software/why-did-you-render */
 import React, { memo } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
+import Page from 'components/Page'
 import { getItemDefinition, getItemIcon } from 'loaders/items'
 import { getRecipeDefinition, getRecipesByItemProduct, handcraftingProducers, sortRecipesByName } from 'loaders/recipes'
 
-// import Recipe from './Recipe'
 import RemoveIcon from './RemoveIcon'
 
-const Recipe = React.lazy(() => import('components/Recipe'))
+// import Recipe from './Recipe'
+const Recipe = React.lazy(() => import('components/Resources/Recipe'))
 
 const imageSize = 100
 
 const Resource = ({ slug }) => {
 	// const slug = 'item-iron-screw'
 	const product = getItemDefinition(slug)
+
+	// if (slug === 'item-circuit-board-high-speed') throw 'NO!'
 
 	const recipeSlugs = getRecipesByItemProduct(slug)
 
@@ -39,7 +43,7 @@ const Resource = ({ slug }) => {
 	const iconSrc = getItemIcon(slug)
 
 	return (
-		<>
+		<Page>
 			<Header id={slug}>
 				<Details>
 					<Title>
@@ -54,7 +58,7 @@ const Resource = ({ slug }) => {
 					<Recipe slug={key} key={key} />
 				))}
 			</div>
-		</>
+		</Page>
 	)
 }
 

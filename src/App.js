@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { memo } from 'react'
+import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
-import styled from 'styled-components'
 
-import Error from 'components/Error'
-import Loading from 'components/Loading'
+import Error from 'components/Errors/AppError'
+import Loading from 'components/Loaders/Loading'
+import ProductContext from 'context/ProductContext'
+import RecipeContext from 'context/RecipeContext'
 import { importImageManifest } from 'loaders/imageMap'
-
-import ContextProvider from './AppContext'
 
 // const ProductList = React.lazy(() => {
 // 	return Promise.all([
@@ -18,29 +18,31 @@ import ContextProvider from './AppContext'
 // 	]).then(([module]) => module)
 // })
 const ProductList = React.lazy(() => import('components/ProductList'))
-const Sidebar = React.lazy(() => import('components/Sidebar'))
+const Sidebar = React.lazy(() => import('components/Sidebar/Sidebar'))
 
 // Preload images
 importImageManifest()
 
 function App() {
 	return (
-		<ContextProvider>
-			<React.Suspense fallback={<Loading />}>
-				<Sentry.ErrorBoundary fallback={<Error />} showDialog={true}>
-					<FlexRows>
-						<Sidebar />
-						{/* <React.Suspense fallback={<div>Loading ProductList...</div>}> */}
-						<ProductList />
-						{/* </React.Suspense> */}
-					</FlexRows>
-				</Sentry.ErrorBoundary>
-			</React.Suspense>
-		</ContextProvider>
+		<ProductContext>
+			<RecipeContext>
+				<React.Suspense fallback={<Loading />}>
+					<Sentry.ErrorBoundary fallback={<Error />} showDialog={true}>
+						<FlexRows>
+							<Sidebar />
+							{/* <React.Suspense fallback={<div>Loading ProductList...</div>}> */}
+							<ProductList />
+							{/* </React.Suspense> */}
+						</FlexRows>
+					</Sentry.ErrorBoundary>
+				</React.Suspense>
+			</RecipeContext>
+		</ProductContext>
 	)
 }
 
-export default App
+export default memo(App)
 
 const FlexRows = styled.div`
 	display: flex;

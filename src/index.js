@@ -1,3 +1,4 @@
+/** @jsxImportSource @welldone-software/why-did-you-render */
 import './index.css'
 
 import React from 'react'
@@ -7,6 +8,15 @@ import { Integrations } from '@sentry/tracing'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+
+if (process.env.NODE_ENV === 'development') {
+	const whyDidYouRender = require('@welldone-software/why-did-you-render')
+	whyDidYouRender(React, {
+		logOnDifferentValues: true,
+		trackAllPureComponents: true,
+		trackHooks: true,
+	})
+}
 
 Sentry.init({
 	dsn: process.env.REACT_APP_SENTRY_DSN,

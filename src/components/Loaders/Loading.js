@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
 const Cog = styled.div`
 	margin-right: 5px;
@@ -9,7 +9,6 @@ const Cog = styled.div`
 `
 
 const Wrapper = styled.span`
-	/* font-size: 0.8em; */
 	height: 100vh;
 	width: 100vw;
 	display: flex;

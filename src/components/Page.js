@@ -1,10 +1,10 @@
 import { memo, useContext } from 'react'
-import styled from 'styled-components'
+import { styled } from '@linaria/react'
 
-import { AppContext } from '../AppContext'
+import { ProductContext } from '../context/ProductContext'
 
 export const Page = ({ children }) => {
-	const [{ padLeftMargin, onePerPage }] = useContext(AppContext)
+	const [{ padLeftMargin, onePerPage }] = useContext(ProductContext)
 
 	return (
 		<PageBorder leftMargin={padLeftMargin} onePerPage={onePerPage}>
@@ -20,10 +20,10 @@ const PageBorder = styled.div`
 	border: ${props => (props.debug ? '1px solid black' : 'none')};
 	width: 100%;
 	padding: 4mm;
-	${props => (props.leftMargin ? 'padding-left: 12mm' : null)};
+	padding-left: ${props => (props.leftMargin ? '12mm' : '4mm')};
 	box-sizing: border-box;
-
-	${props => (props.onePerPage ? 'page-break-after: always' : 'page-break-inside: avoid')};
+	page-break-after: ${props => (props.onePerPage ? 'always' : 'inherit')};
+	page-break-inside: ${props => (props.onePerPage ? 'inherit' : 'avoid')};
 
 	@media print {
 		background: none;
@@ -32,7 +32,6 @@ const PageBorder = styled.div`
 `
 
 const PageContent = styled.div`
-	/* background: ${props => (props.debug ? 'lightcoral' : 'white')}; */
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
