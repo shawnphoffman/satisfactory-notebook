@@ -26,6 +26,7 @@
 		"analyze": "source-map-explorer 'build/static/js/*.js'",
 		"start": "craco start",
 		"build": "craco build",
+		"build-profile": "craco build --profile",
 		"test": "craco test",
 		"eject": "react-scripts eject",
 		"storybook": "start-storybook -p 6006 -s public",

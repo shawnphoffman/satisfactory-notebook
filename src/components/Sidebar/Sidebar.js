@@ -2,9 +2,9 @@ import React, { memo, useCallback, useContext } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
-import { ProductAction, ProductContext } from '../../context/ProductContext'
-import { RecipeAction, RecipeContext } from '../../context/RecipeContext'
-import logo from './logo.png'
+import { ProductAction, ProductContext } from 'context/ProductContext'
+import { RecipeAction, RecipeContext } from 'context/RecipeContext'
+
 import ProductListItem from './ProductListItem'
 import SectionHeader from './SectionHeader'
 import SettingCheckbox from './SettingCheckbox'
@@ -14,54 +14,42 @@ const Sidebar = () => {
 	const [stateProduct, dispatchProduct] = useContext(ProductContext)
 	const [stateRecipe, dispatchRecipe] = useContext(RecipeContext)
 
-	const handleFractions = useCallback(
-		e => {
-			dispatchRecipe({ type: RecipeAction.TOGGLE_FRACTION })
+	const handleFractions = useCallback(() => {
+		dispatchRecipe({ type: RecipeAction.TOGGLE_FRACTION })
 
-			Sentry.addBreadcrumb({
-				category: 'setting-change',
-				message: 'Fraction changed',
-				level: Sentry.Severity.Info,
-			})
-		},
-		[dispatchRecipe]
-	)
-	const handleLeftMargin = useCallback(
-		e => {
-			dispatchProduct({ type: ProductAction.TOGGLE_LEFT_MARGIN })
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'Fraction changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchRecipe])
+	const handleLeftMargin = useCallback(() => {
+		dispatchProduct({ type: ProductAction.TOGGLE_LEFT_MARGIN })
 
-			Sentry.addBreadcrumb({
-				category: 'setting-change',
-				message: 'Left-margin changed',
-				level: Sentry.Severity.Info,
-			})
-		},
-		[dispatchProduct]
-	)
-	const handleOnePerPage = useCallback(
-		e => {
-			dispatchProduct({ type: ProductAction.TOGGLE_ONE_PER_PAGE })
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'Left-margin changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchProduct])
+	const handleOnePerPage = useCallback(() => {
+		dispatchProduct({ type: ProductAction.TOGGLE_ONE_PER_PAGE })
 
-			Sentry.addBreadcrumb({
-				category: 'setting-change',
-				message: 'One-per-page changed',
-				level: Sentry.Severity.Info,
-			})
-		},
-		[dispatchProduct]
-	)
-	const handleCycleAmounts = useCallback(
-		e => {
-			dispatchRecipe({ type: RecipeAction.TOGGLE_CYCLE_AMOUNT })
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'One-per-page changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchProduct])
+	const handleCycleAmounts = useCallback(() => {
+		dispatchRecipe({ type: RecipeAction.TOGGLE_CYCLE_AMOUNT })
 
-			Sentry.addBreadcrumb({
-				category: 'setting-change',
-				message: 'Cycle-amounts changed',
-				level: Sentry.Severity.Info,
-			})
-		},
-		[dispatchRecipe]
-	)
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'Cycle-amounts changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchRecipe])
 	const handleReturnClick = useCallback(
 		slug => {
 			dispatchProduct({ type: ProductAction.RETURN_PRODUCT, slug })
@@ -85,12 +73,7 @@ const Sidebar = () => {
 	}, [dispatchProduct])
 
 	return (
-		<SidebarWrapper>
-			<div>
-				{/* <Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" /> */}
-				<Logo src={`${process.env.REACT_APP_STATIC_PATH || ''}${logo}`} alt="Satisfactory Notebook" width="260" height="81" />
-			</div>
-
+		<>
 			<SidebarSection>
 				<SectionHeader icon="fa-cog" label="Settings" />
 				<SettingCheckbox
@@ -162,7 +145,7 @@ const Sidebar = () => {
 				Assets come from Satisfactory or from websites created and owned by Coffee Stain Studios. All copyright and registered trademarks
 				present in the images are proprietary to Coffee Stain Studios.
 			</Disclaimer>
-		</SidebarWrapper>
+		</>
 	)
 }
 
@@ -172,38 +155,9 @@ const SidebarSection = styled.div`
 	margin: 6px 0;
 `
 
-const SidebarWrapper = styled.div`
-	min-width: 260px;
-	background: #bbb;
-	position: sticky;
-	top: 0;
-	height: 100vh;
-	padding: 10px;
-	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-
-	@media print {
-		display: none;
-	}
-
-	/* TODO - Extract the max-width to variable */
-	@media screen and (max-width: 600px) {
-		width: 100%;
-		position: unset;
-		height: auto;
-	}
-`
-
 const SectionContent = styled.div`
 	font-size: 0.8em;
 	margin: 12px 0 12px 18px;
-`
-
-const Logo = styled.img`
-	max-width: 100%;
-	height: auto;
 `
 
 const Reset = styled.li`

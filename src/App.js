@@ -4,10 +4,12 @@ import * as Sentry from '@sentry/react'
 
 import Error from 'components/Errors/AppError'
 import Loading from 'components/Loaders/Loading'
+import Sidebar from 'components/Sidebar/SidebarContainer'
 import ProductContext from 'context/ProductContext'
 import RecipeContext from 'context/RecipeContext'
 import { importImageManifest } from 'loaders/imageMap'
 
+const ProductList = React.lazy(() => import('components/ProductList'))
 // const ProductList = React.lazy(() => {
 // 	return Promise.all([
 // 		import('components/ProductList'),
@@ -17,28 +19,24 @@ import { importImageManifest } from 'loaders/imageMap'
 // 		}),
 // 	]).then(([module]) => module)
 // })
-const ProductList = React.lazy(() => import('components/ProductList'))
-const Sidebar = React.lazy(() => import('components/Sidebar/Sidebar'))
 
 // Preload images
 importImageManifest()
 
 function App() {
 	return (
-		<ProductContext>
-			<RecipeContext>
-				<React.Suspense fallback={<Loading />}>
-					<Sentry.ErrorBoundary fallback={<Error />} showDialog={true}>
-						<FlexRows>
-							<Sidebar />
-							{/* <React.Suspense fallback={<div>Loading ProductList...</div>}> */}
+		<Sentry.ErrorBoundary fallback={<Error />} showDialog={process.env.NODE_ENV === 'production'}>
+			<ProductContext>
+				<RecipeContext>
+					<FlexRows>
+						<Sidebar />
+						<React.Suspense fallback={<Loading />}>
 							<ProductList />
-							{/* </React.Suspense> */}
-						</FlexRows>
-					</Sentry.ErrorBoundary>
-				</React.Suspense>
-			</RecipeContext>
-		</ProductContext>
+						</React.Suspense>
+					</FlexRows>
+				</RecipeContext>
+			</ProductContext>
+		</Sentry.ErrorBoundary>
 	)
 }
 

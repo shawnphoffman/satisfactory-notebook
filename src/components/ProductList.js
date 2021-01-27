@@ -1,12 +1,12 @@
 import React, { memo } from 'react'
 import * as Sentry from '@sentry/react'
 
+import ResourceError from 'components/Errors/ResourceError'
+import Resource from 'components/Resources/Resource'
+import { ProductContext } from 'context/ProductContext'
 import { getMachineCraftableProducts } from 'loaders/recipes'
 
-import ResourceError from './Errors/ResourceError'
-import { ProductContext } from '../context/ProductContext'
-
-const Resource = React.lazy(() => import('components/Resources/Resource'))
+// const Resource = React.lazy(() => import('components/Resources/Resource'))
 
 const ProductList = () => {
 	const [{ removedProducts }] = React.useContext(ProductContext)

@@ -5,10 +5,9 @@ import Page from 'components/Page'
 import { getItemDefinition, getItemIcon } from 'loaders/items'
 import { getRecipeDefinition, getRecipesByItemProduct, handcraftingProducers, sortRecipesByName } from 'loaders/recipes'
 
+import Recipe from './Recipe'
 import RemoveIcon from './RemoveIcon'
-
-// import Recipe from './Recipe'
-const Recipe = React.lazy(() => import('components/Resources/Recipe'))
+// const Recipe = React.lazy(() => import('components/Resources/Recipe'))
 
 const imageSize = 100
 
