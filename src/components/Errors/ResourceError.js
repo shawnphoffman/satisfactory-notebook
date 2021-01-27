@@ -1,4 +1,3 @@
-/** @jsxImportSource @welldone-software/why-did-you-render */
 import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 

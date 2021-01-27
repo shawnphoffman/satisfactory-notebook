@@ -1,4 +1,3 @@
-/** @jsxImportSource @welldone-software/why-did-you-render */
 import React, { memo } from 'react'
 import * as Sentry from '@sentry/react'
 
@@ -8,15 +7,6 @@ import ResourceError from './Errors/ResourceError'
 import { ProductContext } from '../context/ProductContext'
 
 const Resource = React.lazy(() => import('components/Resources/Resource'))
-// const Resource = React.lazy(() => {
-// 	return Promise.all([
-// 		import('components/Resource'),
-// 		new Promise(resolve => {
-// 			// setTimeout(() => {}, 3000)
-// 			setTimeout(resolve, 3000)
-// 		}),
-// 	]).then(([module]) => module)
-// })
 
 const ProductList = () => {
 	const [{ removedProducts }] = React.useContext(ProductContext)
