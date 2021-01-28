@@ -50,7 +50,13 @@ const Resource = ({ slug }) => {
 					<Description>{product.description}</Description>
 				</Details>
 				{iconSrc && (
-					<Image alt={product.name} src={`${process.env.REACT_APP_STATIC_PATH || ''}${iconSrc}`} width={imageSize} height={imageSize} />
+					<Image
+						alt={product.name}
+						src={`${process.env.REACT_APP_STATIC_PATH || ''}${iconSrc}`}
+						width={imageSize}
+						height={imageSize}
+						loading="lazy"
+					/>
 				)}
 			</Header>
 			<div>

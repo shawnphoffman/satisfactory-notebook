@@ -23,6 +23,7 @@ const Ingredient = ({ slug, amount, duration }) => {
 						alt={itemDef.name}
 						width={imageSize}
 						height={imageSize}
+						loading="lazy"
 					/>
 				) : null}
 				<CycleRate perCycleLabel={rate.perCycleLabel} perCycle={rate.perCycle} />
