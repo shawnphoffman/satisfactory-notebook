@@ -28,12 +28,14 @@ function App() {
 		<Sentry.ErrorBoundary fallback={<Error />} showDialog={process.env.NODE_ENV === 'production'}>
 			<ProductContext>
 				<RecipeContext>
-					<FlexRows>
-						<Sidebar />
-						<React.Suspense fallback={<Loading />}>
-							<ProductList />
-						</React.Suspense>
-					</FlexRows>
+					<React.Profiler id="App">
+						<FlexRows>
+							<Sidebar />
+							<React.Suspense fallback={<Loading />}>
+								<ProductList />
+							</React.Suspense>
+						</FlexRows>
+					</React.Profiler>
 				</RecipeContext>
 			</ProductContext>
 		</Sentry.ErrorBoundary>
@@ -45,7 +47,7 @@ export default memo(App)
 const FlexRows = styled.div`
 	display: flex;
 	flex-direction: row;
-	background: white;
+	/* background: white; */
 
 	@media (max-width: 600px) {
 		flex-direction: column;

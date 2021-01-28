@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
 import ResourceError from 'components/Errors/ResourceError'
@@ -20,14 +21,20 @@ const ProductList = () => {
 	)
 
 	return (
-		<div style={{ width: '100%' }}>
+		<Wrapper>
 			{products.map(p => (
 				<Sentry.ErrorBoundary key={p} fallback={<ResourceError slug={p} />}>
 					<Resource slug={p} />
 				</Sentry.ErrorBoundary>
 			))}
-		</div>
+		</Wrapper>
 	)
 }
+
+const Wrapper = styled.div`
+	width: 100%;
+	max-width: 700px;
+	background: white;
+`
 
 export default memo(ProductList)
