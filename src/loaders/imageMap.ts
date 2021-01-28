@@ -9,7 +9,7 @@ export function importImageManifest() {
 		if (entryUrl) {
 			ImageMap.set(file, entryUrl)
 
-			if (process.env.NODE_ENV === 'development') {
+			if (!process.env.REACT_APP_STATIC_PATH) {
 				promises.push(fetch(entryUrl, { cache: 'force-cache' }))
 			}
 		}
