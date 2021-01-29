@@ -2,8 +2,7 @@ import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 
 import Page from 'components/Page'
-import { getItemDefinition, getItemIcon } from 'loaders/items'
-import { getRecipeDefinition, getRecipesByItemProduct, handcraftingProducers, sortRecipesByName } from 'loaders/recipes'
+import { getItemIcon } from 'loaders/items'
 
 import Recipe from './Recipe'
 import RemoveIcon from './RemoveIcon'
@@ -11,33 +10,7 @@ import RemoveIcon from './RemoveIcon'
 
 const imageSize = 100
 
-const Resource = ({ slug }) => {
-	// const slug = 'item-iron-screw'
-	const product = getItemDefinition(slug)
-
-	// if (slug === 'item-circuit-board-high-speed') throw 'NO!'
-
-	const recipeSlugs = getRecipesByItemProduct(slug)
-
-	const sortedSlugs = sortRecipesByName(recipeSlugs)
-
-	// TODO REDUCE THIS!!!
-	// Why do it once when you can do it TWICE!!!
-	const recipes = React.useMemo(() => {
-		return sortedSlugs.filter(slug => {
-			const recipe = getRecipeDefinition(slug)
-
-			const validProducers = recipe.producedIn.filter(p => !handcraftingProducers.has(p))
-			if (validProducers.length === 0) {
-				return false
-			}
-
-			return true
-		})
-	}, [sortedSlugs])
-
-	if (recipes.length === 0) return null
-
+const Resource = ({ item, slug }) => {
 	const iconSrc = getItemIcon(slug)
 
 	return (
@@ -45,13 +18,13 @@ const Resource = ({ slug }) => {
 			<Header id={slug}>
 				<Details>
 					<Title>
-						{product.name} <RemoveIcon slug={slug} />
+						{item.name} <RemoveIcon slug={slug} />
 					</Title>
-					<Description>{product.description}</Description>
+					<Description>{item.description}</Description>
 				</Details>
 				{iconSrc && (
 					<Image
-						alt={product.name}
+						alt={item.name}
 						src={`${process.env.REACT_APP_STATIC_PATH || ''}${iconSrc}`}
 						width={imageSize}
 						height={imageSize}
@@ -59,11 +32,9 @@ const Resource = ({ slug }) => {
 					/>
 				)}
 			</Header>
-			<div>
-				{recipes.map(key => (
-					<Recipe slug={key} key={key} />
-				))}
-			</div>
+			{item.recipes.map(recipe => (
+				<Recipe recipe={recipe} key={recipe.slug} />
+			))}
 		</Page>
 	)
 }

@@ -1,9 +1,19 @@
 import React, { createContext, useReducer } from 'react'
 
+import { ItemType } from 'components/Sidebar/Sidebar'
+
 const initialState = {
 	padLeftMargin: false,
 	onePerPage: true,
 	removedProducts: [],
+	hiddenTypes: [
+		ItemType.Vehicle,
+		ItemType.Building,
+		ItemType.Consumable,
+		ItemType.Equipment,
+		// ItemType.Item,
+		ItemType.Resource,
+	],
 }
 
 export const ProductAction = {
@@ -12,6 +22,8 @@ export const ProductAction = {
 	REMOVE_PRODUCT: 'REMOVE_PRODUCT',
 	RETURN_PRODUCT: 'RETURN_PRODUCT',
 	RETURN_ALL_PRODUCTS: 'RETURN_ALL_PRODUCTS',
+	HIDE_TYPE: 'HIDE_TYPE',
+	SHOW_TYPE: 'SHOW_TYPE',
 }
 
 export const ProductContext = createContext(initialState)
@@ -28,7 +40,7 @@ const reducer = (state, action) => {
 				...state,
 				onePerPage: !state.onePerPage,
 			}
-		// FILTERING
+		// ITEM FILTERING
 		case ProductAction.REMOVE_PRODUCT:
 			return {
 				...state,
@@ -43,6 +55,19 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				removedProducts: [],
+			}
+		// BUILDING TYPE
+		case ProductAction.HIDE_TYPE:
+			// console.log('Hiding: ' + action.name)
+			return {
+				...state,
+				hiddenTypes: [...state.hiddenTypes, action.name],
+			}
+		case ProductAction.SHOW_TYPE:
+			// console.log('Showing: ' + action.name)
+			return {
+				...state,
+				hiddenTypes: state.hiddenTypes.filter(p => !(p === action.name)),
 			}
 		default:
 			return state

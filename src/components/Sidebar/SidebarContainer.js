@@ -31,7 +31,7 @@ const SidebarContainer = () => {
 export default memo(SidebarContainer)
 
 const SidebarWrapper = styled.div`
-	min-width: 260px;
+	min-width: 280px;
 	background: #bbb;
 	position: sticky;
 	top: 0;

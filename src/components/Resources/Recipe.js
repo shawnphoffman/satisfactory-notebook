@@ -2,29 +2,20 @@ import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 
 import Ingredient from 'components/Ingredients/Ingredient'
-import { getBuildingName } from 'loaders/buildings'
-import { getRecipeDefinition, handcraftingProducers } from 'loaders/recipes'
 
-const Recipe = ({ slug }) => {
-	const recipe = getRecipeDefinition(slug)
-
-	const validProducers = React.useMemo(() => recipe.producedIn.filter(p => !handcraftingProducers.has(p)), [recipe.producedIn])
-	if (validProducers.length === 0) return null
-
-	const building = getBuildingName(validProducers[0])
-
+const Recipe = ({ recipe }) => {
 	return (
-		<Wrapper id={slug}>
+		<Wrapper id={recipe.name}>
 			<Header>
 				<Secondary>&nbsp;</Secondary>
 				<Title>{recipe.name}</Title>
-				<Secondary>{building}</Secondary>
+				<Secondary>{recipe.producedIn}</Secondary>
 			</Header>
 			<IngredientsWrapper>
 				{/* Inputs */}
 				<Column>
-					{recipe.ingredients.map(i => (
-						<Ingredient amount={i.amount} slug={i.slug} duration={recipe.manufacturingDuration} key={`in-${i.slug}`} />
+					{recipe.ingredients.map(ingredient => (
+						<Ingredient ingredient={ingredient} key={`in-${ingredient.slug}`} />
 					))}
 				</Column>
 				<Arrow>
@@ -32,8 +23,8 @@ const Recipe = ({ slug }) => {
 				</Arrow>
 				{/* Outputs */}
 				<Column>
-					{recipe.products.map(p => (
-						<Ingredient amount={p.amount} slug={p.slug} duration={recipe.manufacturingDuration} key={`out-${p.slug}`} />
+					{recipe.products.map(product => (
+						<Ingredient ingredient={product} key={`out-${product.slug}`} />
 					))}
 				</Column>
 			</IngredientsWrapper>

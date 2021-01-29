@@ -9,11 +9,22 @@ import ProductListItem from './ProductListItem'
 import SectionHeader from './SectionHeader'
 import SettingCheckbox from './SettingCheckbox'
 
+// TODO - TEMP
+export const ItemType = {
+	Building: 'Building',
+	Consumable: 'Consumable',
+	Equipment: 'Equipment',
+	Item: 'Item',
+	Resource: 'Resource',
+	Vehicle: 'Vehicle',
+}
+
 //
 const Sidebar = () => {
 	const [stateProduct, dispatchProduct] = useContext(ProductContext)
 	const [stateRecipe, dispatchRecipe] = useContext(RecipeContext)
 
+	//
 	const handleFractions = useCallback(() => {
 		dispatchRecipe({ type: RecipeAction.TOGGLE_FRACTION })
 
@@ -23,6 +34,8 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 	}, [dispatchRecipe])
+
+	//
 	const handleLeftMargin = useCallback(() => {
 		dispatchProduct({ type: ProductAction.TOGGLE_LEFT_MARGIN })
 
@@ -32,6 +45,8 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 	}, [dispatchProduct])
+
+	//
 	const handleOnePerPage = useCallback(() => {
 		dispatchProduct({ type: ProductAction.TOGGLE_ONE_PER_PAGE })
 
@@ -41,6 +56,8 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 	}, [dispatchProduct])
+
+	//
 	const handleCycleAmounts = useCallback(() => {
 		dispatchRecipe({ type: RecipeAction.TOGGLE_CYCLE_AMOUNT })
 
@@ -50,6 +67,8 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 	}, [dispatchRecipe])
+
+	//
 	const handleReturnClick = useCallback(
 		slug => {
 			dispatchProduct({ type: ProductAction.RETURN_PRODUCT, slug })
@@ -62,6 +81,25 @@ const Sidebar = () => {
 		},
 		[dispatchProduct]
 	)
+
+	//
+	const handleTypeToggleClick = useCallback(
+		(type, checked) => {
+			dispatchProduct({
+				type: checked ? ProductAction.HIDE_TYPE : ProductAction.SHOW_TYPE,
+				name: type,
+			})
+
+			// Sentry.addBreadcrumb({
+			// 	category: 'setting-change',
+			// 	message: 'One-per-page changed',
+			// 	level: Sentry.Severity.Info,
+			// })
+		},
+		[dispatchProduct]
+	)
+
+	//
 	const handleReturnAllClick = useCallback(() => {
 		dispatchProduct({ type: ProductAction.RETURN_ALL_PRODUCTS })
 
@@ -109,6 +147,35 @@ const Sidebar = () => {
 			</SidebarSection>
 
 			{/*  */}
+			<SidebarSection>
+				<SectionHeader icon="fa-check-circle" label="Types" />
+				{Object.values(ItemType).map(type => (
+					<SettingCheckbox
+						key={type}
+						label={type}
+						name={type}
+						checked={!stateProduct.hiddenTypes.includes(type)}
+						onChange={() => handleTypeToggleClick(type, !stateProduct.hiddenTypes.includes(type))}
+					/>
+				))}
+			</SidebarSection>
+
+			{/*  */}
+			{stateProduct.removedProducts.length > 0 && (
+				<SidebarSection>
+					<SectionHeader icon="fa-filter" label="Filtered Items" />
+					<SectionContent>
+						<ul>
+							<Reset onClick={handleReturnAllClick}>Reset All</Reset>
+							{stateProduct.removedProducts.map(p => (
+								<ProductListItem slug={p} key={p} onClick={handleReturnClick} />
+							))}
+						</ul>
+					</SectionContent>
+				</SidebarSection>
+			)}
+
+			{/*  */}
 			<HideMobile>
 				<SidebarSection>
 					<SectionHeader icon="fa-print" label="Print Settings" />
@@ -128,19 +195,7 @@ const Sidebar = () => {
 				</SidebarSection>
 			</HideMobile>
 
-			{stateProduct.removedProducts.length > 0 && (
-				<SidebarSection>
-					<SectionHeader icon="fa-filter" label="Filtered Items" />
-					<SectionContent>
-						<ul>
-							<Reset onClick={handleReturnAllClick}>Reset All</Reset>
-							{stateProduct.removedProducts.map(p => (
-								<ProductListItem slug={p} key={p} onClick={handleReturnClick} />
-							))}
-						</ul>
-					</SectionContent>
-				</SidebarSection>
-			)}
+			{/*  */}
 			<Disclaimer>
 				Assets come from Satisfactory or from websites created and owned by Coffee Stain Studios. All copyright and registered trademarks
 				present in the images are proprietary to Coffee Stain Studios.

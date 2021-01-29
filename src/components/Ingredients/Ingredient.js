@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 
-import { getItemDefinition, getItemIcon } from 'loaders/items'
-import { calculateRate } from 'loaders/recipes'
+import { getItemIcon } from 'loaders/items'
 
 import CycleRate from './CycleRate'
 import Rate from './Rate'
@@ -10,28 +9,28 @@ import Rate from './Rate'
 const imageSize = 30
 
 //
-const Ingredient = ({ slug, amount, duration }) => {
-	const itemDef = getItemDefinition(slug)
-	const rate = calculateRate(amount, duration, itemDef.form === 2)
+const Ingredient = ({ ingredient }) => {
+	// TODO - Change this.
+	const icon = getItemIcon(ingredient.slug)
 
 	return (
-		<Wrapper key={slug}>
+		<Wrapper test-id={ingredient.slug}>
 			<Header>
-				{itemDef.icon ? (
+				{ingredient.icon ? (
 					<Image
-						src={`${process.env.REACT_APP_STATIC_PATH || ''}${getItemIcon(slug)}`}
-						alt={itemDef.name}
+						src={`${process.env.REACT_APP_STATIC_PATH || ''}${icon}`}
+						alt={ingredient.name}
 						width={imageSize}
 						height={imageSize}
 						loading="lazy"
 					/>
 				) : null}
-				<CycleRate perCycleLabel={rate.perCycleLabel} perCycle={rate.perCycle} />
-				<Name href={`#${slug}`}>{itemDef.name}</Name>
+				<CycleRate perCycleLabel={ingredient.rate.perCycleLabel} perCycle={ingredient.rate.perCycle} />
+				<Name href={`#${ingredient.slug}`}>{ingredient.name}</Name>
 			</Header>
 			<Quantity>
-				<Rate perMin={rate.perMin} perMinFraction={rate.perMinFraction} />
-				<small>{rate.perMinLabel}</small>
+				<Rate perMin={ingredient.rate.perMin} perMinFraction={ingredient.rate.perMinFraction} />
+				<small>{ingredient.rate.perMinLabel}</small>
 			</Quantity>
 		</Wrapper>
 	)
