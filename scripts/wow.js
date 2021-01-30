@@ -25,7 +25,11 @@ Object.keys(itemsJson)
 	.forEach(key => {
 		if (key.includes('integrated') || key.includes('terminal') || key.includes('8x4-03-steel')) return
 
-		outputJson[key] = getItem(key)
+		const item = getItem(key)
+
+		if (['Building', 'Vehicle'].includes(item.type)) return
+
+		outputJson[key] = item
 	})
 
 // Save the clean file

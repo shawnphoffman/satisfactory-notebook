@@ -11,12 +11,12 @@ import SettingCheckbox from './SettingCheckbox'
 
 // TODO - TEMP
 export const ItemType = {
-	Building: 'Building',
+	// Building: 'Building',
 	Consumable: 'Consumable',
 	Equipment: 'Equipment',
 	Item: 'Item',
 	Resource: 'Resource',
-	Vehicle: 'Vehicle',
+	// Vehicle: 'Vehicle',
 }
 
 //
