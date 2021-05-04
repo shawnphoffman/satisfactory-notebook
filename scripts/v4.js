@@ -217,7 +217,8 @@ Object.keys(itemsJson)
 
 // Save the clean file
 outputPaths.forEach(path => {
-	jsonfile.writeFile(path, outputJson, { spaces: 2 }, function (err) {
+	// jsonfile.writeFile(path, outputJson, { spaces: 2 }, function (err) {
+	jsonfile.writeFile(path, outputJson, {}, function (err) {
 		if (err) console.error(err)
 		else console.log('FINISH src ' + path)
 	})

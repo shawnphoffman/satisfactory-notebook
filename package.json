@@ -33,7 +33,6 @@
 		"build-storybook": "build-storybook -s public",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"wow": "node scripts/wow.js",
 		"generate": "node scripts/v4.js",
 		"watch": "chokidar \"./scripts/**.js\" -c \"yarn run generate\""
 	},
