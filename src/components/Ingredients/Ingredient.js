@@ -1,28 +1,28 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { styled } from '@linaria/react'
-
-import { getItemIcon } from 'loaders/items'
 
 import CycleRate from './CycleRate'
 import Rate from './Rate'
 
 const imageSize = 30
 
+const onImageError = e => {
+	console.log('IMAGE ERROR', e)
+}
+
 //
 const Ingredient = ({ ingredient }) => {
-	// TODO - Change this.
-	const icon = getItemIcon(ingredient.slug)
-
 	return (
 		<Wrapper test-id={ingredient.slug}>
 			<Header>
 				{ingredient.icon ? (
 					<Image
-						src={`${process.env.REACT_APP_STATIC_PATH || ''}${icon}`}
+						src={`${process.env.REACT_APP_STATIC_PATH || ''}${ingredient.icon}`}
 						alt={ingredient.name}
 						width={imageSize}
 						height={imageSize}
 						loading="lazy"
+						onError={onImageError}
 					/>
 				) : null}
 				<CycleRate perCycleLabel={ingredient.rate.perCycleLabel} perCycle={ingredient.rate.perCycle} />

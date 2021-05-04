@@ -1,17 +1,18 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { styled } from '@linaria/react'
 
 import Page from 'components/Page'
-import { getItemIcon } from 'loaders/items'
 
 import Recipe from './Recipe'
 import RemoveIcon from './RemoveIcon'
-// const Recipe = React.lazy(() => import('components/Resources/Recipe'))
+
+// const Recipe = lazy(() => import('components/Resources/Recipe'))
 
 const imageSize = 100
 
 const Resource = ({ item, slug }) => {
-	const iconSrc = getItemIcon(slug)
+	// const iconSrc = getItemIcon(slug)
+	const iconSrc = item.icon
 
 	return (
 		<Page>
@@ -68,6 +69,7 @@ const Description = styled.div`
 	font-size: 12px;
 	margin-right: 16px;
 	line-height: 1.5;
+	/* white-space: pre-line; */
 
 	@media (max-width: 400px) {
 		display: none;

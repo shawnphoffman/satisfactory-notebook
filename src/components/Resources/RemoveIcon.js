@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext } from 'react'
+import { memo, useCallback, useContext } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
