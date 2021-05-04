@@ -1,10 +1,10 @@
-import React, { memo } from 'react'
+import React, { lazy, memo } from 'react'
 import { styled } from '@linaria/react'
 
 import logo from './logo.png'
 
-const Sidebar = React.lazy(() => import('components/Sidebar/Sidebar'))
-// const Sidebar = React.lazy(() => {
+const Sidebar = lazy(() => import('components/Sidebar/Sidebar'))
+// const Sidebar = lazy(() => {
 // 	return Promise.all([
 // 		import('./Sidebar'),
 // 		new Promise(resolve => {
@@ -18,8 +18,12 @@ const SidebarContainer = () => {
 	return (
 		<SidebarWrapper>
 			<div>
-				{/* <Logo src={logo} alt="Satisfactory Notebook" width="260" height="81" /> */}
-				<Logo src={`${process.env.REACT_APP_STATIC_PATH || ''}${logo}`} alt="Satisfactory Notebook" width="260" height="81" />
+				<Logo
+					src={`${'https://d1ba7e9b4ql0yd.cloudfront.net/satisfactory-notebook' || ''}${logo}`}
+					alt="Satisfactory Notebook"
+					width="260"
+					height="81"
+				/>
 			</div>
 			<React.Suspense fallback={<div></div>}>
 				<Sidebar />

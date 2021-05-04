@@ -1,8 +1,6 @@
 import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 
-import { getItemIcon } from 'loaders/items'
-
 import CycleRate from './CycleRate'
 import Rate from './Rate'
 
@@ -10,15 +8,12 @@ const imageSize = 30
 
 //
 const Ingredient = ({ ingredient }) => {
-	// TODO - Change this.
-	const icon = getItemIcon(ingredient.slug)
-
 	return (
 		<Wrapper test-id={ingredient.slug}>
 			<Header>
 				{ingredient.icon ? (
 					<Image
-						src={`${process.env.REACT_APP_STATIC_PATH || ''}${icon}`}
+						src={`${process.env.REACT_APP_STATIC_PATH || ''}${ingredient.icon}`}
 						alt={ingredient.name}
 						width={imageSize}
 						height={imageSize}

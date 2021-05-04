@@ -11,12 +11,16 @@ import SettingCheckbox from './SettingCheckbox'
 
 // TODO - TEMP
 export const ItemType = {
-	// Building: 'Building',
-	Consumable: 'Consumable',
-	Equipment: 'Equipment',
-	Item: 'Item',
-	Resource: 'Resource',
-	// Vehicle: 'Vehicle',
+	ammo: 'Ammo',
+	component: 'Component',
+	ficsmas: 'FICSMAS',
+	fuel: 'Fuel',
+	gas: 'Gas',
+	liquid: 'Liquid',
+	material: 'Material',
+	ore: 'Ore',
+	special: 'Special',
+	waste: 'Waste',
 }
 
 //
@@ -56,6 +60,17 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 	}, [dispatchProduct])
+
+	//
+	const handleAlternates = useCallback(() => {
+		dispatchRecipe({ type: RecipeAction.TOGGLE_ALTERNATES })
+
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'Show alternates changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchRecipe])
 
 	//
 	const handleCycleAmounts = useCallback(() => {
@@ -112,6 +127,7 @@ const Sidebar = () => {
 
 	return (
 		<>
+			<VersionLabel>Early Access v0.4.2.0</VersionLabel>
 			<SidebarSection>
 				<SectionHeader icon="fa-cog" label="Settings" />
 				<SettingCheckbox
@@ -144,11 +160,18 @@ const Sidebar = () => {
 						hint="Waste ALL the paper"
 					/>
 				</HideMobile>
+				<SettingCheckbox
+					label="Show Alternate Recipes"
+					name="includeAlternates"
+					checked={stateRecipe.includeAlternates}
+					onChange={handleAlternates}
+					hint="Find more hard drives"
+				/>
 			</SidebarSection>
 
 			{/*  */}
 			<SidebarSection>
-				<SectionHeader icon="fa-check-circle" label="Types" />
+				<SectionHeader icon="fa-check-circle" label="Categories" />
 				{Object.values(ItemType).map(type => (
 					<SettingCheckbox
 						key={type}
@@ -205,6 +228,11 @@ const Sidebar = () => {
 }
 
 export default memo(Sidebar)
+
+const VersionLabel = styled.div`
+	font-size: 12px;
+	margin-top: 6px;
+`
 
 const SidebarSection = styled.div`
 	margin: 6px 0;

@@ -7,12 +7,16 @@ const initialState = {
 	onePerPage: true,
 	removedProducts: [],
 	hiddenTypes: [
-		ItemType.Vehicle,
-		ItemType.Building,
-		ItemType.Consumable,
-		ItemType.Equipment,
-		// ItemType.Item,
-		ItemType.Resource,
+		ItemType.ammo,
+		// ItemType.component,
+		ItemType.ficsmas,
+		// ItemType.fuel,
+		// ItemType.gas,
+		// ItemType.liquid,
+		// ItemType.material,
+		ItemType.ore,
+		// ItemType.special,
+		// ItemType.waste,
 	],
 }
 

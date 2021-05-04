@@ -9,22 +9,19 @@
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
-		"@types/jest": "^26.0.15",
-		"@types/node": "^12.0.0",
-		"@types/react-dom": "^16.9.8",
 		"fast-memoize": "^2.5.2",
 		"fraction.js": "^4.0.13",
-		"react": "^0.0.0-experimental-27659559e",
-		"react-dom": "^0.0.0-experimental-27659559e",
+		"react": "^0.0.0-experimental-d1542de3a",
+		"react-dom": "^0.0.0-experimental-d1542de3a",
 		"react-scripts": "4.0.1",
 		"source-map-explorer": "^2.5.2",
-		"typescript": "^4.0.3",
 		"web-vitals": "^0.2.4"
 	},
 	"scripts": {
 		"analyze": "source-map-explorer 'build/static/js/*.js'",
 		"start": "craco start",
-		"build": "yarn wow && craco build",
+		"build": "craco build",
+		"build-full": "yarn generate && craco build",
 		"build-profile": "craco build --profile",
 		"test": "craco test",
 		"eject": "react-scripts eject",
@@ -32,7 +29,8 @@
 		"build-storybook": "build-storybook -s public",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"wow": "node scripts/wow.js"
+		"generate": "node scripts/v4.js",
+		"watch": "chokidar \"./scripts/**.js\" -c \"yarn run generate\""
 	},
 	"eslintConfig": {
 		"extends": [
@@ -60,7 +58,7 @@
 		"@storybook/node-logger": "^6.1.14",
 		"@storybook/preset-create-react-app": "^3.1.5",
 		"@storybook/react": "^6.1.14",
-		"@types/react": "^16.14.2",
+		"chokidar-cli": "^2.1.0",
 		"eslint": "^7.17.0",
 		"eslint-plugin-simple-import-sort": "^7.0.0",
 		"gh-pages": "^3.1.0",

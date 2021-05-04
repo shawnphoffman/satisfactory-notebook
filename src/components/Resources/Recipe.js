@@ -1,9 +1,14 @@
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 import { styled } from '@linaria/react'
 
 import Ingredient from 'components/Ingredients/Ingredient'
+import { RecipeContext } from 'context/RecipeContext'
 
 const Recipe = ({ recipe }) => {
+	const [{ includeAlternates }] = useContext(RecipeContext)
+
+	if (!includeAlternates && recipe.isAlt) return null
+
 	return (
 		<Wrapper id={recipe.name}>
 			<Header>

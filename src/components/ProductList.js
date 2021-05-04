@@ -1,31 +1,31 @@
-import React, { memo, unstable_useTransition as useTransition } from 'react'
+import React, { memo, unstable_useTransition as useTransition, useContext, useEffect, useMemo, useState } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
-// import { getMachineCraftableProducts } from 'loaders/recipes'
-// import rawData from 'data/data.json'
+// import rawData from 'data/data-v4.json'
 import ResourceError from 'components/Errors/ResourceError'
 import Resource from 'components/Resources/Resource'
 import { ProductContext } from 'context/ProductContext'
 
 import Loading from './Loaders/Loading'
 
-// const Resource = React.lazy(() => import('components/Resources/Resource'))
+// const Resource = lazy(() => import('components/Resources/Resource'))
 
 const ProductList = () => {
-	const [{ removedProducts, hiddenTypes }] = React.useContext(ProductContext)
+	const [{ removedProducts, hiddenTypes }] = useContext(ProductContext)
 
-	const [data, setData] = React.useState({})
-	const [startTransition /*, isPending*/] = useTransition({
-		// TODO
+	const [data, setData] = useState({})
+	// const [data, setData] = useState(rawData)
+
+	const [isPending, startTransition] = useTransition({
 		timeoutMs: 3000,
 	})
 
 	//
-	React.useEffect(() => {
+	useEffect(() => {
 		// console.log('data.json loading...')
 		// setTimeout(() => {
-		fetch('/data.json')
+		fetch('/data-v4.json')
 			.then(res => res.json())
 			.then(data => {
 				// console.log('data.json loaded')
@@ -35,10 +35,10 @@ const ProductList = () => {
 			})
 			.catch(e => console.error(e))
 		// }, 3000)
-	}, [])
+	}, [startTransition])
 
 	//
-	const filteredProducts = React.useMemo(() => {
+	const filteredProducts = useMemo(() => {
 		// console.log('memo.filteredProducts')
 
 		const newData = Object.keys(data).reduce((memo, slug) => {
@@ -46,10 +46,10 @@ const ProductList = () => {
 			if (removedProducts.includes(slug)) return memo
 
 			// hidden types
-			if (hiddenTypes.includes(data[slug].type)) return memo
-
-			// items without recipes (reference in ingredients)
-			if (data[slug].recipes.length === 0) return memo
+			const isHidden = hiddenTypes.filter(type => {
+				return type.toLowerCase() === data[slug].category
+			})
+			if (isHidden.length > 0) return memo
 
 			memo[slug] = data[slug]
 			return memo
@@ -57,6 +57,8 @@ const ProductList = () => {
 
 		return newData
 	}, [data, hiddenTypes, removedProducts])
+
+	if (isPending) return <Loading />
 
 	if (Object.keys(filteredProducts).length === 0) {
 		// console.log('ProductList.loading')
@@ -78,8 +80,11 @@ const ProductList = () => {
 
 const Wrapper = styled.div`
 	width: 100%;
-	max-width: 700px;
 	background: white;
+
+	@media screen {
+		max-width: 700px;
+	}
 `
 
 export default memo(ProductList)

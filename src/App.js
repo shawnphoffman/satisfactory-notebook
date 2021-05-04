@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { lazy, memo } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
@@ -7,10 +7,9 @@ import Loading from 'components/Loaders/Loading'
 import Sidebar from 'components/Sidebar/SidebarContainer'
 import ProductContext from 'context/ProductContext'
 import RecipeContext from 'context/RecipeContext'
-import { importImageManifest } from 'loaders/imageMap'
 
-const ProductList = React.lazy(() => import('components/ProductList'))
-// const ProductList = React.lazy(() => {
+const ProductList = lazy(() => import('components/ProductList'))
+// const ProductList = lazy(() => {
 // 	return Promise.all([
 // 		import('components/ProductList'),
 // 		new Promise(resolve => {
@@ -19,9 +18,6 @@ const ProductList = React.lazy(() => import('components/ProductList'))
 // 		}),
 // 	]).then(([module]) => module)
 // })
-
-// Preload images
-importImageManifest()
 
 function App() {
 	return (
