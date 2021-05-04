@@ -13,8 +13,8 @@ const SettingCheckbox = ({ label, name, checked, onChange, hint }) => (
 export default memo(SettingCheckbox)
 
 const InputContainer = styled.div`
-	margin: 12px 0 12px 18px;
-	font-size: 0.9em;
+	margin: 8px 0 8px 18px;
+	font-size: 0.8em;
 `
 const Hint = styled.div`
 	font-size: 0.8em;
