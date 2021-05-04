@@ -19,16 +19,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-/** @license React v16.13.1
- * react-is.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/** @license React vundefined
+/** @license React v0.0.0-fec00a869
  * react-dom.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -37,16 +28,7 @@ PERFORMANCE OF THIS SOFTWARE.
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React vundefined
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/** @license React vundefined
+/** @license React v0.0.0-fec00a869
  * react.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -55,8 +37,8 @@ PERFORMANCE OF THIS SOFTWARE.
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React vundefined
- * scheduler-unstable_no_dom.production.min.js
+/** @license React v0.0.0-fec00a869
+ * scheduler.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -64,8 +46,8 @@ PERFORMANCE OF THIS SOFTWARE.
  * LICENSE file in the root directory of this source tree.
  */
 
-/** @license React vundefined
- * scheduler.production.min.js
+/** @license React v16.13.1
+ * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
