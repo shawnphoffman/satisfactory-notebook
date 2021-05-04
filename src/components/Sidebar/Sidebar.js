@@ -176,7 +176,7 @@ const Sidebar = () => {
 					<SettingCheckbox
 						key={type}
 						label={type}
-						name={type}
+						name={`cat-${type}`}
 						checked={!stateProduct.hiddenTypes.includes(type)}
 						onChange={() => handleTypeToggleClick(type, !stateProduct.hiddenTypes.includes(type))}
 					/>
@@ -258,7 +258,7 @@ const HideMobile = styled.div`
 const Disclaimer = styled.div`
 	width: 240px;
 	font-size: 11px;
-	color: #555;
+	color: #454545;
 	line-height: 1.4;
 	font-style: italic;
 	flex: 1;
