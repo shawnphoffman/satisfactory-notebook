@@ -1,4 +1,4 @@
-import { memo, unstable_useTransition as useTransition, useContext, useEffect, useMemo, useState } from 'react'
+import React, { memo, unstable_useTransition as useTransition, useContext, useEffect, useMemo, useState } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
@@ -16,7 +16,8 @@ const ProductList = () => {
 
 	const [data, setData] = useState({})
 	// const [data, setData] = useState(rawData)
-	const [startTransition] = useTransition({
+	// eslint-disable-next-line no-unused-vars
+	const [startTransition, isPending] = useTransition({
 		// TODO
 		timeoutMs: 3000,
 	})

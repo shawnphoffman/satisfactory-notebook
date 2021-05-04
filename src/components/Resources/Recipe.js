@@ -1,4 +1,4 @@
-import { memo, useContext } from 'react'
+import React, { memo, useContext } from 'react'
 import { styled } from '@linaria/react'
 
 import Ingredient from 'components/Ingredients/Ingredient'

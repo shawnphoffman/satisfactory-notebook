@@ -1,4 +1,4 @@
-import { lazy, memo, Profiler, Suspense } from 'react'
+import React, { lazy, memo } from 'react'
 import { styled } from '@linaria/react'
 import * as Sentry from '@sentry/react'
 
@@ -24,14 +24,14 @@ function App() {
 		<Sentry.ErrorBoundary fallback={<Error />} showDialog={process.env.NODE_ENV === 'production'}>
 			<ProductContext>
 				<RecipeContext>
-					<Profiler id="App">
+					<React.Profiler id="App">
 						<FlexRows>
 							<Sidebar />
-							<Suspense fallback={<Loading />}>
+							<React.Suspense fallback={<Loading />}>
 								<ProductList />
-							</Suspense>
+							</React.Suspense>
 						</FlexRows>
-					</Profiler>
+					</React.Profiler>
 				</RecipeContext>
 			</ProductContext>
 		</Sentry.ErrorBoundary>

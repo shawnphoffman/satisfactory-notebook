@@ -1,6 +1,6 @@
 import './index.css'
 
-import { StrictMode } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import * as Sentry from '@sentry/react'
 import { Integrations } from '@sentry/tracing'
@@ -24,9 +24,9 @@ if (isProduction) {
 }
 
 ReactDOM.unstable_createRoot(document.getElementById('root')).render(
-	<StrictMode>
+	<React.StrictMode>
 		<App />
-	</StrictMode>
+	</React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,4 +1,4 @@
-import { lazy, memo, Suspense } from 'react'
+import React, { lazy, memo } from 'react'
 import { styled } from '@linaria/react'
 
 import logo from './logo.png'
@@ -25,9 +25,9 @@ const SidebarContainer = () => {
 					height="81"
 				/>
 			</div>
-			<Suspense fallback={<div></div>}>
+			<React.Suspense fallback={<div></div>}>
 				<Sidebar />
-			</Suspense>
+			</React.Suspense>
 		</SidebarWrapper>
 	)
 }
