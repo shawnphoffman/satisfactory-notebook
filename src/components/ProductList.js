@@ -11,8 +11,8 @@ import Loading from './Loaders/Loading'
 
 // const Resource = lazy(() => import('components/Resources/Resource'))
 
-const ProductList = () => {
-	const [{ removedProducts, hiddenTypes }] = useContext(ProductContext)
+const ProductList = ({ version = 'v4' }) => {
+	const [{ removedProducts, hiddenTypes, showV3 }] = useContext(ProductContext)
 
 	const [data, setData] = useState({})
 	// const [data, setData] = useState(rawData)
@@ -25,7 +25,7 @@ const ProductList = () => {
 	useEffect(() => {
 		// console.log('data.json loading...')
 		// setTimeout(() => {
-		fetch('/data-v4.json')
+		fetch(`/data-${version}.json`)
 			.then(res => res.json())
 			.then(data => {
 				// console.log('data.json loaded')
@@ -35,7 +35,7 @@ const ProductList = () => {
 			})
 			.catch(e => console.error(e))
 		// }, 3000)
-	}, [startTransition])
+	}, [startTransition, version])
 
 	//
 	const filteredProducts = useMemo(() => {
@@ -69,6 +69,7 @@ const ProductList = () => {
 
 	return (
 		<Wrapper>
+			{showV3 && <Version>Recipes for {version}</Version>}
 			{Object.keys(filteredProducts).map(p => (
 				<Sentry.ErrorBoundary key={p} fallback={<ResourceError slug={p} />}>
 					<Resource slug={p} item={data[p]} />
@@ -77,6 +78,12 @@ const ProductList = () => {
 		</Wrapper>
 	)
 }
+
+const Version = styled.div`
+	margin-top: 4mm;
+	margin-left: 4mm;
+	font-size: .7em;
+`
 
 const Wrapper = styled.div`
 	width: 100%;

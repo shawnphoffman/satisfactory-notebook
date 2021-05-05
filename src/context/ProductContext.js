@@ -6,6 +6,7 @@ const initialState = {
 	padLeftMargin: false,
 	onePerPage: true,
 	removedProducts: [],
+	showV3: false,
 	hiddenTypes: [
 		ItemType.ammo,
 		// ItemType.component,
@@ -23,6 +24,7 @@ const initialState = {
 export const ProductAction = {
 	TOGGLE_LEFT_MARGIN: 'TOGGLE_LEFT_MARGIN',
 	TOGGLE_ONE_PER_PAGE: 'TOGGLE_ONE_PER_PAGE',
+	TOGGLE_SHOW_V3: 'TOGGLE_SHOW_V3',
 	REMOVE_PRODUCT: 'REMOVE_PRODUCT',
 	RETURN_PRODUCT: 'RETURN_PRODUCT',
 	RETURN_ALL_PRODUCTS: 'RETURN_ALL_PRODUCTS',
@@ -43,6 +45,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				onePerPage: !state.onePerPage,
+			}
+		case ProductAction.TOGGLE_SHOW_V3:
+			return {
+				...state,
+				showV3: !state.showV3,
 			}
 		// ITEM FILTERING
 		case ProductAction.REMOVE_PRODUCT:

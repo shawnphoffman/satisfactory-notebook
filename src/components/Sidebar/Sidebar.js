@@ -62,6 +62,17 @@ const Sidebar = () => {
 	}, [dispatchProduct])
 
 	//
+	const handleShowV3 = useCallback(() => {
+		dispatchProduct({ type: ProductAction.TOGGLE_SHOW_V3 })
+
+		Sentry.addBreadcrumb({
+			category: 'setting-change',
+			message: 'Show V3 changed',
+			level: Sentry.Severity.Info,
+		})
+	}, [dispatchProduct])
+
+	//
 	const handleAlternates = useCallback(() => {
 		dispatchRecipe({ type: RecipeAction.TOGGLE_ALTERNATES })
 
@@ -166,6 +177,13 @@ const Sidebar = () => {
 					checked={stateRecipe.includeAlternates}
 					onChange={handleAlternates}
 					hint="Find more hard drives"
+				/>
+				<SettingCheckbox
+					label="Show v3 Recipes"
+					name="showV3"
+					checked={stateProduct.showV3}
+					onChange={handleShowV3}
+					hint="Compare the old and new"
 				/>
 			</SidebarSection>
 
