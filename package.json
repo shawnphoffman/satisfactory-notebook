@@ -4,6 +4,7 @@
 	"homepage": "http://satisfactory-notebook.com",
 	"private": true,
 	"dependencies": {
+		"@panelbear/panelbear-js": "^1.2.0",
 		"@sentry/react": "^6.3.5",
 		"@sentry/tracing": "^6.3.5",
 		"@testing-library/jest-dom": "^5.11.4",
