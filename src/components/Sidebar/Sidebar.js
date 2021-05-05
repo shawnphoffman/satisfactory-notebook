@@ -118,7 +118,7 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 
-			Panelbear.track(`Product-${name}_Returned`)
+			Panelbear.track(`Product-${name.replace(/\s+/g, '-')}_Returned`)
 		},
 		[dispatchProduct]
 	)

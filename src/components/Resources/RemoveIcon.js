@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useContext } from 'react'
 import { styled } from '@linaria/react'
+import * as Panelbear from '@panelbear/panelbear-js'
 import * as Sentry from '@sentry/react'
 
 import { ProductAction, ProductContext } from '../../context/ProductContext'
@@ -15,6 +16,8 @@ const RemoveIcon = ({ name }) => {
 			message: `Removed: ${name}`,
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track(`Product-${name.replace(/\s+/g, '-')}_Removed`)
 	}, [dispatch, name])
 
 	return (
