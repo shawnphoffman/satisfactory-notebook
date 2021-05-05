@@ -28,6 +28,7 @@ if (isProduction) {
 // Analytics
 Panelbear.load(process.env.REACT_APP_PANELBEAR_SITE_ID)
 Panelbear.trackPageview()
+Panelbear.track('PageLoad')
 
 ReactDOM.unstable_createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

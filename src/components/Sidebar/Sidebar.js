@@ -39,7 +39,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('Fraction Changed')
+		Panelbear.track('Fraction_Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -52,7 +52,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('Left-Margin Changed')
+		Panelbear.track('Left-Margin_Changed')
 	}, [dispatchProduct])
 
 	//
@@ -65,7 +65,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('One-Page Changed')
+		Panelbear.track('One-Page_Changed')
 	}, [dispatchProduct])
 
 	//
@@ -78,7 +78,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('v3 Changed')
+		Panelbear.track('v3_Changed')
 	}, [dispatchProduct])
 
 	//
@@ -91,7 +91,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('Alternate Recipes Changed')
+		Panelbear.track('Alternate-Recipes_Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -104,7 +104,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('Cycle Amounts Changed')
+		Panelbear.track('Cycle-Amounts_Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -118,7 +118,7 @@ const Sidebar = () => {
 				level: Sentry.Severity.Info,
 			})
 
-			Panelbear.track(`Product (${name}) Returned`)
+			Panelbear.track(`Product-${name}_Returned`)
 		},
 		[dispatchProduct]
 	)
@@ -137,7 +137,7 @@ const Sidebar = () => {
 			// 	level: Sentry.Severity.Info,
 			// })
 
-			Panelbear.track(`Type: ${type} - ${checked ? 'Hidden' : 'Shown'}`)
+			Panelbear.track(`Type-${type}_${checked ? 'Hidden' : 'Shown'}`)
 		},
 		[dispatchProduct]
 	)
@@ -152,7 +152,7 @@ const Sidebar = () => {
 			level: Sentry.Severity.Info,
 		})
 
-		Panelbear.track('All Products Returned')
+		Panelbear.track('All-Products_Returned')
 	}, [dispatchProduct])
 
 	return (
