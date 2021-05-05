@@ -12,12 +12,12 @@ const initialState = {
 		// ItemType.component,
 		ItemType.ficsmas,
 		// ItemType.fuel,
-		// ItemType.gas,
+		ItemType.gas,
 		// ItemType.liquid,
 		// ItemType.material,
 		ItemType.ore,
 		// ItemType.special,
-		// ItemType.waste,
+		ItemType.waste,
 	],
 }
 
