@@ -1,12 +1,12 @@
 {
 	"Desc_CircuitBoardHighSpeed_C": {
-		"name": "AI Limiter",
-		"description": "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.",
+		"name": "A.I. Limiter",
+		"description": "A.I. Limiter are super advanced electronics that are used to control A.I.s and keep them from evolving in malicious ways.",
 		"category": "component",
 		"icon": "IconDesc_AILimiter_256.png",
 		"recipes": [
 			{
-				"name": "AI Limiter",
+				"name": "A.I. Limiter",
 				"slug": "Recipe_AILimiter_C",
 				"isAlt": false,
 				"producedIn": "Assembler",
@@ -38,7 +38,7 @@
 				],
 				"products": [
 					{
-						"name": "AI Limiter",
+						"name": "A.I. Limiter",
 						"slug": "Desc_CircuitBoardHighSpeed_C",
 						"icon": "IconDesc_AILimiter_256.png",
 						"rate": {
@@ -97,7 +97,7 @@
 	},
 	"Desc_SpaceElevatorPart_5_C": {
 		"name": "Adaptive Control Unit",
-		"description": "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.",
+		"description": "Project Part #5. Send up the Space Elevator to complete phases of Project Assembly.",
 		"category": "special",
 		"icon": "IconDesc_SpelevatorPart_5_256.png",
 		"recipes": [
@@ -175,7 +175,7 @@
 	},
 	"Desc_AluminumPlate_C": {
 		"name": "Alclad Aluminum Sheet",
-		"description": "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
+		"description": "Thin lightweight & highly durable sheet that is mainly used for products that need to be light or have high heat conduction.",
 		"category": "material",
 		"icon": "IconDesc_AluminiumSheet_256.png",
 		"recipes": [
@@ -190,10 +190,10 @@
 						"slug": "Desc_AluminumIngot_C",
 						"icon": "IconDesc_AluminiumIngot_256.png",
 						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
+							"perMin": 60,
+							"perMinFraction": "60",
 							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 8,
 							"perCycleLabel": "x"
 						}
 					},
@@ -202,10 +202,10 @@
 						"slug": "Desc_CopperIngot_C",
 						"icon": "IconDesc_CopperIngot_256.png",
 						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
+							"perMin": 22.5,
+							"perMinFraction": "22 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 3,
 							"perCycleLabel": "x"
 						}
 					}
@@ -219,7 +219,7 @@
 							"perMin": 30,
 							"perMinFraction": "30",
 							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 4,
 							"perCycleLabel": "x"
 						}
 					}
@@ -229,7 +229,7 @@
 	},
 	"Desc_AluminaSolution_C": {
 		"name": "Alumina Solution",
-		"description": "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.",
+		"description": "Dissolved Alumina, extracted from Bauxite. Can be further refined into pure Aluminum.",
 		"category": "liquid",
 		"icon": "LiquidAlumina_Pipe_256.png",
 		"recipes": [
@@ -244,10 +244,10 @@
 						"slug": "Desc_OreBauxite_C",
 						"icon": "Bauxite_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 70,
+							"perMinFraction": "70",
 							"perMinLabel": "/min",
-							"perCycle": 12,
+							"perCycle": 7,
 							"perCycleLabel": "x"
 						}
 					},
@@ -256,10 +256,10 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 180,
-							"perMinFraction": "180",
+							"perMin": 100,
+							"perMinFraction": "100",
 							"perMinLabel": "m³/min",
-							"perCycle": 18,
+							"perCycle": 10,
 							"perCycleLabel": "m³"
 						}
 					}
@@ -270,10 +270,10 @@
 						"slug": "Desc_AluminaSolution_C",
 						"icon": "LiquidAlumina_Pipe_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 80,
+							"perMinFraction": "80",
 							"perMinLabel": "m³/min",
-							"perCycle": 12,
+							"perCycle": 8,
 							"perCycleLabel": "m³"
 						}
 					},
@@ -282,190 +282,10 @@
 						"slug": "Desc_Silica_C",
 						"icon": "IconDesc_Silica_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Unpackage Alumina Solution",
-				"slug": "Recipe_UnpackageAlumina_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Alumina Solution",
-						"slug": "Desc_PackagedAlumina_C",
-						"icon": "IconDesc_PackagedAluminaSolution_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 20,
+							"perMinFraction": "20",
 							"perMinLabel": "/min",
 							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Sloppy Alumina",
-				"slug": "Recipe_Alternate_SloppyAlumina_C",
-				"isAlt": true,
-				"producedIn": "Refinery",
-				"ingredients": [
-					{
-						"name": "Bauxite",
-						"slug": "Desc_OreBauxite_C",
-						"icon": "Bauxite_256.png",
-						"rate": {
-							"perMin": 200,
-							"perMinFraction": "200",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 200,
-							"perMinFraction": "200",
-							"perMinLabel": "m³/min",
-							"perCycle": 10,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 240,
-							"perMinFraction": "240",
-							"perMinLabel": "m³/min",
-							"perCycle": 12,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_AluminumCasing_C": {
-		"name": "Aluminum Casing",
-		"description": "A versatile container cast from Aluminum Ingots.",
-		"category": "material",
-		"icon": "IconDesc_AluminiumCasing_256.png",
-		"recipes": [
-			{
-				"name": "Aluminum Casing",
-				"slug": "Recipe_AluminumCasing_C",
-				"isAlt": false,
-				"producedIn": "Constructor",
-				"ingredients": [
-					{
-						"name": "Aluminum Ingot",
-						"slug": "Desc_AluminumIngot_C",
-						"icon": "IconDesc_AluminiumIngot_256.png",
-						"rate": {
-							"perMin": 90,
-							"perMinFraction": "90",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Alclad Casing",
-				"slug": "Recipe_Alternate_AlcladCasing_C",
-				"isAlt": true,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Aluminum Ingot",
-						"slug": "Desc_AluminumIngot_C",
-						"icon": "IconDesc_AluminiumIngot_256.png",
-						"rate": {
-							"perMin": 150,
-							"perMinFraction": "150",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Copper Ingot",
-						"slug": "Desc_CopperIngot_C",
-						"icon": "IconDesc_CopperIngot_256.png",
-						"rate": {
-							"perMin": 75,
-							"perMinFraction": "75",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 112.5,
-							"perMinFraction": "112 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 15,
 							"perCycleLabel": "x"
 						}
 					}
@@ -475,7 +295,7 @@
 	},
 	"Desc_AluminumIngot_C": {
 		"name": "Aluminum Ingot",
-		"description": "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.",
+		"description": "Aluminum Ingots are made from Aluminum Scrap. It is mostly used to produce specialized aluminum-based parts.",
 		"category": "material",
 		"icon": "IconDesc_AluminiumIngot_256.png",
 		"recipes": [
@@ -490,10 +310,10 @@
 						"slug": "Desc_AluminumScrap_C",
 						"icon": "IconDesc_AluminiumScrap_256.png",
 						"rate": {
-							"perMin": 90,
-							"perMinFraction": "90",
+							"perMin": 240,
+							"perMinFraction": "240",
 							"perMinLabel": "/min",
-							"perCycle": 6,
+							"perCycle": 12,
 							"perCycleLabel": "x"
 						}
 					},
@@ -502,10 +322,10 @@
 						"slug": "Desc_Silica_C",
 						"icon": "IconDesc_Silica_256.png",
 						"rate": {
-							"perMin": 75,
-							"perMinFraction": "75",
+							"perMin": 140,
+							"perMinFraction": "140",
 							"perMinLabel": "/min",
-							"perCycle": 5,
+							"perCycle": 7,
 							"perCycleLabel": "x"
 						}
 					}
@@ -516,8 +336,8 @@
 						"slug": "Desc_AluminumIngot_C",
 						"icon": "IconDesc_AluminiumIngot_256.png",
 						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
+							"perMin": 80,
+							"perMinFraction": "80",
 							"perMinLabel": "/min",
 							"perCycle": 4,
 							"perCycleLabel": "x"
@@ -536,10 +356,10 @@
 						"slug": "Desc_AluminumScrap_C",
 						"icon": "IconDesc_AluminiumScrap_256.png",
 						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
+							"perMin": 144,
+							"perMinFraction": "144",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 12,
 							"perCycleLabel": "x"
 						}
 					}
@@ -550,10 +370,10 @@
 						"slug": "Desc_AluminumIngot_C",
 						"icon": "IconDesc_AluminiumIngot_256.png",
 						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
+							"perMin": 36,
+							"perMinFraction": "36",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 3,
 							"perCycleLabel": "x"
 						}
 					}
@@ -586,14 +406,14 @@
 						}
 					},
 					{
-						"name": "Coal",
-						"slug": "Desc_Coal_C",
-						"icon": "CoalOre_256.png",
+						"name": "Petroleum Coke",
+						"slug": "Desc_PetroleumCoke_C",
+						"icon": "IconDesc_PetroleumCoke_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 60,
+							"perMinFraction": "60",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					}
@@ -616,10 +436,10 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 60,
+							"perMinFraction": "60",
 							"perMinLabel": "m³/min",
-							"perCycle": 2,
+							"perCycle": 1,
 							"perCycleLabel": "m³"
 						}
 					}
@@ -636,69 +456,11 @@
 						"slug": "Desc_AluminaSolution_C",
 						"icon": "LiquidAlumina_Pipe_256.png",
 						"rate": {
-							"perMin": 180,
-							"perMinFraction": "180",
+							"perMin": 90,
+							"perMinFraction": "90",
 							"perMinLabel": "m³/min",
-							"perCycle": 12,
+							"perCycle": 3,
 							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Petroleum Coke",
-						"slug": "Desc_PetroleumCoke_C",
-						"icon": "IconDesc_PetroleumCoke_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 4,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Aluminum Scrap",
-						"slug": "Desc_AluminumScrap_C",
-						"icon": "IconDesc_AluminiumScrap_256.png",
-						"rate": {
-							"perMin": 300,
-							"perMinFraction": "300",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 105,
-							"perMinFraction": "105",
-							"perMinLabel": "m³/min",
-							"perCycle": 7,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Instant Scrap",
-				"slug": "Recipe_Alternate_InstantScrap_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Bauxite",
-						"slug": "Desc_OreBauxite_C",
-						"icon": "Bauxite_256.png",
-						"rate": {
-							"perMin": 150,
-							"perMinFraction": "150",
-							"perMinLabel": "/min",
-							"perCycle": 15,
-							"perCycleLabel": "x"
 						}
 					},
 					{
@@ -706,35 +468,11 @@
 						"slug": "Desc_Coal_C",
 						"icon": "CoalOre_256.png",
 						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
+							"perMin": 30,
+							"perMinFraction": "30",
 							"perMinLabel": "/min",
-							"perCycle": 10,
+							"perCycle": 1,
 							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
 						}
 					}
 				],
@@ -744,10 +482,10 @@
 						"slug": "Desc_AluminumScrap_C",
 						"icon": "IconDesc_AluminiumScrap_256.png",
 						"rate": {
-							"perMin": 300,
-							"perMinFraction": "300",
+							"perMin": 150,
+							"perMinFraction": "150",
 							"perMinLabel": "/min",
-							"perCycle": 30,
+							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
 					},
@@ -756,65 +494,11 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 30,
+							"perMinFraction": "30",
 							"perMinLabel": "m³/min",
-							"perCycle": 5,
+							"perCycle": 1,
 							"perCycleLabel": "m³"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_SpaceElevatorPart_7_C": {
-		"name": "Assembly Director System",
-		"description": "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.",
-		"category": "special",
-		"icon": "IconDesc_AssemblyDirectorSystem_256.png",
-		"recipes": [
-			{
-				"name": "Assembly Director System",
-				"slug": "Recipe_SpaceElevatorPart_7_C",
-				"isAlt": false,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Adaptive Control Unit",
-						"slug": "Desc_SpaceElevatorPart_5_C",
-						"icon": "IconDesc_SpelevatorPart_5_256.png",
-						"rate": {
-							"perMin": 1.5,
-							"perMinFraction": "1 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Supercomputer",
-						"slug": "Desc_ComputerSuper_C",
-						"icon": "IconDesc_SuperComputer_256.png",
-						"rate": {
-							"perMin": 0.75,
-							"perMinFraction": "3/4",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Assembly Director System",
-						"slug": "Desc_SpaceElevatorPart_7_C",
-						"icon": "IconDesc_AssemblyDirectorSystem_256.png",
-						"rate": {
-							"perMin": 0.75,
-							"perMinFraction": "3/4",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
 						}
 					}
 				]
@@ -823,7 +507,7 @@
 	},
 	"Desc_SpaceElevatorPart_3_C": {
 		"name": "Automated Wiring",
-		"description": "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.",
+		"description": "Project Part #3. Send up the Space Elevator to complete phases of Project Assembly.",
 		"category": "special",
 		"icon": "SpelevatorPart_3_256.png",
 		"recipes": [
@@ -935,7 +619,7 @@
 	},
 	"Desc_Battery_C": {
 		"name": "Battery",
-		"description": "Primarily used as fuel for Drones and Vehicles.",
+		"description": "Batteries store an electrical charge. They are primarily used as a power source.",
 		"category": "component",
 		"icon": "IconDesc_Battery_256.png",
 		"recipes": [
@@ -943,109 +627,15 @@
 				"name": "Battery",
 				"slug": "Recipe_Battery_C",
 				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "m³/min",
-							"perCycle": 2.5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Battery",
-						"slug": "Desc_Battery_C",
-						"icon": "IconDesc_Battery_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 1.5,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Classic Battery",
-				"slug": "Recipe_Alternate_ClassicBattery_C",
-				"isAlt": true,
 				"producedIn": "Manufacturer",
 				"ingredients": [
-					{
-						"name": "Sulfur",
-						"slug": "Desc_Sulfur_C",
-						"icon": "Sulfur_256.png",
-						"rate": {
-							"perMin": 45,
-							"perMinFraction": "45",
-							"perMinLabel": "/min",
-							"perCycle": 6,
-							"perCycleLabel": "x"
-						}
-					},
 					{
 						"name": "Alclad Aluminum Sheet",
 						"slug": "Desc_AluminumPlate_C",
 						"icon": "IconDesc_AluminiumSheet_256.png",
 						"rate": {
-							"perMin": 52.5,
-							"perMinFraction": "52 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 7,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Plastic",
-						"slug": "Desc_Plastic_C",
-						"icon": "IconDesc_Plastic_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
+							"perMin": 15,
+							"perMinFraction": "15",
 							"perMinLabel": "/min",
 							"perCycle": 8,
 							"perCycleLabel": "x"
@@ -1056,10 +646,34 @@
 						"slug": "Desc_Wire_C",
 						"icon": "IconDesc_Wire_256.png",
 						"rate": {
-							"perMin": 90,
-							"perMinFraction": "90",
+							"perMin": 30,
+							"perMinFraction": "30",
 							"perMinLabel": "/min",
-							"perCycle": 12,
+							"perCycle": 16,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Sulfur",
+						"slug": "Desc_Sulfur_C",
+						"icon": "Sulfur_256.png",
+						"rate": {
+							"perMin": 37.5,
+							"perMinFraction": "37 1/2",
+							"perMinLabel": "/min",
+							"perCycle": 20,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Plastic",
+						"slug": "Desc_Plastic_C",
+						"icon": "IconDesc_Plastic_256.png",
+						"rate": {
+							"perMin": 15,
+							"perMinFraction": "15",
+							"perMinLabel": "/min",
+							"perCycle": 8,
 							"perCycleLabel": "x"
 						}
 					}
@@ -1070,10 +684,10 @@
 						"slug": "Desc_Battery_C",
 						"icon": "IconDesc_Battery_256.png",
 						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
+							"perMin": 5.625,
+							"perMinFraction": "5 5/8",
 							"perMinLabel": "/min",
-							"perCycle": 4,
+							"perCycle": 3,
 							"perCycleLabel": "x"
 						}
 					}
@@ -1083,7 +697,7 @@
 	},
 	"BP_EquipmentDescriptorBeacon_C": {
 		"name": "Beacon",
-		"description": "Slot: Hands\r\nConsumable\r\n\r\nUsed to mark areas of interest. Displayed on your compass with the color and name you set for it.",
+		"description": "Slot: Hands\nConsumable\nUsed to mark areas of interest. Displayed on your compass with the color and name you set for it.",
 		"category": "component",
 		"icon": "IconDesc_Beacon_256.png",
 		"recipes": [
@@ -1219,7 +833,7 @@
 	},
 	"Desc_GenericBiomass_C": {
 		"name": "Biomass",
-		"description": "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.",
+		"description": "Primarily used as fuel. Biomass burners and vehicles can use it for power. Biomass is much more energy efficient than raw biological matter.",
 		"category": "fuel",
 		"icon": "IconDesc_Biomass_Final_256.png",
 		"recipes": [
@@ -1402,7 +1016,7 @@
 		"icon": "IconDesc_Gunpowder_256.png",
 		"recipes": [
 			{
-				"name": "Black Powder",
+				"name": "Black powder",
 				"slug": "Recipe_Gunpowder_C",
 				"isAlt": false,
 				"producedIn": "Assembler",
@@ -1539,7 +1153,7 @@
 	},
 	"Desc_Cable_C": {
 		"name": "Cable",
-		"description": "Used for crafting.\r\nPrimarily used to build power lines.",
+		"description": "Used for crafting. Primarily used to build power lines.",
 		"category": "material",
 		"icon": "IconDesc_Cables_256.png",
 		"recipes": [
@@ -1719,7 +1333,7 @@
 	},
 	"Desc_CandyCane_C": {
 		"name": "Candy Cane",
-		"description": "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays.\r\n*Disclaimer: Can't be consumed...",
+		"description": "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. *Disclaimer: Can't be consumed....",
 		"category": "ficsmas",
 		"icon": "IconDesc_CanePart_256.png",
 		"recipes": [
@@ -1992,7 +1606,7 @@
 				]
 			},
 			{
-				"name": "Alternate: Silicon Circuit Board",
+				"name": "Alternate: Silicone Circuit Board",
 				"slug": "Recipe_Alternate_CircuitBoard_1_C",
 				"isAlt": true,
 				"producedIn": "Assembler",
@@ -2117,7 +1731,7 @@
 	},
 	"Desc_ColorCartridge_C": {
 		"name": "Color Cartridge",
-		"description": "Ammo for the Color Gun.\r\nNecessary to change the color of factory buildings and vehicles.",
+		"description": "Ammo for the Color Gun. Necessary to change the color of factory buildings and vehicles.",
 		"category": "ammo",
 		"icon": "IconDesc_ColorCartridge_256.png",
 		"recipes": [
@@ -2395,7 +2009,7 @@
 	},
 	"Desc_Cement_C": {
 		"name": "Concrete",
-		"description": "Used for building.\r\nGood for stable foundations.",
+		"description": "Used for building. Good for stable foundations.",
 		"category": "material",
 		"icon": "IconDesc_Concrete_256.png",
 		"recipes": [
@@ -2573,142 +2187,6 @@
 			}
 		]
 	},
-	"Desc_CoolingSystem_C": {
-		"name": "Cooling System",
-		"description": "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.",
-		"category": "component",
-		"icon": "IconDesc_CoolingSystem_256.png",
-		"recipes": [
-			{
-				"name": "Cooling System",
-				"slug": "Recipe_CoolingSystem_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Heat Sink",
-						"slug": "Desc_AluminumPlateReinforced_C",
-						"icon": "IconDesc_Heatsink_256.png",
-						"rate": {
-							"perMin": 12,
-							"perMinFraction": "12",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Rubber",
-						"slug": "Desc_Rubber_C",
-						"icon": "IconDesc_Rubber_256.png",
-						"rate": {
-							"perMin": 12,
-							"perMinFraction": "12",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 150000,
-							"perMinFraction": "150000",
-							"perMinLabel": "/min",
-							"perCycle": 25000,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Cooling System",
-						"slug": "Desc_CoolingSystem_C",
-						"icon": "IconDesc_CoolingSystem_256.png",
-						"rate": {
-							"perMin": 6,
-							"perMinFraction": "6",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Cooling Device",
-				"slug": "Recipe_Alternate_CoolingDevice_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Heat Sink",
-						"slug": "Desc_AluminumPlateReinforced_C",
-						"icon": "IconDesc_Heatsink_256.png",
-						"rate": {
-							"perMin": 9.375,
-							"perMinFraction": "9 3/8",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Motor",
-						"slug": "Desc_Motor_C",
-						"icon": "IconDesc_Engine_256.png",
-						"rate": {
-							"perMin": 1.875,
-							"perMinFraction": "1 7/8",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 45000,
-							"perMinFraction": "45000",
-							"perMinLabel": "/min",
-							"perCycle": 24000,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Cooling System",
-						"slug": "Desc_CoolingSystem_C",
-						"icon": "IconDesc_CoolingSystem_256.png",
-						"rate": {
-							"perMin": 3.75,
-							"perMinFraction": "3 3/4",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_XmasBall3_C": {
 		"name": "Copper FICSMAS Ornament",
 		"description": "Still used for making FICSMAS Decorations.",
@@ -2765,7 +2243,7 @@
 	},
 	"Desc_CopperIngot_C": {
 		"name": "Copper Ingot",
-		"description": "Used for crafting.\r\nCrafted into the most basic parts.",
+		"description": "Used for crafting. Crafted into the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_CopperIngot_256.png",
 		"recipes": [
@@ -2897,51 +2375,9 @@
 			}
 		]
 	},
-	"Desc_CopperDust_C": {
-		"name": "Copper Powder",
-		"description": "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.",
-		"category": "material",
-		"icon": "IconDesc_CopperDust_256.png",
-		"recipes": [
-			{
-				"name": "Copper Powder",
-				"slug": "Recipe_CopperDust_C",
-				"isAlt": false,
-				"producedIn": "Constructor",
-				"ingredients": [
-					{
-						"name": "Copper Ingot",
-						"slug": "Desc_CopperIngot_C",
-						"icon": "IconDesc_CopperIngot_256.png",
-						"rate": {
-							"perMin": 300,
-							"perMinFraction": "300",
-							"perMinLabel": "/min",
-							"perCycle": 30,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Copper Powder",
-						"slug": "Desc_CopperDust_C",
-						"icon": "IconDesc_CopperDust_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_CopperSheet_C": {
 		"name": "Copper Sheet",
-		"description": "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.",
+		"description": "Used for crafting. Primarily used for pipelines due to its high corrosion resistance.",
 		"category": "material",
 		"icon": "IconDesc_CopperSheet_256.png",
 		"recipes": [
@@ -3176,7 +2612,7 @@
 						}
 					},
 					{
-						"name": "AI Limiter",
+						"name": "A.I. Limiter",
 						"slug": "Desc_CircuitBoardHighSpeed_C",
 						"icon": "IconDesc_AILimiter_256.png",
 						"rate": {
@@ -3207,7 +2643,7 @@
 	},
 	"Desc_ElectromagneticControlRod_C": {
 		"name": "Electromagnetic Control Rod",
-		"description": "Control Rods regulate power output via electromagnetism.",
+		"description": "Control Rods regulate power expenditure via electromagnetism.",
 		"category": "component",
 		"icon": "IconDesc_ElectromagneticControlRod_256.png",
 		"recipes": [
@@ -3230,7 +2666,7 @@
 						}
 					},
 					{
-						"name": "AI Limiter",
+						"name": "A.I. Limiter",
 						"slug": "Desc_CircuitBoardHighSpeed_C",
 						"icon": "IconDesc_AILimiter_256.png",
 						"rate": {
@@ -3268,10 +2704,10 @@
 						"slug": "Desc_Stator_C",
 						"icon": "IconDesc_Stator_256.png",
 						"rate": {
-							"perMin": 8,
-							"perMinFraction": "8",
+							"perMin": 10,
+							"perMinFraction": "10",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 10,
 							"perCycleLabel": "x"
 						}
 					},
@@ -3280,10 +2716,10 @@
 						"slug": "Desc_HighSpeedConnector_C",
 						"icon": "IconDesc_HighSpeedConnector_256.png",
 						"rate": {
-							"perMin": 4,
-							"perMinFraction": "4",
+							"perMin": 5,
+							"perMinFraction": "5",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
 					}
@@ -3294,10 +2730,10 @@
 						"slug": "Desc_ElectromagneticControlRod_C",
 						"icon": "IconDesc_ElectromagneticControlRod_256.png",
 						"rate": {
-							"perMin": 8,
-							"perMinFraction": "8",
+							"perMin": 10,
+							"perMinFraction": "10",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 10,
 							"perCycleLabel": "x"
 						}
 					}
@@ -3307,7 +2743,7 @@
 	},
 	"Desc_FluidCanister_C": {
 		"name": "Empty Canister",
-		"description": "Used to package fluids for transportation.",
+		"description": "Used to package fluids for transportation. Can be recycled.",
 		"category": "component",
 		"icon": "IconDesc_EmptyCannister_256.png",
 		"recipes": [
@@ -3340,52 +2776,6 @@
 							"perMinFraction": "60",
 							"perMinLabel": "/min",
 							"perCycle": 4,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Unpackage Alumina Solution",
-				"slug": "Recipe_UnpackageAlumina_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Alumina Solution",
-						"slug": "Desc_PackagedAlumina_C",
-						"icon": "IconDesc_PackagedAluminaSolution_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "/min",
-							"perCycle": 2,
 							"perCycleLabel": "x"
 						}
 					}
@@ -3576,52 +2966,6 @@
 				]
 			},
 			{
-				"name": "Unpackage Sulfuric Acid",
-				"slug": "Recipe_UnpackageSulfuricAcid_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Sulfuric Acid",
-						"slug": "Desc_PackagedSulfuricAcid_C",
-						"icon": "IconDesc_PckagedSulphuricAcid_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "m³/min",
-							"perCycle": 1,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
 				"name": "Unpackage Turbofuel",
 				"slug": "Recipe_UnpackageTurboFuel_C",
 				"isAlt": false,
@@ -3795,143 +3139,9 @@
 			}
 		]
 	},
-	"Desc_GasTank_C": {
-		"name": "Empty Fluid Tank",
-		"description": "Used to package gases and volatile liquids for transportation.",
-		"category": "material",
-		"icon": "IconDesc_PressureTank_256.png",
-		"recipes": [
-			{
-				"name": "Empty Fluid Tank",
-				"slug": "Recipe_GasTank_C",
-				"isAlt": false,
-				"producedIn": "Constructor",
-				"ingredients": [
-					{
-						"name": "Aluminum Ingot",
-						"slug": "Desc_AluminumIngot_C",
-						"icon": "IconDesc_AluminiumIngot_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Unpackage Nitric Acid",
-				"slug": "Recipe_UnpackageNitricAcid_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Nitric Acid",
-						"slug": "Desc_PackagedNitricAcid_C",
-						"icon": "IconDesc_PackagedNitricAcid_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "m³/min",
-							"perCycle": 1,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Unpackage Nitrogen Gas",
-				"slug": "Recipe_UnpackageNitrogen_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Nitrogen Gas",
-						"slug": "Desc_PackagedNitrogenGas_C",
-						"icon": "IconDesc_PackagedNitrogen_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 240000,
-							"perMinFraction": "240000",
-							"perMinLabel": "/min",
-							"perCycle": 4000,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_SteelPlateReinforced_C": {
 		"name": "Encased Industrial Beam",
-		"description": "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.",
+		"description": "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously. Mostly used as a stable basis for constructing buildings.",
 		"category": "material",
 		"icon": "IconDesc_EncasedSteelBeam_256.png",
 		"recipes": [
@@ -4029,109 +3239,9 @@
 			}
 		]
 	},
-	"Desc_PlutoniumCell_C": {
-		"name": "Encased Plutonium Cell",
-		"description": "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.",
-		"category": "component",
-		"icon": "IconDesc_EncasedPlutoniumCell_256.png",
-		"recipes": [
-			{
-				"name": "Encased Plutonium Cell",
-				"slug": "Recipe_PlutoniumCell_C",
-				"isAlt": false,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Plutonium Pellet",
-						"slug": "Desc_PlutoniumPellet_C",
-						"icon": "IconDesc_PlutoniumPellet_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Concrete",
-						"slug": "Desc_Cement_C",
-						"icon": "IconDesc_Concrete_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 4,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Encased Plutonium Cell",
-						"slug": "Desc_PlutoniumCell_C",
-						"icon": "IconDesc_EncasedPlutoniumCell_256.png",
-						"rate": {
-							"perMin": 5,
-							"perMinFraction": "5",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Instant Plutonium Cell",
-				"slug": "Recipe_Alternate_InstantPlutoniumCell_C",
-				"isAlt": true,
-				"producedIn": "Particle Accelerator",
-				"ingredients": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 75,
-							"perMinFraction": "75",
-							"perMinLabel": "/min",
-							"perCycle": 150,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Encased Plutonium Cell",
-						"slug": "Desc_PlutoniumCell_C",
-						"icon": "IconDesc_EncasedPlutoniumCell_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_UraniumCell_C": {
 		"name": "Encased Uranium Cell",
-		"description": "Uranium Cells are produced from Uranium Ore.\r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.",
+		"description": "Uranium Cells are concrete encased uranium pellets. Primarily used to make Nuclear Fuel Rods. Moderately radioactive.",
 		"category": "component",
 		"icon": "IconDesc_NuclearCell_256.png",
 		"recipes": [
@@ -4139,17 +3249,17 @@
 				"name": "Encased Uranium Cell",
 				"slug": "Recipe_UraniumCell_C",
 				"isAlt": false,
-				"producedIn": "Blender",
+				"producedIn": "Assembler",
 				"ingredients": [
 					{
-						"name": "Uranium",
-						"slug": "Desc_OreUranium_C",
-						"icon": "UraniumOre_256.png",
+						"name": "Uranium Pellet",
+						"slug": "Desc_UraniumPellet_C",
+						"icon": "IconDesc_UraniumPellets_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 40,
+							"perMinFraction": "40",
 							"perMinLabel": "/min",
-							"perCycle": 10,
+							"perCycle": 40,
 							"perCycleLabel": "x"
 						}
 					},
@@ -4158,23 +3268,11 @@
 						"slug": "Desc_Cement_C",
 						"icon": "IconDesc_Concrete_256.png",
 						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
+							"perMin": 9,
+							"perMinFraction": "9",
 							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 9,
 							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 8,
-							"perCycleLabel": "m³"
 						}
 					}
 				],
@@ -4184,23 +3282,11 @@
 						"slug": "Desc_UraniumCell_C",
 						"icon": "IconDesc_NuclearCell_256.png",
 						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
 							"perMin": 10,
 							"perMinFraction": "10",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
+							"perMinLabel": "/min",
+							"perCycle": 10,
+							"perCycleLabel": "x"
 						}
 					}
 				]
@@ -4212,26 +3298,14 @@
 				"producedIn": "Manufacturer",
 				"ingredients": [
 					{
-						"name": "Uranium",
-						"slug": "Desc_OreUranium_C",
-						"icon": "UraniumOre_256.png",
+						"name": "Uranium Pellet",
+						"slug": "Desc_UraniumPellet_C",
+						"icon": "IconDesc_UraniumPellets_256.png",
 						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
+							"perMin": 20,
+							"perMinFraction": "20",
 							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Silica",
-						"slug": "Desc_Silica_C",
-						"icon": "IconDesc_Silica_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 40,
 							"perCycleLabel": "x"
 						}
 					},
@@ -4240,10 +3314,22 @@
 						"slug": "Desc_Sulfur_C",
 						"icon": "Sulfur_256.png",
 						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
+							"perMin": 22.5,
+							"perMinFraction": "22 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 5,
+							"perCycle": 45,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Silica",
+						"slug": "Desc_Silica_C",
+						"icon": "IconDesc_Silica_256.png",
+						"rate": {
+							"perMin": 22.5,
+							"perMinFraction": "22 1/2",
+							"perMinLabel": "/min",
+							"perCycle": 45,
 							"perCycleLabel": "x"
 						}
 					},
@@ -4252,10 +3338,10 @@
 						"slug": "Desc_HighSpeedWire_C",
 						"icon": "IconDesc_Quickwire_256.png",
 						"rate": {
-							"perMin": 75,
-							"perMinFraction": "75",
+							"perMin": 37.5,
+							"perMinFraction": "37 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 15,
+							"perCycle": 75,
 							"perCycleLabel": "x"
 						}
 					}
@@ -4266,10 +3352,10 @@
 						"slug": "Desc_UraniumCell_C",
 						"icon": "IconDesc_NuclearCell_256.png",
 						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
+							"perMin": 17.5,
+							"perMinFraction": "17 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 4,
+							"perCycle": 35,
 							"perCycleLabel": "x"
 						}
 					}
@@ -4279,7 +3365,7 @@
 	},
 	"Desc_XmasBow_C": {
 		"name": "FICSMAS Bow",
-		"description": "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.",
+		"description": "A fancy Bow, maybe someone can wear this? You certainly can't! Can probably also make some parts and decoratoins from this.",
 		"category": "ficsmas",
 		"icon": "IconDesc_Bow_256.png",
 		"recipes": [
@@ -4375,7 +3461,7 @@
 	},
 	"Desc_XmasBallCluster_C": {
 		"name": "FICSMAS Ornament Bundle",
-		"description": "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!",
+		"description": "All the FICSMAS Ornaments smashed together to make even more Ficsmas Decorations!",
 		"category": "ficsmas",
 		"icon": "IconDesc_Balls_256.png",
 		"recipes": [
@@ -4471,7 +3557,7 @@
 	},
 	"Desc_XmasStar_C": {
 		"name": "FICSMAS Wonder Star",
-		"description": "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.",
+		"description": "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Events, so time to get back to work.",
 		"category": "ficsmas",
 		"icon": "IconDesc_Star_256.png",
 		"recipes": [
@@ -4525,7 +3611,7 @@
 	},
 	"Desc_Fabric_C": {
 		"name": "Fabric",
-		"description": "Used for equipment crafting.\r\nFlexible but durable fabric.",
+		"description": "Used for equipment crafting. Flexible but durable fabric.",
 		"category": "component",
 		"icon": "IconDesc_Fabric_256.png",
 		"recipes": [
@@ -4625,7 +3711,7 @@
 	},
 	"Desc_LiquidFuel_C": {
 		"name": "Fuel",
-		"description": "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.",
+		"description": "Fuel is either converted into electricity or as fuel for vehicles.",
 		"category": "liquid",
 		"icon": "IconDesc_LiquidFuel_Pipe_256.png",
 		"recipes": [
@@ -4754,188 +3840,6 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Alternate: Diluted Fuel",
-				"slug": "Recipe_Alternate_DilutedFuel_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Heavy Oil Residue",
-						"slug": "Desc_HeavyOilResidue_C",
-						"icon": "IconDesc_LiquidHeavyOilResidue_Pipe_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
-							"perMinLabel": "m³/min",
-							"perCycle": 10,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Fuel",
-						"slug": "Desc_LiquidFuel_C",
-						"icon": "IconDesc_LiquidFuel_Pipe_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
-							"perMinLabel": "m³/min",
-							"perCycle": 10,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_ModularFrameFused_C": {
-		"name": "Fused Modular Frame",
-		"description": "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.",
-		"category": "component",
-		"icon": "IconDesc_FusedModularFrame_256.png",
-		"recipes": [
-			{
-				"name": "Fused Modular Frame",
-				"slug": "Recipe_FusedModularFrame_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Heavy Modular Frame",
-						"slug": "Desc_ModularFrameHeavy_C",
-						"icon": "IconDesc_ModularFrameHeavy_256.png",
-						"rate": {
-							"perMin": 1.5,
-							"perMinFraction": "1 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 75,
-							"perMinFraction": "75",
-							"perMinLabel": "/min",
-							"perCycle": 50,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 37500,
-							"perMinFraction": "37500",
-							"perMinLabel": "/min",
-							"perCycle": 25000,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Fused Modular Frame",
-						"slug": "Desc_ModularFrameFused_C",
-						"icon": "IconDesc_FusedModularFrame_256.png",
-						"rate": {
-							"perMin": 1.5,
-							"perMinFraction": "1 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Heat-Fused Frame",
-				"slug": "Recipe_Alternate_HeatFusedFrame_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Heavy Modular Frame",
-						"slug": "Desc_ModularFrameHeavy_C",
-						"icon": "IconDesc_ModularFrameHeavy_256.png",
-						"rate": {
-							"perMin": 3,
-							"perMinFraction": "3",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Aluminum Ingot",
-						"slug": "Desc_AluminumIngot_C",
-						"icon": "IconDesc_AluminiumIngot_256.png",
-						"rate": {
-							"perMin": 150,
-							"perMinFraction": "150",
-							"perMinLabel": "/min",
-							"perCycle": 50,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 24,
-							"perMinFraction": "24",
-							"perMinLabel": "m³/min",
-							"perCycle": 8,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Fuel",
-						"slug": "Desc_LiquidFuel_C",
-						"icon": "IconDesc_LiquidFuel_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 10,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Fused Modular Frame",
-						"slug": "Desc_ModularFrameFused_C",
-						"icon": "IconDesc_FusedModularFrame_256.png",
-						"rate": {
-							"perMin": 3,
-							"perMinFraction": "3",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
 			}
 		]
 	},
@@ -5022,56 +3926,10 @@
 						"slug": "Desc_AluminumPlate_C",
 						"icon": "IconDesc_AluminiumSheet_256.png",
 						"rate": {
-							"perMin": 37.5,
-							"perMinFraction": "37 1/2",
+							"perMin": 40,
+							"perMinFraction": "40",
 							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Copper Sheet",
-						"slug": "Desc_CopperSheet_C",
-						"icon": "IconDesc_CopperSheet_256.png",
-						"rate": {
-							"perMin": 22.5,
-							"perMinFraction": "22 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Heat Sink",
-						"slug": "Desc_AluminumPlateReinforced_C",
-						"icon": "IconDesc_Heatsink_256.png",
-						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Heat Exchanger",
-				"slug": "Recipe_Alternate_HeatSink_1_C",
-				"isAlt": true,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 8,
 							"perCycleLabel": "x"
 						}
 					},
@@ -5080,10 +3938,10 @@
 						"slug": "Desc_Rubber_C",
 						"icon": "IconDesc_Rubber_256.png",
 						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
+							"perMin": 70,
+							"perMinFraction": "70",
 							"perMinLabel": "/min",
-							"perCycle": 3,
+							"perCycle": 14,
 							"perCycleLabel": "x"
 						}
 					}
@@ -5097,7 +3955,53 @@
 							"perMin": 10,
 							"perMinFraction": "10",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 2,
+							"perCycleLabel": "x"
+						}
+					}
+				]
+			},
+			{
+				"name": "Alternate: Heat Exchanger",
+				"slug": "Recipe_Alternate_HeatSink_1_C",
+				"isAlt": true,
+				"producedIn": "Assembler",
+				"ingredients": [
+					{
+						"name": "Alclad Aluminum Sheet",
+						"slug": "Desc_AluminumPlate_C",
+						"icon": "IconDesc_AluminiumSheet_256.png",
+						"rate": {
+							"perMin": 37.5,
+							"perMinFraction": "37 1/2",
+							"perMinLabel": "/min",
+							"perCycle": 20,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Copper Sheet",
+						"slug": "Desc_CopperSheet_C",
+						"icon": "IconDesc_CopperSheet_256.png",
+						"rate": {
+							"perMin": 56.25,
+							"perMinFraction": "56 1/4",
+							"perMinLabel": "/min",
+							"perCycle": 30,
+							"perCycleLabel": "x"
+						}
+					}
+				],
+				"products": [
+					{
+						"name": "Heat Sink",
+						"slug": "Desc_AluminumPlateReinforced_C",
+						"icon": "IconDesc_Heatsink_256.png",
+						"rate": {
+							"perMin": 13.125,
+							"perMinFraction": "13 1/8",
+							"perMinLabel": "/min",
+							"perCycle": 7,
 							"perCycleLabel": "x"
 						}
 					}
@@ -5626,7 +4530,7 @@
 				]
 			},
 			{
-				"name": "Alternate: Silicon High-Speed Connector",
+				"name": "Alternate: Silicone High-Speed Connector",
 				"slug": "Recipe_Alternate_HighSpeedConnector_C",
 				"isAlt": true,
 				"producedIn": "Manufacturer",
@@ -5722,14 +4626,14 @@
 						}
 					},
 					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
+						"name": "Rubber",
+						"slug": "Desc_Rubber_C",
+						"icon": "IconDesc_Rubber_256.png",
 						"rate": {
-							"perMin": 3.75,
-							"perMinFraction": "3 3/4",
+							"perMin": 7.5,
+							"perMinFraction": "7 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 2,
 							"perCycleLabel": "x"
 						}
 					}
@@ -5807,7 +4711,7 @@
 	},
 	"Desc_IronIngot_C": {
 		"name": "Iron Ingot",
-		"description": "Used for crafting.\r\nCrafted into the most basic parts.",
+		"description": "Used for crafting. Crafted into the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_IronIngot_256.png",
 		"recipes": [
@@ -5941,7 +4845,7 @@
 	},
 	"Desc_IronPlate_C": {
 		"name": "Iron Plate",
-		"description": "Used for crafting.\r\nOne of the most basic parts.",
+		"description": "Used for crafting. One of the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_IronPlates_256.png",
 		"recipes": [
@@ -6075,7 +4979,7 @@
 	},
 	"Desc_IronRod_C": {
 		"name": "Iron Rod",
-		"description": "Used for crafting.\r\nOne of the most basic parts.",
+		"description": "Used for crafting. One of the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_IronRods_256.png",
 		"recipes": [
@@ -6151,7 +5055,7 @@
 	},
 	"Desc_LiquidBiofuel_C": {
 		"name": "Liquid Biofuel",
-		"description": "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.",
+		"description": "Fuel. The most energy efficient form of biomass.",
 		"category": "liquid",
 		"icon": "IconDesc_LiquidBiofuel_Pipe_256.png",
 		"recipes": [
@@ -6249,75 +5153,9 @@
 			}
 		]
 	},
-	"Desc_SpaceElevatorPart_6_C": {
-		"name": "Magnetic Field Generator",
-		"description": "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandible and powerful magnet field.",
-		"category": "special",
-		"icon": "IconDesc_MagneticFieldGenerator_256.png",
-		"recipes": [
-			{
-				"name": "Magnetic Field Generator",
-				"slug": "Recipe_SpaceElevatorPart_6_C",
-				"isAlt": false,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Versatile Framework",
-						"slug": "Desc_SpaceElevatorPart_2_C",
-						"icon": "IconDesc_SpelevatorPart_2_256.png",
-						"rate": {
-							"perMin": 2.5,
-							"perMinFraction": "2 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Battery",
-						"slug": "Desc_Battery_C",
-						"icon": "IconDesc_Battery_256.png",
-						"rate": {
-							"perMin": 5,
-							"perMinFraction": "5",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Magnetic Field Generator",
-						"slug": "Desc_SpaceElevatorPart_6_C",
-						"icon": "IconDesc_MagneticFieldGenerator_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_SpaceElevatorPart_4_C": {
 		"name": "Modular Engine",
-		"description": "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.",
+		"description": "Project Part #4. Send up the Space Elevator to complete phases of Project Assembly.",
 		"category": "special",
 		"icon": "IconDesc_SpelevatorPart_4_256.png",
 		"recipes": [
@@ -6383,7 +5221,7 @@
 	},
 	"Desc_ModularFrame_C": {
 		"name": "Modular Frame",
-		"description": "Used for crafting.\r\nMulti-purpose building block.",
+		"description": "Used for crafting. Multi-purpose building block.",
 		"category": "component",
 		"icon": "IconDesc_ModularFrame_256.png",
 		"recipes": [
@@ -6580,52 +5418,6 @@
 				]
 			},
 			{
-				"name": "Alternate: Electric Motor",
-				"slug": "Recipe_Alternate_ElectricMotor_C",
-				"isAlt": true,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 3.75,
-							"perMinFraction": "3 3/4",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Rotor",
-						"slug": "Desc_Rotor_C",
-						"icon": "IconDesc_Rotor_256.png",
-						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Motor",
-						"slug": "Desc_Motor_C",
-						"icon": "IconDesc_Engine_256.png",
-						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
 				"name": "Alternate: Rigour Motor",
 				"slug": "Recipe_Alternate_Motor_1_C",
 				"isAlt": true,
@@ -6678,172 +5470,6 @@
 							"perMinFraction": "7 1/2",
 							"perMinLabel": "/min",
 							"perCycle": 6,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_NitricAcid_C": {
-		"name": "Nitric Acid",
-		"description": "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.",
-		"category": "liquid",
-		"icon": "IconDesc_NitricAcid_256.png",
-		"recipes": [
-			{
-				"name": "Nitric Acid",
-				"slug": "Recipe_NitricAcid_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 120000,
-							"perMinFraction": "120000",
-							"perMinLabel": "/min",
-							"perCycle": 12000,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 3,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Iron Plate",
-						"slug": "Desc_IronPlate_C",
-						"icon": "IconDesc_IronPlates_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 3,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Unpackage Nitric Acid",
-				"slug": "Recipe_UnpackageNitricAcid_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Nitric Acid",
-						"slug": "Desc_PackagedNitricAcid_C",
-						"icon": "IconDesc_PackagedNitricAcid_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "m³/min",
-							"perCycle": 1,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_NitrogenGas_C": {
-		"name": "Nitrogen Gas",
-		"description": "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
-		"category": "gas",
-		"icon": "IconDesc_NitricAcid_256.png",
-		"recipes": [
-			{
-				"name": "Unpackage Nitrogen Gas",
-				"slug": "Recipe_UnpackageNitrogen_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Packaged Nitrogen Gas",
-						"slug": "Desc_PackagedNitrogenGas_C",
-						"icon": "IconDesc_PackagedNitrogen_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 240000,
-							"perMinFraction": "240000",
-							"perMinLabel": "/min",
-							"perCycle": 4000,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					}
@@ -6963,279 +5589,135 @@
 			}
 		]
 	},
-	"Desc_NonFissibleUranium_C": {
-		"name": "Non-fissile Uranium",
-		"description": "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.",
-		"category": "component",
-		"icon": "IconDesc_NonFissileUranium_256.png",
+	"Desc_NuclearFuelRod_C": {
+		"name": "Nuclear Fuel Rod",
+		"description": "Nuclear Fuel Rods are used as fuel in nuclear reactors. VERY RADIOACTIVE.",
+		"category": "fuel",
+		"icon": "IconDesc_NuclearFuelRod_256.png",
 		"recipes": [
 			{
-				"name": "Non-fissile Uranium",
-				"slug": "Recipe_NonFissileUranium_C",
+				"name": "Nuclear Fuel Rod",
+				"slug": "Recipe_NuclearFuelRod_C",
 				"isAlt": false,
-				"producedIn": "Blender",
+				"producedIn": "Manufacturer",
 				"ingredients": [
 					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
+						"name": "Encased Uranium Cell",
+						"slug": "Desc_UraniumCell_C",
+						"icon": "IconDesc_NuclearCell_256.png",
 						"rate": {
-							"perMin": 37.5,
-							"perMinFraction": "37 1/2",
+							"perMin": 10,
+							"perMinFraction": "10",
 							"perMinLabel": "/min",
-							"perCycle": 15,
+							"perCycle": 25,
 							"perCycleLabel": "x"
 						}
 					},
 					{
-						"name": "Silica",
-						"slug": "Desc_Silica_C",
-						"icon": "IconDesc_Silica_256.png",
+						"name": "Encased Industrial Beam",
+						"slug": "Desc_SteelPlateReinforced_C",
+						"icon": "IconDesc_EncasedSteelBeam_256.png",
 						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
+							"perMin": 1.2,
+							"perMinFraction": "1 1/5",
+							"perMinLabel": "/min",
+							"perCycle": 3,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Electromagnetic Control Rod",
+						"slug": "Desc_ElectromagneticControlRod_C",
+						"icon": "IconDesc_ElectromagneticControlRod_256.png",
+						"rate": {
+							"perMin": 2,
+							"perMinFraction": "2",
+							"perMinLabel": "/min",
+							"perCycle": 5,
+							"perCycleLabel": "x"
+						}
+					}
+				],
+				"products": [
+					{
+						"name": "Nuclear Fuel Rod",
+						"slug": "Desc_NuclearFuelRod_C",
+						"icon": "IconDesc_NuclearFuelRod_256.png",
+						"rate": {
+							"perMin": 0.4,
+							"perMinFraction": "2/5",
+							"perMinLabel": "/min",
+							"perCycle": 1,
+							"perCycleLabel": "x"
+						}
+					}
+				]
+			},
+			{
+				"name": "Alternate: Nuclear Fuel Unit",
+				"slug": "Recipe_Alternate_NuclearFuelRod_1_C",
+				"isAlt": true,
+				"producedIn": "Manufacturer",
+				"ingredients": [
+					{
+						"name": "Encased Uranium Cell",
+						"slug": "Desc_UraniumCell_C",
+						"icon": "IconDesc_NuclearCell_256.png",
+						"rate": {
+							"perMin": 10,
+							"perMinFraction": "10",
+							"perMinLabel": "/min",
+							"perCycle": 50,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Electromagnetic Control Rod",
+						"slug": "Desc_ElectromagneticControlRod_C",
+						"icon": "IconDesc_ElectromagneticControlRod_256.png",
+						"rate": {
+							"perMin": 2,
+							"perMinFraction": "2",
 							"perMinLabel": "/min",
 							"perCycle": 10,
 							"perCycleLabel": "x"
 						}
 					},
 					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
+						"name": "Crystal Oscillator",
+						"slug": "Desc_CrystalOscillator_C",
+						"icon": "IconDesc_CrystalOscillator_256.png",
 						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 0.6,
+							"perMinFraction": "3/5",
 							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Fertile Uranium",
-				"slug": "Recipe_Alternate_FertileUranium_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Uranium",
-						"slug": "Desc_OreUranium_C",
-						"icon": "UraniumOre_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
 							"perCycle": 3,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
-							"perMinLabel": "/min",
-							"perCycle": 20,
 							"perCycleLabel": "x"
 						}
 					},
 					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
+						"name": "Beacon",
+						"slug": "BP_EquipmentDescriptorBeacon_C",
+						"icon": "IconDesc_Beacon_256.png",
 						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 8,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_SpaceElevatorPart_9_C": {
-		"name": "Nuclear Pasta",
-		"description": "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.",
-		"category": "special",
-		"icon": "IconDesc_NuclearPasta_256.png",
-		"recipes": [
-			{
-				"name": "Nuclear Pasta",
-				"slug": "Recipe_SpaceElevatorPart_9_C",
-				"isAlt": false,
-				"producedIn": "Particle Accelerator",
-				"ingredients": [
-					{
-						"name": "Copper Powder",
-						"slug": "Desc_CopperDust_C",
-						"icon": "IconDesc_CopperDust_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
+							"perMin": 1.2,
+							"perMinFraction": "1 1/5",
 							"perMinLabel": "/min",
-							"perCycle": 200,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Pressure Conversion Cube",
-						"slug": "Desc_PressureConversionCube_C",
-						"icon": "IconDesc_ConversionCube_256.png",
-						"rate": {
-							"perMin": 0.5,
-							"perMinFraction": "1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 6,
 							"perCycleLabel": "x"
 						}
 					}
 				],
 				"products": [
 					{
-						"name": "Nuclear Pasta",
-						"slug": "Desc_SpaceElevatorPart_9_C",
-						"icon": "IconDesc_NuclearPasta_256.png",
+						"name": "Nuclear Fuel Rod",
+						"slug": "Desc_NuclearFuelRod_C",
+						"icon": "IconDesc_NuclearFuelRod_256.png",
 						"rate": {
-							"perMin": 0.5,
-							"perMinFraction": "1/2",
+							"perMin": 0.6,
+							"perMinFraction": "3/5",
 							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_PackagedAlumina_C": {
-		"name": "Packaged Alumina Solution",
-		"description": "Alumina Solution, packaged for alternative transport.",
-		"category": "material",
-		"icon": "IconDesc_PackagedAluminaSolution_256.png",
-		"recipes": [
-			{
-				"name": "Packaged Alumina Solution",
-				"slug": "Recipe_PackagedAlumina_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Packaged Alumina Solution",
-						"slug": "Desc_PackagedAlumina_C",
-						"icon": "IconDesc_PackagedAluminaSolution_256.png",
-						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
-							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 3,
 							"perCycleLabel": "x"
 						}
 					}
@@ -7245,7 +5727,7 @@
 	},
 	"Desc_Fuel_C": {
 		"name": "Packaged Fuel",
-		"description": "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
+		"description": "Fuel. Packaged Fuel, either converted into electricity or as fuel for vehicles.",
 		"category": "fuel",
 		"icon": "IconDesc_Fuel_256.png",
 		"recipes": [
@@ -7345,7 +5827,7 @@
 	},
 	"Desc_PackagedOilResidue_C": {
 		"name": "Packaged Heavy Oil Residue",
-		"description": "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.",
+		"description": "Heavy Oil Residue, packaged for alternative transport.",
 		"category": "fuel",
 		"icon": "OilResidue_256.png",
 		"recipes": [
@@ -7399,7 +5881,7 @@
 	},
 	"Desc_PackagedBiofuel_C": {
 		"name": "Packaged Liquid Biofuel",
-		"description": "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
+		"description": "Fuel. Packaged Liquid Biofuel, either converted into electricity or as fuel for vehicles.",
 		"category": "fuel",
 		"icon": "IconDesc_LiquidBiofuel_256.png",
 		"recipes": [
@@ -7451,117 +5933,9 @@
 			}
 		]
 	},
-	"Desc_PackagedNitricAcid_C": {
-		"name": "Packaged Nitric Acid",
-		"description": "Nitric Acid, packaged for alternative transport.",
-		"category": "material",
-		"icon": "IconDesc_PackagedNitricAcid_256.png",
-		"recipes": [
-			{
-				"name": "Packaged Nitric Acid",
-				"slug": "Recipe_PackagedNitricAcid_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 1,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Packaged Nitric Acid",
-						"slug": "Desc_PackagedNitricAcid_C",
-						"icon": "IconDesc_PackagedNitricAcid_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_PackagedNitrogenGas_C": {
-		"name": "Packaged Nitrogen Gas",
-		"description": "Nitrogen Gas, packaged for alternative transport.",
-		"category": "material",
-		"icon": "IconDesc_PackagedNitrogen_256.png",
-		"recipes": [
-			{
-				"name": "Packaged Nitrogen Gas",
-				"slug": "Recipe_PackagedNitrogen_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Nitrogen Gas",
-						"slug": "Desc_NitrogenGas_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 240000,
-							"perMinFraction": "240000",
-							"perMinLabel": "/min",
-							"perCycle": 4000,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Empty Fluid Tank",
-						"slug": "Desc_GasTank_C",
-						"icon": "IconDesc_PressureTank_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Packaged Nitrogen Gas",
-						"slug": "Desc_PackagedNitrogenGas_C",
-						"icon": "IconDesc_PackagedNitrogen_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_PackagedOil_C": {
 		"name": "Packaged Oil",
-		"description": "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.",
+		"description": "Crude Oil, packaged for transportation or to be used as vehicle fuel.",
 		"category": "fuel",
 		"icon": "Oil_256.png",
 		"recipes": [
@@ -7613,63 +5987,9 @@
 			}
 		]
 	},
-	"Desc_PackagedSulfuricAcid_C": {
-		"name": "Packaged Sulfuric Acid",
-		"description": "Sulfuric Acid, packaged for alternative transport.",
-		"category": "material",
-		"icon": "IconDesc_PckagedSulphuricAcid_256.png",
-		"recipes": [
-			{
-				"name": "Packaged Sulfuric Acid",
-				"slug": "Recipe_PackagedSulfuricAcid_C",
-				"isAlt": false,
-				"producedIn": "Packager",
-				"ingredients": [
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Packaged Sulfuric Acid",
-						"slug": "Desc_PackagedSulfuricAcid_C",
-						"icon": "IconDesc_PckagedSulphuricAcid_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_TurboFuel_C": {
 		"name": "Packaged Turbofuel",
-		"description": "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
+		"description": "Packaged Turbofuel, a more efficient alternative to Fuel. Used in vehicles.",
 		"category": "fuel",
 		"icon": "IconDesc_TurboFuel_256.png",
 		"recipes": [
@@ -7777,7 +6097,7 @@
 	},
 	"Desc_PetroleumCoke_C": {
 		"name": "Petroleum Coke",
-		"description": "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue.\r\nUsed as a less efficient coal replacement or for aluminum refinement.",
+		"description": "Used for crafting. A carbon-rich material distilled from Heavy Oil Residue. Used as a less efficient coal replacement or for aluminum refinement.",
 		"category": "material",
 		"icon": "IconDesc_PetroleumCoke_256.png",
 		"recipes": [
@@ -7963,229 +6283,9 @@
 			}
 		]
 	},
-	"Desc_PlutoniumFuelRod_C": {
-		"name": "Plutonium Fuel Rod",
-		"description": "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.",
-		"category": "fuel",
-		"icon": "IconDesc_PlutoniumFuelRod_256.png",
-		"recipes": [
-			{
-				"name": "Plutonium Fuel Rod",
-				"slug": "Recipe_PlutoniumFuelRod_C",
-				"isAlt": false,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Encased Plutonium Cell",
-						"slug": "Desc_PlutoniumCell_C",
-						"icon": "IconDesc_EncasedPlutoniumCell_256.png",
-						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 30,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Steel Beam",
-						"slug": "Desc_SteelPlate_C",
-						"icon": "IconDesc_SteelBeam_256.png",
-						"rate": {
-							"perMin": 4.5,
-							"perMinFraction": "4 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 18,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 1.5,
-							"perMinFraction": "1 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 6,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Heat Sink",
-						"slug": "Desc_AluminumPlateReinforced_C",
-						"icon": "IconDesc_Heatsink_256.png",
-						"rate": {
-							"perMin": 2.5,
-							"perMinFraction": "2 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Plutonium Fuel Rod",
-						"slug": "Desc_PlutoniumFuelRod_C",
-						"icon": "IconDesc_PlutoniumFuelRod_256.png",
-						"rate": {
-							"perMin": 0.25,
-							"perMinFraction": "1/4",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Plutonium Fuel Unit",
-				"slug": "Recipe_Alternate_PlutoniumFuelUnit_C",
-				"isAlt": true,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Encased Plutonium Cell",
-						"slug": "Desc_PlutoniumCell_C",
-						"icon": "IconDesc_EncasedPlutoniumCell_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Pressure Conversion Cube",
-						"slug": "Desc_PressureConversionCube_C",
-						"icon": "IconDesc_ConversionCube_256.png",
-						"rate": {
-							"perMin": 0.5,
-							"perMinFraction": "1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Plutonium Fuel Rod",
-						"slug": "Desc_PlutoniumFuelRod_C",
-						"icon": "IconDesc_PlutoniumFuelRod_256.png",
-						"rate": {
-							"perMin": 0.5,
-							"perMinFraction": "1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_PlutoniumPellet_C": {
-		"name": "Plutonium Pellet",
-		"description": "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.",
-		"category": "component",
-		"icon": "IconDesc_PlutoniumPellet_256.png",
-		"recipes": [
-			{
-				"name": "Plutonium Pellet",
-				"slug": "Recipe_Plutonium_C",
-				"isAlt": false,
-				"producedIn": "Particle Accelerator",
-				"ingredients": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
-							"perMinLabel": "/min",
-							"perCycle": 100,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 25,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Plutonium Pellet",
-						"slug": "Desc_PlutoniumPellet_C",
-						"icon": "IconDesc_PlutoniumPellet_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "/min",
-							"perCycle": 30,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_PlutoniumWaste_C": {
-		"name": "Plutonium Waste",
-		"description": "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.",
-		"category": "waste",
-		"icon": "IconDesc_PlutoniumWaste_256.png",
-		"recipes": [
-			{
-				"name": "Plutonium Waste",
-				"slug": "Recipe_PlutoniumWaste_C",
-				"isAlt": false,
-				"producedIn": "Nuclear Power Plant",
-				"ingredients": [
-					{
-						"name": "Plutonium Fuel Rod",
-						"slug": "Desc_PlutoniumFuelRod_C",
-						"icon": "IconDesc_PlutoniumFuelRod_256.png",
-						"rate": {
-							"perMin": 0.1,
-							"perMinFraction": "1/10",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Plutonium Waste",
-						"slug": "Desc_PlutoniumWaste_C",
-						"icon": "IconDesc_PlutoniumWaste_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
 	"Desc_PolymerResin_C": {
 		"name": "Polymer Resin",
-		"description": "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.",
+		"description": "Used for crafting. A by-product of oil refinement into fuel. Commonly used to manufacture plastics.",
 		"category": "material",
 		"icon": "IconDesc_PolymerResin_256.png",
 		"recipes": [
@@ -8331,7 +6431,7 @@
 	},
 	"Desc_CrystalShard_C": {
 		"name": "Power Shard",
-		"description": "Mucus from the power slugs compressed into a solid crystal-like shard.\r\nIt radiates a strange power.",
+		"description": "Mucus from the power slugs compressed into a solid crystal-like shard. It radiates a strange power.",
 		"category": "special",
 		"icon": "PowerShard_256.png",
 		"recipes": [
@@ -8432,60 +6532,6 @@
 							"perMinFraction": "12 1/2",
 							"perMinLabel": "/min",
 							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_PressureConversionCube_C": {
-		"name": "Pressure Conversion Cube",
-		"description": "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.",
-		"category": "component",
-		"icon": "IconDesc_ConversionCube_256.png",
-		"recipes": [
-			{
-				"name": "Pressure Conversion Cube",
-				"slug": "Recipe_PressureConversionCube_C",
-				"isAlt": false,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Fused Modular Frame",
-						"slug": "Desc_ModularFrameFused_C",
-						"icon": "IconDesc_FusedModularFrame_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Radio Control Unit",
-						"slug": "Desc_ModularFrameLightweight_C",
-						"icon": "IconDesc_RadioControlUnit_256.png",
-						"rate": {
-							"perMin": 2,
-							"perMinFraction": "2",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Pressure Conversion Cube",
-						"slug": "Desc_PressureConversionCube_C",
-						"icon": "IconDesc_ConversionCube_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					}
@@ -8622,7 +6668,7 @@
 				]
 			},
 			{
-				"name": "Alternate: Fused Quickwire",
+				"name": "Alternate: Fused Quckwire",
 				"slug": "Recipe_Alternate_Quickwire_C",
 				"isAlt": true,
 				"producedIn": "Assembler",
@@ -8682,14 +6728,26 @@
 				"producedIn": "Manufacturer",
 				"ingredients": [
 					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
+						"name": "Heat Sink",
+						"slug": "Desc_AluminumPlateReinforced_C",
+						"icon": "IconDesc_Heatsink_256.png",
+						"rate": {
+							"perMin": 10,
+							"perMinFraction": "10",
+							"perMinLabel": "/min",
+							"perCycle": 4,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Rubber",
+						"slug": "Desc_Rubber_C",
+						"icon": "IconDesc_Rubber_256.png",
 						"rate": {
 							"perMin": 40,
 							"perMinFraction": "40",
 							"perMinLabel": "/min",
-							"perCycle": 32,
+							"perCycle": 16,
 							"perCycleLabel": "x"
 						}
 					},
@@ -8698,8 +6756,8 @@
 						"slug": "Desc_CrystalOscillator_C",
 						"icon": "IconDesc_CrystalOscillator_256.png",
 						"rate": {
-							"perMin": 1.25,
-							"perMinFraction": "1 1/4",
+							"perMin": 2.5,
+							"perMinFraction": "2 1/2",
 							"perMinLabel": "/min",
 							"perCycle": 1,
 							"perCycleLabel": "x"
@@ -8710,8 +6768,8 @@
 						"slug": "Desc_Computer_C",
 						"icon": "IconDesc_Computer_256.png",
 						"rate": {
-							"perMin": 1.25,
-							"perMinFraction": "1 1/4",
+							"perMin": 2.5,
+							"perMinFraction": "2 1/2",
 							"perMinLabel": "/min",
 							"perCycle": 1,
 							"perCycleLabel": "x"
@@ -8727,14 +6785,14 @@
 							"perMin": 2.5,
 							"perMinFraction": "2 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					}
 				]
 			},
 			{
-				"name": "Alternate: Radio Connection Unit",
+				"name": "Alternate: Radio Control System",
 				"slug": "Recipe_Alternate_RadioControlUnit_1_C",
 				"isAlt": true,
 				"producedIn": "Manufacturer",
@@ -8744,22 +6802,22 @@
 						"slug": "Desc_AluminumPlateReinforced_C",
 						"icon": "IconDesc_Heatsink_256.png",
 						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
+							"perMin": 12.5,
+							"perMinFraction": "12 1/2",
 							"perMinLabel": "/min",
-							"perCycle": 4,
+							"perCycle": 10,
 							"perCycleLabel": "x"
 						}
 					},
 					{
-						"name": "High-Speed Connector",
-						"slug": "Desc_HighSpeedConnector_C",
-						"icon": "IconDesc_HighSpeedConnector_256.png",
+						"name": "Supercomputer",
+						"slug": "Desc_ComputerSuper_C",
+						"icon": "IconDesc_SuperComputer_256.png",
 						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
+							"perMin": 1.25,
+							"perMinFraction": "1 1/4",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					},
@@ -8768,78 +6826,8 @@
 						"slug": "Desc_QuartzCrystal_C",
 						"icon": "IconDesc_QuartzResource_256.png",
 						"rate": {
-							"perMin": 45,
-							"perMinFraction": "45",
-							"perMinLabel": "/min",
-							"perCycle": 12,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Radio Control Unit",
-						"slug": "Desc_ModularFrameLightweight_C",
-						"icon": "IconDesc_RadioControlUnit_256.png",
-						"rate": {
-							"perMin": 3.75,
-							"perMinFraction": "3 3/4",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Radio Control System",
-				"slug": "Recipe_Alternate_RadioControlSystem_C",
-				"isAlt": true,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Crystal Oscillator",
-						"slug": "Desc_CrystalOscillator_C",
-						"icon": "IconDesc_CrystalOscillator_256.png",
-						"rate": {
-							"perMin": 1.5,
-							"perMinFraction": "1 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Circuit Board",
-						"slug": "Desc_CircuitBoard_C",
-						"icon": "IconDesc_CircuitBoard_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 90,
-							"perMinFraction": "90",
-							"perMinLabel": "/min",
-							"perCycle": 60,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Rubber",
-						"slug": "Desc_Rubber_C",
-						"icon": "IconDesc_Rubber_256.png",
-						"rate": {
-							"perMin": 45,
-							"perMinFraction": "45",
+							"perMin": 37.5,
+							"perMinFraction": "37 1/2",
 							"perMinLabel": "/min",
 							"perCycle": 30,
 							"perCycleLabel": "x"
@@ -8852,8 +6840,8 @@
 						"slug": "Desc_ModularFrameLightweight_C",
 						"icon": "IconDesc_RadioControlUnit_256.png",
 						"rate": {
-							"perMin": 4.5,
-							"perMinFraction": "4 1/2",
+							"perMin": 3.75,
+							"perMinFraction": "3 3/4",
 							"perMinLabel": "/min",
 							"perCycle": 3,
 							"perCycleLabel": "x"
@@ -8907,7 +6895,7 @@
 	},
 	"Desc_IronPlateReinforced_C": {
 		"name": "Reinforced Iron Plate",
-		"description": "Used for crafting.\r\nA sturdier and more durable Iron Plate.",
+		"description": "Used for crafting. A sturdier and more durable Iron Plate.",
 		"category": "material",
 		"icon": "IconDesc_ReinforcedIronPlates_256.png",
 		"recipes": [
@@ -9177,7 +7165,7 @@
 	},
 	"Desc_Rotor_C": {
 		"name": "Rotor",
-		"description": "Used for crafting.\r\nThe moving parts of a motor.",
+		"description": "Used for crafting. The moving parts of a motor.",
 		"category": "component",
 		"icon": "IconDesc_Rotor_256.png",
 		"recipes": [
@@ -9469,7 +7457,7 @@
 	},
 	"Desc_IronScrew_C": {
 		"name": "Screw",
-		"description": "Used for crafting.\r\nOne of the most basic parts.",
+		"description": "Used for crafting. One of the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_IronScrews_256.png",
 		"recipes": [
@@ -9508,7 +7496,7 @@
 				]
 			},
 			{
-				"name": "Alternate: Cast Screw",
+				"name": "Alternate: Casted Screw",
 				"slug": "Recipe_Alternate_Screw_C",
 				"isAlt": true,
 				"producedIn": "Constructor",
@@ -9594,10 +7582,10 @@
 						"slug": "Desc_OreBauxite_C",
 						"icon": "Bauxite_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 70,
+							"perMinFraction": "70",
 							"perMinLabel": "/min",
-							"perCycle": 12,
+							"perCycle": 7,
 							"perCycleLabel": "x"
 						}
 					},
@@ -9606,10 +7594,10 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 180,
-							"perMinFraction": "180",
+							"perMin": 100,
+							"perMinFraction": "100",
 							"perMinLabel": "m³/min",
-							"perCycle": 18,
+							"perCycle": 10,
 							"perCycleLabel": "m³"
 						}
 					}
@@ -9620,10 +7608,10 @@
 						"slug": "Desc_AluminaSolution_C",
 						"icon": "LiquidAlumina_Pipe_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 80,
+							"perMinFraction": "80",
 							"perMinLabel": "m³/min",
-							"perCycle": 12,
+							"perCycle": 8,
 							"perCycleLabel": "m³"
 						}
 					},
@@ -9632,10 +7620,10 @@
 						"slug": "Desc_Silica_C",
 						"icon": "IconDesc_Silica_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 20,
+							"perMinFraction": "20",
 							"perMinLabel": "/min",
-							"perCycle": 5,
+							"perCycle": 2,
 							"perCycleLabel": "x"
 						}
 					}
@@ -9725,7 +7713,7 @@
 	},
 	"Desc_SpaceElevatorPart_1_C": {
 		"name": "Smart Plating",
-		"description": "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.",
+		"description": "Project Part #1. Send up the Space Elevator to complete phases of Project Assembly.",
 		"category": "special",
 		"icon": "IconDesc_SpelevatorPart_1_256.png",
 		"recipes": [
@@ -9879,7 +7867,7 @@
 	},
 	"Desc_Biofuel_C": {
 		"name": "Solid Biofuel",
-		"description": "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.",
+		"description": "Fuel. The most energy efficient form of solid biomass.",
 		"category": "fuel",
 		"icon": "IconDesc_SolidBiofuel_256.png",
 		"recipes": [
@@ -9963,7 +7951,7 @@
 	},
 	"Desc_Stator_C": {
 		"name": "Stator",
-		"description": "Used for crafting.\r\nThe static parts of a motor.",
+		"description": "The static parts of a motor.",
 		"category": "component",
 		"icon": "IconDesc_Stator_256.png",
 		"recipes": [
@@ -10339,80 +8327,10 @@
 	},
 	"Desc_SulfuricAcid_C": {
 		"name": "Sulfuric Acid",
-		"description": "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.",
+		"description": "A liquid mostly used to extract elements from ore.",
 		"category": "liquid",
 		"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
 		"recipes": [
-			{
-				"name": "Encased Uranium Cell",
-				"slug": "Recipe_UraniumCell_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Uranium",
-						"slug": "Desc_OreUranium_C",
-						"icon": "UraniumOre_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Concrete",
-						"slug": "Desc_Cement_C",
-						"icon": "IconDesc_Concrete_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 8,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Encased Uranium Cell",
-						"slug": "Desc_UraniumCell_C",
-						"icon": "IconDesc_NuclearCell_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
 			{
 				"name": "Sulfuric Acid",
 				"slug": "Recipe_SulfuricAcid_C",
@@ -10450,57 +8368,69 @@
 						"slug": "Desc_SulfuricAcid_C",
 						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 100,
+							"perMinFraction": "100",
 							"perMinLabel": "m³/min",
-							"perCycle": 5,
+							"perCycle": 10,
 							"perCycleLabel": "m³"
 						}
 					}
 				]
 			},
 			{
-				"name": "Unpackage Sulfuric Acid",
-				"slug": "Recipe_UnpackageSulfuricAcid_C",
+				"name": "Uranium Pellet",
+				"slug": "Recipe_UraniumPellet_C",
 				"isAlt": false,
-				"producedIn": "Packager",
+				"producedIn": "Refinery",
 				"ingredients": [
 					{
-						"name": "Packaged Sulfuric Acid",
-						"slug": "Desc_PackagedSulfuricAcid_C",
-						"icon": "IconDesc_PckagedSulphuricAcid_256.png",
+						"name": "Uranium",
+						"slug": "Desc_OreUranium_C",
+						"icon": "UraniumOre_256.png",
 						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
+							"perMin": 50,
+							"perMinFraction": "50",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
-					}
-				],
-				"products": [
+					},
 					{
 						"name": "Sulfuric Acid",
 						"slug": "Desc_SulfuricAcid_C",
 						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
 						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
+							"perMin": 80,
+							"perMinFraction": "80",
 							"perMinLabel": "m³/min",
-							"perCycle": 1,
+							"perCycle": 8,
 							"perCycleLabel": "m³"
+						}
+					}
+				],
+				"products": [
+					{
+						"name": "Uranium Pellet",
+						"slug": "Desc_UraniumPellet_C",
+						"icon": "IconDesc_UraniumPellets_256.png",
+						"rate": {
+							"perMin": 50,
+							"perMinFraction": "50",
+							"perMinLabel": "/min",
+							"perCycle": 5,
+							"perCycleLabel": "x"
 						}
 					},
 					{
-						"name": "Empty Canister",
-						"slug": "Desc_FluidCanister_C",
-						"icon": "IconDesc_EmptyCannister_256.png",
+						"name": "Sulfuric Acid",
+						"slug": "Desc_SulfuricAcid_C",
+						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
 						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
+							"perMin": 20,
+							"perMinFraction": "20",
+							"perMinLabel": "m³/min",
+							"perCycle": 2,
+							"perCycleLabel": "m³"
 						}
 					}
 				]
@@ -10532,7 +8462,7 @@
 						}
 					},
 					{
-						"name": "AI Limiter",
+						"name": "A.I. Limiter",
 						"slug": "Desc_CircuitBoardHighSpeed_C",
 						"icon": "IconDesc_AILimiter_256.png",
 						"rate": {
@@ -10582,200 +8512,6 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Alternate: OC Supercomputer",
-				"slug": "Recipe_Alternate_OCSupercomputer_C",
-				"isAlt": true,
-				"producedIn": "Assembler",
-				"ingredients": [
-					{
-						"name": "Radio Control Unit",
-						"slug": "Desc_ModularFrameLightweight_C",
-						"icon": "IconDesc_RadioControlUnit_256.png",
-						"rate": {
-							"perMin": 9,
-							"perMinFraction": "9",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Cooling System",
-						"slug": "Desc_CoolingSystem_C",
-						"icon": "IconDesc_CoolingSystem_256.png",
-						"rate": {
-							"perMin": 9,
-							"perMinFraction": "9",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Supercomputer",
-						"slug": "Desc_ComputerSuper_C",
-						"icon": "IconDesc_SuperComputer_256.png",
-						"rate": {
-							"perMin": 3,
-							"perMinFraction": "3",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Super-State Computer",
-				"slug": "Recipe_Alternate_SuperStateComputer_C",
-				"isAlt": true,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Computer",
-						"slug": "Desc_Computer_C",
-						"icon": "IconDesc_Computer_256.png",
-						"rate": {
-							"perMin": 3.6,
-							"perMinFraction": "3 3/5",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 2.4,
-							"perMinFraction": "2 2/5",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Battery",
-						"slug": "Desc_Battery_C",
-						"icon": "IconDesc_Battery_256.png",
-						"rate": {
-							"perMin": 24,
-							"perMinFraction": "24",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Wire",
-						"slug": "Desc_Wire_C",
-						"icon": "IconDesc_Wire_256.png",
-						"rate": {
-							"perMin": 54,
-							"perMinFraction": "54",
-							"perMinLabel": "/min",
-							"perCycle": 45,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Supercomputer",
-						"slug": "Desc_ComputerSuper_C",
-						"icon": "IconDesc_SuperComputer_256.png",
-						"rate": {
-							"perMin": 2.4,
-							"perMinFraction": "2 2/5",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_SpaceElevatorPart_8_C": {
-		"name": "Thermal Propulsion Rocket",
-		"description": "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.",
-		"category": "special",
-		"icon": "IconDesc_ThermalPropulsionRocket_256.png",
-		"recipes": [
-			{
-				"name": "Thermal Propulsion Rocket",
-				"slug": "Recipe_SpaceElevatorPart_8_C",
-				"isAlt": false,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Modular Engine",
-						"slug": "Desc_SpaceElevatorPart_4_C",
-						"icon": "IconDesc_SpelevatorPart_4_256.png",
-						"rate": {
-							"perMin": 2.5,
-							"perMinFraction": "2 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Turbo Motor",
-						"slug": "Desc_MotorLightweight_C",
-						"icon": "IconDesc_TurboMotor_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Cooling System",
-						"slug": "Desc_CoolingSystem_C",
-						"icon": "IconDesc_CoolingSystem_256.png",
-						"rate": {
-							"perMin": 3,
-							"perMinFraction": "3",
-							"perMinLabel": "/min",
-							"perCycle": 6,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Fused Modular Frame",
-						"slug": "Desc_ModularFrameFused_C",
-						"icon": "IconDesc_FusedModularFrame_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Thermal Propulsion Rocket",
-						"slug": "Desc_SpaceElevatorPart_8_C",
-						"icon": "IconDesc_ThermalPropulsionRocket_256.png",
-						"rate": {
-							"perMin": 1,
-							"perMinFraction": "1",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
 			}
 		]
 	},
@@ -10792,9 +8528,9 @@
 				"producedIn": "Manufacturer",
 				"ingredients": [
 					{
-						"name": "Cooling System",
-						"slug": "Desc_CoolingSystem_C",
-						"icon": "IconDesc_CoolingSystem_256.png",
+						"name": "Heat Sink",
+						"slug": "Desc_AluminumPlateReinforced_C",
+						"icon": "IconDesc_Heatsink_256.png",
 						"rate": {
 							"perMin": 7.5,
 							"perMinFraction": "7 1/2",
@@ -10856,7 +8592,7 @@
 				]
 			},
 			{
-				"name": "Alternate: Turbo Electric Motor",
+				"name": "Alternate: Turbo Rigour Motor",
 				"slug": "Recipe_Alternate_TurboMotor_1_C",
 				"isAlt": true,
 				"producedIn": "Manufacturer",
@@ -10878,18 +8614,6 @@
 						"slug": "Desc_ModularFrameLightweight_C",
 						"icon": "IconDesc_RadioControlUnit_256.png",
 						"rate": {
-							"perMin": 8.4375,
-							"perMinFraction": "8 7/16",
-							"perMinLabel": "/min",
-							"perCycle": 9,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
 							"perMin": 4.6875,
 							"perMinFraction": "4 11/16",
 							"perMinLabel": "/min",
@@ -10898,9 +8622,21 @@
 						}
 					},
 					{
-						"name": "Rotor",
-						"slug": "Desc_Rotor_C",
-						"icon": "IconDesc_Rotor_256.png",
+						"name": "A.I. Limiter",
+						"slug": "Desc_CircuitBoardHighSpeed_C",
+						"icon": "IconDesc_AILimiter_256.png",
+						"rate": {
+							"perMin": 8.4375,
+							"perMinFraction": "8 7/16",
+							"perMinLabel": "/min",
+							"perCycle": 9,
+							"perCycleLabel": "x"
+						}
+					},
+					{
+						"name": "Stator",
+						"slug": "Desc_Stator_C",
+						"icon": "IconDesc_Stator_256.png",
 						"rate": {
 							"perMin": 6.5625,
 							"perMinFraction": "6 9/16",
@@ -10924,82 +8660,12 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Alternate: Turbo Pressure Motor",
-				"slug": "Recipe_Alternate_TurboPressureMotor_C",
-				"isAlt": true,
-				"producedIn": "Manufacturer",
-				"ingredients": [
-					{
-						"name": "Motor",
-						"slug": "Desc_Motor_C",
-						"icon": "IconDesc_Engine_256.png",
-						"rate": {
-							"perMin": 7.5,
-							"perMinFraction": "7 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 4,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Pressure Conversion Cube",
-						"slug": "Desc_PressureConversionCube_C",
-						"icon": "IconDesc_ConversionCube_256.png",
-						"rate": {
-							"perMin": 1.875,
-							"perMinFraction": "1 7/8",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Packaged Nitrogen Gas",
-						"slug": "Desc_PackagedNitrogenGas_C",
-						"icon": "IconDesc_PackagedNitrogen_256.png",
-						"rate": {
-							"perMin": 45,
-							"perMinFraction": "45",
-							"perMinLabel": "/min",
-							"perCycle": 24,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Stator",
-						"slug": "Desc_Stator_C",
-						"icon": "IconDesc_Stator_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "/min",
-							"perCycle": 8,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Turbo Motor",
-						"slug": "Desc_MotorLightweight_C",
-						"icon": "IconDesc_TurboMotor_256.png",
-						"rate": {
-							"perMin": 3.75,
-							"perMinFraction": "3 3/4",
-							"perMinLabel": "/min",
-							"perCycle": 2,
-							"perCycleLabel": "x"
-						}
-					}
-				]
 			}
 		]
 	},
 	"Desc_LiquidTurboFuel_C": {
 		"name": "Turbofuel",
-		"description": "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.",
+		"description": "A more efficient alternative to Fuel. Used in Fuel Generators.",
 		"category": "liquid",
 		"icon": "IconDesc_LiquidTurboFuel_Pipe_256.png",
 		"recipes": [
@@ -11096,76 +8762,6 @@
 				]
 			},
 			{
-				"name": "Alternate: Turbo Blend Fuel",
-				"slug": "Recipe_Alternate_TurboBlendFuel_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Fuel",
-						"slug": "Desc_LiquidFuel_C",
-						"icon": "IconDesc_LiquidFuel_Pipe_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Heavy Oil Residue",
-						"slug": "Desc_HeavyOilResidue_C",
-						"icon": "IconDesc_LiquidHeavyOilResidue_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 4,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Sulfur",
-						"slug": "Desc_Sulfur_C",
-						"icon": "Sulfur_256.png",
-						"rate": {
-							"perMin": 22.5,
-							"perMinFraction": "22 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Petroleum Coke",
-						"slug": "Desc_PetroleumCoke_C",
-						"icon": "IconDesc_PetroleumCoke_256.png",
-						"rate": {
-							"perMin": 22.5,
-							"perMinFraction": "22 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Turbofuel",
-						"slug": "Desc_LiquidTurboFuel_C",
-						"icon": "IconDesc_LiquidTurboFuel_Pipe_256.png",
-						"rate": {
-							"perMin": 45,
-							"perMinFraction": "45",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
 				"name": "Alternate: Turbo Heavy Fuel",
 				"slug": "Recipe_Alternate_TurboHeavyFuel_C",
 				"isAlt": true,
@@ -11213,178 +8809,66 @@
 			}
 		]
 	},
-	"Desc_NuclearFuelRod_C": {
-		"name": "Uranium Fuel Rod",
-		"description": "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.",
-		"category": "fuel",
-		"icon": "IconDesc_NuclearFuelRod_256.png",
+	"Desc_UraniumPellet_C": {
+		"name": "Uranium Pellet",
+		"description": "Produced in the Refinery, Uranium Pellets are purified and cast from Uranium Ore. Primarily used to make Uranium Cells. Moderately radioactive.",
+		"category": "component",
+		"icon": "IconDesc_UraniumPellets_256.png",
 		"recipes": [
 			{
-				"name": "Uranium Fuel Rod",
-				"slug": "Recipe_NuclearFuelRod_C",
+				"name": "Uranium Pellet",
+				"slug": "Recipe_UraniumPellet_C",
 				"isAlt": false,
-				"producedIn": "Manufacturer",
+				"producedIn": "Refinery",
 				"ingredients": [
 					{
-						"name": "Encased Uranium Cell",
-						"slug": "Desc_UraniumCell_C",
-						"icon": "IconDesc_NuclearCell_256.png",
+						"name": "Uranium",
+						"slug": "Desc_OreUranium_C",
+						"icon": "UraniumOre_256.png",
 						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 50,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Encased Industrial Beam",
-						"slug": "Desc_SteelPlateReinforced_C",
-						"icon": "IconDesc_EncasedSteelBeam_256.png",
-						"rate": {
-							"perMin": 1.2,
-							"perMinFraction": "1 1/5",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 2,
-							"perMinFraction": "2",
+							"perMin": 50,
+							"perMinFraction": "50",
 							"perMinLabel": "/min",
 							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
+					},
+					{
+						"name": "Sulfuric Acid",
+						"slug": "Desc_SulfuricAcid_C",
+						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
+						"rate": {
+							"perMin": 80,
+							"perMinFraction": "80",
+							"perMinLabel": "m³/min",
+							"perCycle": 8,
+							"perCycleLabel": "m³"
+						}
 					}
 				],
 				"products": [
 					{
-						"name": "Uranium Fuel Rod",
-						"slug": "Desc_NuclearFuelRod_C",
-						"icon": "IconDesc_NuclearFuelRod_256.png",
+						"name": "Uranium Pellet",
+						"slug": "Desc_UraniumPellet_C",
+						"icon": "IconDesc_UraniumPellets_256.png",
 						"rate": {
-							"perMin": 0.4,
-							"perMinFraction": "2/5",
+							"perMin": 50,
+							"perMinFraction": "50",
 							"perMinLabel": "/min",
-							"perCycle": 1,
+							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Uranium Fuel Unit",
-				"slug": "Recipe_Alternate_NuclearFuelRod_1_C",
-				"isAlt": true,
-				"producedIn": "Manufacturer",
-				"ingredients": [
+					},
 					{
-						"name": "Encased Uranium Cell",
-						"slug": "Desc_UraniumCell_C",
-						"icon": "IconDesc_NuclearCell_256.png",
+						"name": "Sulfuric Acid",
+						"slug": "Desc_SulfuricAcid_C",
+						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
 						"rate": {
 							"perMin": 20,
 							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 100,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Electromagnetic Control Rod",
-						"slug": "Desc_ElectromagneticControlRod_C",
-						"icon": "IconDesc_ElectromagneticControlRod_256.png",
-						"rate": {
-							"perMin": 2,
-							"perMinFraction": "2",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Crystal Oscillator",
-						"slug": "Desc_CrystalOscillator_C",
-						"icon": "IconDesc_CrystalOscillator_256.png",
-						"rate": {
-							"perMin": 0.6,
-							"perMinFraction": "3/5",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Beacon",
-						"slug": "BP_EquipmentDescriptorBeacon_C",
-						"icon": "IconDesc_Beacon_256.png",
-						"rate": {
-							"perMin": 1.2,
-							"perMinFraction": "1 1/5",
-							"perMinLabel": "/min",
-							"perCycle": 6,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Uranium Fuel Rod",
-						"slug": "Desc_NuclearFuelRod_C",
-						"icon": "IconDesc_NuclearFuelRod_256.png",
-						"rate": {
-							"perMin": 0.6,
-							"perMinFraction": "3/5",
-							"perMinLabel": "/min",
-							"perCycle": 3,
-							"perCycleLabel": "x"
-						}
-					}
-				]
-			}
-		]
-	},
-	"Desc_NuclearWaste_C": {
-		"name": "Uranium Waste",
-		"description": "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
-		"category": "waste",
-		"icon": "IconDesc_NuclearWaste_256.png",
-		"recipes": [
-			{
-				"name": "Uranium Waste",
-				"slug": "Recipe_UraniumWaste_C",
-				"isAlt": false,
-				"producedIn": "Nuclear Power Plant",
-				"ingredients": [
-					{
-						"name": "Uranium Fuel Rod",
-						"slug": "Desc_NuclearFuelRod_C",
-						"icon": "IconDesc_NuclearFuelRod_256.png",
-						"rate": {
-							"perMin": 0.2,
-							"perMinFraction": "1/5",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
-						"rate": {
-							"perMin": 10,
-							"perMinFraction": "10",
-							"perMinLabel": "/min",
-							"perCycle": 50,
-							"perCycleLabel": "x"
+							"perMinLabel": "m³/min",
+							"perCycle": 2,
+							"perCycleLabel": "m³"
 						}
 					}
 				]
@@ -11393,7 +8877,7 @@
 	},
 	"Desc_SpaceElevatorPart_2_C": {
 		"name": "Versatile Framework",
-		"description": "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.",
+		"description": "Project Part #2. Send up the Space Elevator to complete phases of Project Assembly.",
 		"category": "special",
 		"icon": "IconDesc_SpelevatorPart_2_256.png",
 		"recipes": [
@@ -11528,14 +9012,14 @@
 						}
 					},
 					{
-						"name": "Coal",
-						"slug": "Desc_Coal_C",
-						"icon": "CoalOre_256.png",
+						"name": "Petroleum Coke",
+						"slug": "Desc_PetroleumCoke_C",
+						"icon": "IconDesc_PetroleumCoke_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 60,
+							"perMinFraction": "60",
 							"perMinLabel": "/min",
-							"perCycle": 2,
+							"perCycle": 1,
 							"perCycleLabel": "x"
 						}
 					}
@@ -11558,162 +9042,10 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 120,
-							"perMinFraction": "120",
+							"perMin": 60,
+							"perMinFraction": "60",
 							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Battery",
-				"slug": "Recipe_Battery_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "m³/min",
-							"perCycle": 2.5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Alumina Solution",
-						"slug": "Desc_AluminaSolution_C",
-						"icon": "LiquidAlumina_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 2,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Aluminum Casing",
-						"slug": "Desc_AluminumCasing_C",
-						"icon": "IconDesc_AluminiumCasing_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
 							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Battery",
-						"slug": "Desc_Battery_C",
-						"icon": "IconDesc_Battery_256.png",
-						"rate": {
-							"perMin": 20,
-							"perMinFraction": "20",
-							"perMinLabel": "/min",
-							"perCycle": 1,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 30,
-							"perMinFraction": "30",
-							"perMinLabel": "m³/min",
-							"perCycle": 1.5,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Non-fissile Uranium",
-				"slug": "Recipe_NonFissileUranium_C",
-				"isAlt": false,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
-						"rate": {
-							"perMin": 37.5,
-							"perMinFraction": "37 1/2",
-							"perMinLabel": "/min",
-							"perCycle": 15,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Silica",
-						"slug": "Desc_Silica_C",
-						"icon": "IconDesc_Silica_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 10,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
 							"perCycleLabel": "m³"
 						}
 					}
@@ -11776,151 +9108,11 @@
 						"slug": "Desc_AluminaSolution_C",
 						"icon": "LiquidAlumina_Pipe_256.png",
 						"rate": {
-							"perMin": 180,
-							"perMinFraction": "180",
-							"perMinLabel": "m³/min",
-							"perCycle": 12,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Petroleum Coke",
-						"slug": "Desc_PetroleumCoke_C",
-						"icon": "IconDesc_PetroleumCoke_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "/min",
-							"perCycle": 4,
-							"perCycleLabel": "x"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Aluminum Scrap",
-						"slug": "Desc_AluminumScrap_C",
-						"icon": "IconDesc_AluminiumScrap_256.png",
-						"rate": {
-							"perMin": 300,
-							"perMinFraction": "300",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 105,
-							"perMinFraction": "105",
-							"perMinLabel": "m³/min",
-							"perCycle": 7,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Fertile Uranium",
-				"slug": "Recipe_Alternate_FertileUranium_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Uranium",
-						"slug": "Desc_OreUranium_C",
-						"icon": "UraniumOre_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Uranium Waste",
-						"slug": "Desc_NuclearWaste_C",
-						"icon": "IconDesc_NuclearWaste_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "/min",
-							"perCycle": 5,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Nitric Acid",
-						"slug": "Desc_NitricAcid_C",
-						"icon": "IconDesc_NitricAcid_256.png",
-						"rate": {
-							"perMin": 15,
-							"perMinFraction": "15",
+							"perMin": 90,
+							"perMinFraction": "90",
 							"perMinLabel": "m³/min",
 							"perCycle": 3,
 							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 25,
-							"perMinFraction": "25",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					}
-				],
-				"products": [
-					{
-						"name": "Non-fissile Uranium",
-						"slug": "Desc_NonFissibleUranium_C",
-						"icon": "IconDesc_NonFissileUranium_256.png",
-						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
-							"perMinLabel": "/min",
-							"perCycle": 20,
-							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 40,
-							"perMinFraction": "40",
-							"perMinLabel": "m³/min",
-							"perCycle": 8,
-							"perCycleLabel": "m³"
-						}
-					}
-				]
-			},
-			{
-				"name": "Alternate: Instant Scrap",
-				"slug": "Recipe_Alternate_InstantScrap_C",
-				"isAlt": true,
-				"producedIn": "Blender",
-				"ingredients": [
-					{
-						"name": "Bauxite",
-						"slug": "Desc_OreBauxite_C",
-						"icon": "Bauxite_256.png",
-						"rate": {
-							"perMin": 150,
-							"perMinFraction": "150",
-							"perMinLabel": "/min",
-							"perCycle": 15,
-							"perCycleLabel": "x"
 						}
 					},
 					{
@@ -11928,35 +9120,11 @@
 						"slug": "Desc_Coal_C",
 						"icon": "CoalOre_256.png",
 						"rate": {
-							"perMin": 100,
-							"perMinFraction": "100",
+							"perMin": 30,
+							"perMinFraction": "30",
 							"perMinLabel": "/min",
-							"perCycle": 10,
+							"perCycle": 1,
 							"perCycleLabel": "x"
-						}
-					},
-					{
-						"name": "Sulfuric Acid",
-						"slug": "Desc_SulfuricAcid_C",
-						"icon": "IconDesc_LiquidSulfuricAcid_Pipe_256.png",
-						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
-							"perMinLabel": "m³/min",
-							"perCycle": 5,
-							"perCycleLabel": "m³"
-						}
-					},
-					{
-						"name": "Water",
-						"slug": "Desc_Water_C",
-						"icon": "LiquidWater_Pipe_256.png",
-						"rate": {
-							"perMin": 60,
-							"perMinFraction": "60",
-							"perMinLabel": "m³/min",
-							"perCycle": 6,
-							"perCycleLabel": "m³"
 						}
 					}
 				],
@@ -11966,10 +9134,10 @@
 						"slug": "Desc_AluminumScrap_C",
 						"icon": "IconDesc_AluminiumScrap_256.png",
 						"rate": {
-							"perMin": 300,
-							"perMinFraction": "300",
+							"perMin": 150,
+							"perMinFraction": "150",
 							"perMinLabel": "/min",
-							"perCycle": 30,
+							"perCycle": 5,
 							"perCycleLabel": "x"
 						}
 					},
@@ -11978,10 +9146,10 @@
 						"slug": "Desc_Water_C",
 						"icon": "LiquidWater_Pipe_256.png",
 						"rate": {
-							"perMin": 50,
-							"perMinFraction": "50",
+							"perMin": 30,
+							"perMinFraction": "30",
 							"perMinLabel": "m³/min",
-							"perCycle": 5,
+							"perCycle": 1,
 							"perCycleLabel": "m³"
 						}
 					}
@@ -11991,7 +9159,7 @@
 	},
 	"Desc_Wire_C": {
 		"name": "Wire",
-		"description": "Used for crafting.\r\nOne of the most basic parts.",
+		"description": "Used for crafting. One of the most basic parts.",
 		"category": "material",
 		"icon": "IconDesc_Wire_256.png",
 		"recipes": [

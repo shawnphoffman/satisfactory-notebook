@@ -9,7 +9,6 @@
 		"@testing-library/jest-dom": "^5.11.4",
 		"@testing-library/react": "^11.1.0",
 		"@testing-library/user-event": "^12.1.10",
-		"fast-memoize": "^2.5.2",
 		"fraction.js": "^4.0.13",
 		"react": "^0.0.0-experimental-d1542de3a",
 		"react-dom": "^0.0.0-experimental-d1542de3a",
@@ -25,11 +24,10 @@
 		"build-profile": "craco build --profile",
 		"test": "craco test",
 		"eject": "react-scripts eject",
-		"storybook": "start-storybook -p 6006 -s public",
-		"build-storybook": "build-storybook -s public",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
 		"generate": "node scripts/v4.js",
+		"generate-v3": "node scripts/v3.js",
 		"watch": "chokidar \"./scripts/**.js\" -c \"yarn run generate\""
 	},
 	"eslintConfig": {
@@ -52,12 +50,6 @@
 	},
 	"devDependencies": {
 		"@craco/craco": "^6.0.0",
-		"@storybook/addon-actions": "^6.1.14",
-		"@storybook/addon-essentials": "^6.1.14",
-		"@storybook/addon-links": "^6.1.14",
-		"@storybook/node-logger": "^6.1.14",
-		"@storybook/preset-create-react-app": "^3.1.5",
-		"@storybook/react": "^6.1.14",
 		"chokidar-cli": "^2.1.0",
 		"eslint": "^7.17.0",
 		"eslint-plugin-simple-import-sort": "^7.0.0",
