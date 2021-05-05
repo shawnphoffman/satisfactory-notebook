@@ -18,6 +18,7 @@ jobs:
           yarn build
         env:
           REACT_APP_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
+          REACT_APP_PANELBEAR_SITE_ID: ${{ secrets.REACT_APP_PANELBEAR_SITE_ID }}
           IMAGE_INLINE_SIZE_LIMIT: 0
           REACT_APP_STATIC_PATH: 'https://d1ba7e9b4ql0yd.cloudfront.net/satisfactory-notebook/static/media/'
 
@@ -39,6 +40,7 @@ jobs:
           SENTRY_ORG: shawn-hoffman
           SENTRY_PROJECT: satisfactory-notebook
           REACT_APP_SENTRY_DSN: ${{ secrets.REACT_APP_SENTRY_DSN }}
+          REACT_APP_PANELBEAR_SITE_ID: ${{ secrets.REACT_APP_PANELBEAR_SITE_ID }}
           IMAGE_INLINE_SIZE_LIMIT: 0
           REACT_APP_STATIC_PATH: 'https://d1ba7e9b4ql0yd.cloudfront.net/satisfactory-notebook/static/media/'
         with:
