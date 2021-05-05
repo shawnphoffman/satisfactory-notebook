@@ -85,12 +85,12 @@ const Sidebar = () => {
 
 	//
 	const handleReturnClick = useCallback(
-		slug => {
-			dispatchProduct({ type: ProductAction.RETURN_PRODUCT, slug })
+		name => {
+			dispatchProduct({ type: ProductAction.RETURN_PRODUCT, name })
 
 			Sentry.addBreadcrumb({
 				category: 'product-returned',
-				message: `Returned: ${slug}`,
+				message: `Returned: ${name}`,
 				level: Sentry.Severity.Info,
 			})
 		},
@@ -191,7 +191,7 @@ const Sidebar = () => {
 						<ul>
 							<Reset onClick={handleReturnAllClick}>Reset All</Reset>
 							{stateProduct.removedProducts.map(p => (
-								<ProductListItem slug={p} key={p} onClick={handleReturnClick} />
+								<ProductListItem name={p} key={p} onClick={handleReturnClick} />
 							))}
 						</ul>
 					</SectionContent>

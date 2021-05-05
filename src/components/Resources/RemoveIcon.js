@@ -4,18 +4,18 @@ import * as Sentry from '@sentry/react'
 
 import { ProductAction, ProductContext } from '../../context/ProductContext'
 
-const RemoveIcon = ({ slug }) => {
+const RemoveIcon = ({ name }) => {
 	const [, dispatch] = useContext(ProductContext)
 
 	const handleClick = useCallback(() => {
-		dispatch({ type: ProductAction.REMOVE_PRODUCT, slug })
+		dispatch({ type: ProductAction.REMOVE_PRODUCT, name })
 
 		Sentry.addBreadcrumb({
 			category: 'product-removed',
-			message: `Removed: ${slug}`,
+			message: `Removed: ${name}`,
 			level: Sentry.Severity.Info,
 		})
-	}, [dispatch, slug])
+	}, [dispatch, name])
 
 	return (
 		<Wrapper onClick={handleClick}>

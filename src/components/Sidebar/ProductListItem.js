@@ -1,15 +1,11 @@
 import React, { memo } from 'react'
 import { styled } from '@linaria/react'
 
-// TODO - Don't do this!
-import rawData from 'data/data-v4.json'
-
 //
-const ProductListItem = ({ slug, onClick }) => {
-	const product = rawData[slug]
+const ProductListItem = ({ name, onClick }) => {
 	return (
-		<ListItem onClick={() => onClick(slug)}>
-			{product.name} <i className="fas fa-times fa-fw" />
+		<ListItem onClick={() => onClick(name)}>
+			{name} <i className="fas fa-times fa-fw" />
 		</ListItem>
 	)
 }

@@ -19,7 +19,7 @@ const Resource = ({ item, slug }) => {
 			<Header id={slug}>
 				<Details>
 					<Title>
-						{item.name} <RemoveIcon slug={slug} />
+						{item.name} <RemoveIcon name={item.name} />
 					</Title>
 					<Description>{item.description}</Description>
 				</Details>

@@ -43,7 +43,7 @@ const ProductList = () => {
 
 		const newData = Object.keys(data).reduce((memo, slug) => {
 			// filtered items
-			if (removedProducts.includes(slug)) return memo
+			if (removedProducts.includes(data[slug].name)) return memo
 
 			// hidden types
 			const isHidden = hiddenTypes.filter(type => {

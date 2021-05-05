@@ -48,12 +48,12 @@ const reducer = (state, action) => {
 		case ProductAction.REMOVE_PRODUCT:
 			return {
 				...state,
-				removedProducts: [...state.removedProducts, action.slug],
+				removedProducts: [...state.removedProducts, action.name],
 			}
 		case ProductAction.RETURN_PRODUCT:
 			return {
 				...state,
-				removedProducts: state.removedProducts.filter(p => !(p === action.slug)),
+				removedProducts: state.removedProducts.filter(p => !(p === action.name)),
 			}
 		case ProductAction.RETURN_ALL_PRODUCTS:
 			return {
