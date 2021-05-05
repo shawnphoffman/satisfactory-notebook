@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useContext } from 'react'
 import { styled } from '@linaria/react'
+import * as Panelbear from '@panelbear/panelbear-js'
 import * as Sentry from '@sentry/react'
 
 import { ProductAction, ProductContext } from 'context/ProductContext'
@@ -37,6 +38,8 @@ const Sidebar = () => {
 			message: 'Fraction changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('Fraction Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -48,6 +51,8 @@ const Sidebar = () => {
 			message: 'Left-margin changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('Left-Margin Changed')
 	}, [dispatchProduct])
 
 	//
@@ -59,6 +64,8 @@ const Sidebar = () => {
 			message: 'One-per-page changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('One-Page Changed')
 	}, [dispatchProduct])
 
 	//
@@ -70,6 +77,8 @@ const Sidebar = () => {
 			message: 'Show V3 changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('v3 Changed')
 	}, [dispatchProduct])
 
 	//
@@ -81,6 +90,8 @@ const Sidebar = () => {
 			message: 'Show alternates changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('Alternate Recipes Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -92,6 +103,8 @@ const Sidebar = () => {
 			message: 'Cycle-amounts changed',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('Cycle Amounts Changed')
 	}, [dispatchRecipe])
 
 	//
@@ -104,6 +117,8 @@ const Sidebar = () => {
 				message: `Returned: ${name}`,
 				level: Sentry.Severity.Info,
 			})
+
+			Panelbear.track(`Product (${name}) Returned`)
 		},
 		[dispatchProduct]
 	)
@@ -121,6 +136,8 @@ const Sidebar = () => {
 			// 	message: 'One-per-page changed',
 			// 	level: Sentry.Severity.Info,
 			// })
+
+			Panelbear.track(`Type: ${type} - ${checked ? 'Hidden' : 'Shown'}`)
 		},
 		[dispatchProduct]
 	)
@@ -134,6 +151,8 @@ const Sidebar = () => {
 			message: 'Returned all products',
 			level: Sentry.Severity.Info,
 		})
+
+		Panelbear.track('All Products Returned')
 	}, [dispatchProduct])
 
 	return (
