@@ -11,7 +11,7 @@ import Loading from './Loaders/Loading'
 
 // const Resource = lazy(() => import('components/Resources/Resource'))
 
-const ProductList = ({ version = 'v4' }) => {
+const ProductList = ({ version = 'v6' }) => {
 	const [{ removedProducts, hiddenTypes, showV3 }] = useContext(ProductContext)
 
 	const [data, setData] = useState({})
@@ -82,7 +82,7 @@ const ProductList = ({ version = 'v4' }) => {
 const Version = styled.div`
 	margin-top: 4mm;
 	margin-left: 4mm;
-	font-size: .7em;
+	font-size: 0.7em;
 `
 
 const Wrapper = styled.div`

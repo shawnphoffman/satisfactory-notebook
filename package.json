@@ -27,7 +27,8 @@
 		"eject": "react-scripts eject",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"generate": "node scripts/v4.js",
+		"generate": "node scripts/v6.js",
+		"generate-v4": "node scripts/v4.js",
 		"generate-v3": "node scripts/v3.js",
 		"watch": "chokidar \"./scripts/**.js\" -c \"yarn run generate\""
 	},

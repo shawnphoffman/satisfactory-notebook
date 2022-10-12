@@ -69,17 +69,17 @@ const Sidebar = () => {
 	}, [dispatchProduct])
 
 	//
-	const handleShowV3 = useCallback(() => {
-		dispatchProduct({ type: ProductAction.TOGGLE_SHOW_V3 })
+	// const handleShowV3 = useCallback(() => {
+	// 	dispatchProduct({ type: ProductAction.TOGGLE_SHOW_V3 })
 
-		Sentry.addBreadcrumb({
-			category: 'setting-change',
-			message: 'Show V3 changed',
-			level: Sentry.Severity.Info,
-		})
+	// 	Sentry.addBreadcrumb({
+	// 		category: 'setting-change',
+	// 		message: 'Show V3 changed',
+	// 		level: Sentry.Severity.Info,
+	// 	})
 
-		Panelbear.track('v3_Changed')
-	}, [dispatchProduct])
+	// 	Panelbear.track('v3_Changed')
+	// }, [dispatchProduct])
 
 	//
 	const handleAlternates = useCallback(() => {
@@ -157,7 +157,7 @@ const Sidebar = () => {
 
 	return (
 		<>
-			<VersionLabel>Early Access v0.4.2.0</VersionLabel>
+			<VersionLabel>Early Access v0.6.1.3</VersionLabel>
 			<SidebarSection>
 				<SectionHeader icon="fa-cog" label="Settings" />
 				<SettingCheckbox
@@ -197,13 +197,13 @@ const Sidebar = () => {
 					onChange={handleAlternates}
 					hint="Find more hard drives"
 				/>
-				<SettingCheckbox
+				{/* <SettingCheckbox
 					label="Show v3 Recipes"
 					name="showV3"
 					checked={stateProduct.showV3}
 					onChange={handleShowV3}
 					hint="Compare the old and new"
-				/>
+				/> */}
 			</SidebarSection>
 
 			{/*  */}
